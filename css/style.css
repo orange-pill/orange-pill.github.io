@@ -682,6 +682,9 @@ blockquote { margin: 36px auto 0; max-width: 640px; }
 blockquote p { margin: 0; font-family: var(--serif); font-style: italic; font-size: clamp(1.1rem, 2vw, 1.4rem); color: var(--ink-2); line-height: 1.45; }
 cite { display: block; margin-top: 12px; font-style: normal; font-family: var(--mono); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
 .signoff { margin-top: 36px; font-family: var(--mono); font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; color: var(--orange); }
+.credit { margin-top: 14px; font-family: var(--mono); font-size: .68rem; letter-spacing: .06em; color: var(--muted); }
+.credit a { color: inherit; text-decoration: underline; text-decoration-color: rgba(255,255,255,.25); text-underline-offset: 3px; }
+.credit a:hover { color: var(--orange); }
 
 /* ---------- toast ---------- */
 .toast {

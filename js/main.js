@@ -890,22 +890,50 @@
 
   /* ------------------------------------------------------------------
      Music: plays assets/music/soundtrack.mp3 if it exists (off until asked).
-     The controls stay hidden until the file is found.
+     The controls stay hidden until the file is found. Playback goes through
+     Web Audio so the loop is sample-accurate (an <audio loop> leaves a gap);
+     the plain <audio> element is the fallback.
      ------------------------------------------------------------------ */
   const music = $('#music');
   const soundBtn = $('#sound-btn');
   const soundHints = $$('[data-sound-toggle]');
-  const MUSIC_VOLUME = 0.6;
-  let fadeTimer = null;
-  function setSoundUI(on) {
-    soundBtn.setAttribute('aria-pressed', String(on));
-    soundBtn.querySelector('.sound-label').textContent = on ? t('Music on') : t('Music off');
+  const MUSIC_VOLUME = 0.45;
+  const AC = window.AudioContext || window.webkitAudioContext;
+  let actx = null, gain = null, loading = null, on = false, fadeTimer = null;
+  function setSoundUI(state) {
+    soundBtn.setAttribute('aria-pressed', String(state));
+    soundBtn.querySelector('.sound-label').textContent = state ? t('Music on') : t('Music off');
     soundHints.forEach(b => {
-      b.setAttribute('aria-pressed', String(on));
-      b.querySelector('span').textContent = on ? t('Music playing · tap to mute') : t('Turn on the music');
+      b.setAttribute('aria-pressed', String(state));
+      b.querySelector('span').textContent = state ? t('Music playing · tap to mute') : t('Turn on the music');
     });
   }
-  function fadeVolume(to, ms, done) {
+  // decode once, find where the sound really starts and ends (MP3 padding), loop exactly that span
+  function load() {
+    if (loading) return loading;
+    loading = fetch(music.getAttribute('src'))
+      .then(r => r.arrayBuffer())
+      .then(data => new Promise((res, rej) => actx.decodeAudioData(data, res, rej)))
+      .then(buf => {
+        const chans = Array.from({ length: buf.numberOfChannels }, (_, c) => buf.getChannelData(c));
+        const loud = i => chans.some(d => Math.abs(d[i]) > 0.002);
+        let a = 0, z = buf.length - 1;
+        while (a < z && !loud(a)) a++;
+        while (z > a && !loud(z)) z--;
+        const src = actx.createBufferSource();
+        src.buffer = buf; src.loop = true;
+        src.loopStart = a / buf.sampleRate; src.loopEnd = (z + 1) / buf.sampleRate;
+        src.connect(gain); src.start(0, src.loopStart);
+      });
+    return loading;
+  }
+  function fadeTo(v, sec) {
+    const now = actx.currentTime;
+    gain.gain.cancelScheduledValues(now);
+    gain.gain.setValueAtTime(gain.gain.value, now);
+    gain.gain.linearRampToValueAtTime(v, now + sec);
+  }
+  function fadeElement(to, ms, done) {
     clearInterval(fadeTimer);
     const from = music.volume, start = performance.now();
     fadeTimer = setInterval(() => {
@@ -916,12 +944,24 @@
   }
   function toggleSound() {
     if (!music || soundBtn.hidden) return;
-    if (music.paused) {
-      music.volume = 0;
-      music.play().then(() => { fadeVolume(MUSIC_VOLUME, 1500); setSoundUI(true); }).catch(() => setSoundUI(false));
-    } else {
-      setSoundUI(false);
-      fadeVolume(0, 800, () => music.pause());
+    on = !on;
+    setSoundUI(on);
+    if (!AC) {                                   // fallback: plain <audio loop>
+      if (on) { music.volume = 0; music.play().then(() => fadeElement(MUSIC_VOLUME, 1500)).catch(() => { on = false; setSoundUI(false); }); }
+      else fadeElement(0, 800, () => music.pause());
+      return;
+    }
+    if (on) {
+      if (!actx) {                               // created inside the click so mobile browsers allow sound
+        actx = new AC();
+        try { if (navigator.audioSession) navigator.audioSession.type = 'playback'; } catch (_) { /* iOS: play even on silent */ }
+        gain = actx.createGain(); gain.gain.value = 0; gain.connect(actx.destination);
+      }
+      actx.resume().then(load).then(() => { if (on) fadeTo(MUSIC_VOLUME, 1.5); })
+        .catch(() => { on = false; setSoundUI(false); });
+    } else if (actx) {
+      fadeTo(0, .8);
+      setTimeout(() => { if (!on) actx.suspend(); }, 850);
     }
   }
   if (music) {
