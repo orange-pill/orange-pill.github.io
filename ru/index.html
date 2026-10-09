@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-js" data-mood="orange">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Оранжевая таблетка</title>
+  <meta name="description" content="Почему инфляция незаметно обирает обычных людей, что такое деньги на самом деле и почему биткоин — инструмент человеческой свободы. Бесплатная интерактивная презентация в восьми главах.">
+  <link rel="canonical" href="https://orange-pill.github.io/ru/">
+  <!-- i18n:alternates -->
+  <link rel="alternate" hreflang="en" href="https://orange-pill.github.io/">
+  <link rel="alternate" hreflang="es" href="https://orange-pill.github.io/es/">
+  <link rel="alternate" hreflang="pt" href="https://orange-pill.github.io/pt/">
+  <link rel="alternate" hreflang="fr" href="https://orange-pill.github.io/fr/">
+  <link rel="alternate" hreflang="de" href="https://orange-pill.github.io/de/">
+  <link rel="alternate" hreflang="pl" href="https://orange-pill.github.io/pl/">
+  <link rel="alternate" hreflang="ru" href="https://orange-pill.github.io/ru/">
+  <link rel="alternate" hreflang="tr" href="https://orange-pill.github.io/tr/">
+  <link rel="alternate" hreflang="zh" href="https://orange-pill.github.io/zh/">
+  <link rel="alternate" hreflang="ja" href="https://orange-pill.github.io/ja/">
+  <link rel="alternate" hreflang="hi" href="https://orange-pill.github.io/hi/">
+  <link rel="alternate" hreflang="x-default" href="https://orange-pill.github.io/">
+  <!-- /i18n:alternates -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The Orange Pill">
+  <meta property="og:url" content="https://orange-pill.github.io/ru/">
+  <meta property="og:title" content="Оранжевая таблетка: дело не в том, что вы плохо обращаетесь с деньгами. Плохи сами деньги.">
+  <meta property="og:description" content="Почему инфляция незаметно обирает обычных людей и почему биткоин — инструмент человеческой свободы. Бесплатная интерактивная презентация в восьми главах.">
+  <meta property="og:image" content="https://orange-pill.github.io/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Оранжевая таблетка: оранжевая капсула биткоина рядом со словами «Дело не в вас. Плохи сами деньги».">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Оранжевая таблетка: дело не в том, что вы плохо обращаетесь с деньгами. Плохи сами деньги.">
+  <meta name="twitter:description" content="Бесплатная интерактивная презентация об инфляции, деньгах и биткоине. Восемь глав, около 20 минут.">
+  <meta name="twitter:image" content="https://orange-pill.github.io/assets/og-image.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LearningResource",
+    "name": "Оранжевая таблетка",
+    "headline": "You're not bad with money. Your money is bad.",
+    "description": "A free, interactive presentation in eight chapters on inflation, the history of money, and why bitcoin empowers ordinary people.",
+    "url": "https://orange-pill.github.io/ru/",
+    "image": "https://orange-pill.github.io/assets/og-image.png",
+    "inLanguage": "ru",
+    "isAccessibleForFree": true,
+    "learningResourceType": "Presentation",
+    "educationalLevel": "Beginner",
+    "about": [
+      "Bitcoin",
+      "Inflation",
+      "Money",
+      "Sound money",
+      "Self-custody"
+    ],
+    "timeRequired": "PT20M"
+  }
+  </script>
+  <meta name="theme-color" content="#09090a">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>:root { --serif: 'Playfair Display', 'Fraunces', Georgia, serif; }</style>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <canvas id="rain" aria-hidden="true"></canvas>
+  <div class="glow" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div id="progress" aria-hidden="true"><span></span></div>
+
+  <header class="topbar">
+    <a class="brand" href="#start" aria-label="В начало"><span class="brand-mark" translate="no">₿</span><span>Оранжевая таблетка</span></a>
+    <div class="top-actions">
+      <div class="lang-wrap">
+        <button class="lang-btn" id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-controls="lang-pop" aria-label="Язык"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z" /></svg><span translate="no" id="lang-code">EN</span></button>
+        <ul class="lang-pop" id="lang-pop" hidden translate="no">
+          <li><a href="../" hreflang="en" lang="en" data-lang="en">English</a></li>
+          <li><a href="../es/" hreflang="es" lang="es" data-lang="es">Español</a></li>
+          <li><a href="../pt/" hreflang="pt" lang="pt" data-lang="pt">Português</a></li>
+          <li><a href="../fr/" hreflang="fr" lang="fr" data-lang="fr">Français</a></li>
+          <li><a href="../de/" hreflang="de" lang="de" data-lang="de">Deutsch</a></li>
+          <li><a href="../pl/" hreflang="pl" lang="pl" data-lang="pl">Polski</a></li>
+          <li><a href="../ru/" hreflang="ru" lang="ru" data-lang="ru">Русский</a></li>
+          <li><a href="../tr/" hreflang="tr" lang="tr" data-lang="tr">Türkçe</a></li>
+          <li><a href="../zh/" hreflang="zh" lang="zh" data-lang="zh">中文</a></li>
+          <li><a href="../ja/" hreflang="ja" lang="ja" data-lang="ja">日本語</a></li>
+          <li><a href="../hi/" hreflang="hi" lang="hi" data-lang="hi">हिन्दी</a></li>
+        </ul>
+      </div>
+      <button class="sound-btn" id="sound-btn" aria-pressed="false" aria-label="Музыка" hidden><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="sound-label">Музыка выкл.</span></button>
+      <audio id="music" src="../assets/music/soundtrack.mp3" preload="none" loop></audio>
+      <button class="menu-btn" data-open-menu="" aria-haspopup="dialog" aria-controls="menu"><span>Содержание</span><i></i></button>
+    </div>
+  </header>
+
+  <nav id="dots" aria-label="Слайды"></nav>
+
+  <div class="hud" aria-live="polite">
+    <span class="hud-chapter" id="hud-chapter">Пролог</span>
+    <div class="hud-ctrl">
+      <button class="hud-btn" data-go="prev" aria-label="Предыдущий слайд">↑</button>
+      <span class="hud-count" id="hud-count">01 / 40</span>
+      <button class="hud-btn" data-go="next" aria-label="Следующий слайд">↓</button>
+    </div>
+  </div>
+
+  <div id="menu" role="dialog" aria-modal="true" aria-label="Содержание" hidden>
+    <div class="menu-inner">
+      <div class="menu-head">
+        <p class="kicker">Содержание</p>
+        <button class="menu-close" data-close-menu="" aria-label="Закрыть содержание">✕</button>
+      </div>
+      <ol class="menu-list" id="menu-list"></ol>
+      <p class="menu-keys">Клавиши: <kbd>↓</kbd> <kbd>↑</kbd> <kbd>Space</kbd> навигация · <kbd>M</kbd> содержание · <kbd>S</kbd> музыка · <kbd>F</kbd> полный экран</p>
+    </div>
+  </div>
+
+  <main id="deck">
+
+    <!-- ============================== PROLOGUE ============================== -->
+    <section class="slide hero" id="start" data-mood="orange" data-chapter="Пролог">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="kicker r">Интерактивная презентация в восьми главах</p>
+          <h1 class="r" style="--d:1"><span class="o">Оранжевая</span><br>таблетка</h1>
+          <p class="hero-sub r" style="--d:2">Дело не в том, что вы плохо обращаетесь с деньгами.<br><em>Плохи сами деньги.</em></p>
+          <p class="lead r" style="--d:3">Почему система незаметно съедает сбережения обычных людей — и почему изобретение 2009 года, с открытым кодом и без руководителей, может оказаться одним из важнейших инструментов человеческой свободы нашего времени.</p>
+          <div class="cta r" style="--d:4">
+            <button class="btn primary" data-go="next">Принять оранжевую таблетку <span aria-hidden="true">→</span></button>
+            <button class="btn ghost" data-open-menu="">Содержание</button>
+          </div>
+          <button class="sound-hint r" style="--d:5" data-sound-toggle="" aria-pressed="false" hidden>♪ <span>Включить музыку</span></button>
+        </div>
+        <div class="pill-stage r zoom" style="--d:2" aria-hidden="true">
+          <div class="orbit o1"></div><div class="orbit o2"></div><div class="orbit o3"></div>
+          <div class="pill-tilt" id="pill-tilt"><div class="pill-float">
+            <svg class="pill-svg" viewBox="0 0 440 180" aria-hidden="true">
+              <defs>
+                <lineargradient id="capG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd58e" /><stop offset=".16" stop-color="#ffae45" /><stop offset=".5" stop-color="#f7931a" /><stop offset=".8" stop-color="#c46200" /><stop offset="1" stop-color="#7e3c00" /></lineargradient>
+                <lineargradient id="capEdge" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3a1a00" stop-opacity=".45" /><stop offset=".22" stop-color="#3a1a00" stop-opacity="0" /><stop offset=".86" stop-color="#3a1a00" stop-opacity="0" /><stop offset="1" stop-color="#3a1a00" stop-opacity=".35" /></lineargradient>
+                <lineargradient id="glassG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".30" /><stop offset=".35" stop-color="#fff" stop-opacity=".06" /><stop offset=".75" stop-color="#fff" stop-opacity=".04" /><stop offset="1" stop-color="#fff" stop-opacity=".22" /></lineargradient>
+                <lineargradient id="glassShade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity="0" /><stop offset=".55" stop-color="#000" stop-opacity="0" /><stop offset="1" stop-color="#2a1200" stop-opacity=".55" /></lineargradient>
+                <radialgradient id="bO" cx=".35" cy=".3" r=".75"><stop offset="0" stop-color="#ffe0a8" /><stop offset=".35" stop-color="#ffa733" /><stop offset="1" stop-color="#a14d00" /></radialgradient>
+                <radialgradient id="bG" cx=".35" cy=".3" r=".75"><stop offset="0" stop-color="#fff4c9" /><stop offset=".4" stop-color="#e8b955" /><stop offset="1" stop-color="#8a6416" /></radialgradient>
+                <radialgradient id="bW" cx=".35" cy=".3" r=".75"><stop offset="0" stop-color="#ffffff" /><stop offset=".45" stop-color="#efe7da" /><stop offset="1" stop-color="#9c9284" /></radialgradient>
+                <clippath id="bodyClip"><path d="M214 30 H360 A60 60 0 0 1 360 150 H214 Z" /></clippath>
+                <filter id="soft" x="-20%" y="-50%" width="140%" height="200%"><fegaussianblur stdDeviation="3" /></filter>
+                <filter id="softer" x="-20%" y="-50%" width="140%" height="200%"><fegaussianblur stdDeviation="1.4" /></filter>
+              </defs>
+              <!-- glass body with sats inside -->
+              <path d="M214 30 H360 A60 60 0 0 1 360 150 H214 Z" fill="rgba(20,12,6,.55)" />
+              <g clip-path="url(#bodyClip)">
+                <circle cx="275.7" cy="124.0" r="5" fill="url(#bO)" />
+<circle cx="390.1" cy="81.9" r="6" fill="url(#bO)" />
+<circle cx="304.0" cy="93.2" r="5" fill="url(#bO)" />
+<circle cx="254.7" cy="61.8" r="6" fill="url(#bO)" />
+<circle cx="316.9" cy="52.4" r="6.5" fill="url(#bO)" />
+<circle cx="409.9" cy="87.9" r="5" fill="url(#bO)" />
+<circle cx="294.2" cy="100.2" r="5" fill="url(#bO)" />
+<circle cx="338.5" cy="103.6" r="6.5" fill="url(#bO)" />
+<circle cx="289.8" cy="76.5" r="5.5" fill="url(#bO)" />
+<circle cx="404.8" cy="112.8" r="5" fill="url(#bO)" />
+<circle cx="373.3" cy="57.7" r="7" fill="url(#bO)" />
+<circle cx="275.0" cy="139.6" r="5.5" fill="url(#bO)" />
+<circle cx="321.6" cy="139.6" r="6" fill="url(#bO)" />
+<circle cx="394.1" cy="107.5" r="5" fill="url(#bO)" />
+<circle cx="361.5" cy="73.6" r="5.5" fill="url(#bO)" />
+<circle cx="278.0" cy="80.3" r="7.5" fill="url(#bO)" />
+<circle cx="363.3" cy="40.9" r="6.5" fill="url(#bO)" />
+<circle cx="266.0" cy="62.2" r="5" fill="url(#bO)" />
+<circle cx="259.9" cy="139.6" r="5.5" fill="url(#bO)" />
+<circle cx="362.5" cy="85.7" r="6.5" fill="url(#bO)" />
+<circle cx="354.0" cy="140.2" r="5.5" fill="url(#bO)" />
+<circle cx="344.8" cy="131.7" r="5" fill="url(#bO)" />
+<circle cx="337.2" cy="82.7" r="7" fill="url(#bO)" />
+<circle cx="242.8" cy="68.3" r="5.5" fill="url(#bO)" />
+<circle cx="399.9" cy="90.8" r="5.5" fill="url(#bO)" />
+<circle cx="357.5" cy="130.0" r="5" fill="url(#bO)" />
+<circle cx="266.5" cy="73.0" r="5" fill="url(#bO)" />
+<circle cx="385.7" cy="53.6" r="5.5" fill="url(#bO)" />
+<circle cx="303.6" cy="80.2" r="5.5" fill="url(#bO)" />
+<circle cx="306.5" cy="57.7" r="5.5" fill="url(#bO)" />
+<circle cx="276.9" cy="68.2" r="5" fill="url(#bO)" />
+<circle cx="375.5" cy="134.0" r="5" fill="url(#bO)" />
+<circle cx="320.9" cy="127.9" r="5" fill="url(#bO)" />
+<circle cx="279.9" cy="94.4" r="6" fill="url(#bO)" />
+<circle cx="383.5" cy="113.8" r="6.5" fill="url(#bO)" />
+<circle cx="256.1" cy="50.4" r="5" fill="url(#bO)" />
+<circle cx="268.0" cy="101.9" r="5" fill="url(#bO)" />
+<circle cx="287.6" cy="62.4" r="7.5" fill="url(#bO)" />
+<circle cx="239.2" cy="51.2" r="7" fill="url(#bO)" />
+<circle cx="293.1" cy="48.5" r="8" fill="url(#bO)" />
+<circle cx="310.8" cy="137.3" r="5.5" fill="url(#bO)" />
+<circle cx="383.8" cy="128.1" r="5" fill="url(#bO)" />
+<circle cx="381.2" cy="67.5" r="5.5" fill="url(#bO)" />
+<circle cx="393.1" cy="120.2" r="5" fill="url(#bO)" />
+<circle cx="297.5" cy="133.7" r="5" fill="url(#bO)" />
+<circle cx="385.3" cy="101.6" r="5.5" fill="url(#bO)" />
+<circle cx="403.3" cy="77.9" r="6" fill="url(#bO)" />
+<circle cx="227.0" cy="80.2" r="5" fill="url(#bO)" />
+<circle cx="334.2" cy="139.4" r="5.5" fill="url(#bO)" />
+<circle cx="374.1" cy="78.8" r="7.5" fill="url(#bO)" />
+<circle cx="280.1" cy="44.2" r="5" fill="url(#bO)" />
+<circle cx="250.3" cy="39.7" r="5.5" fill="url(#bO)" />
+<circle cx="356.0" cy="114.7" r="5" fill="url(#bO)" />
+<circle cx="320.3" cy="68.2" r="6.5" fill="url(#bO)" />
+<circle cx="371.4" cy="102.5" r="7" fill="url(#bO)" />
+<circle cx="312.0" cy="86.7" r="5.5" fill="url(#bO)" />
+<circle cx="249.6" cy="134.7" r="5.5" fill="url(#bO)" />
+<circle cx="313.2" cy="40.5" r="5.5" fill="url(#bO)" />
+<circle cx="282.0" cy="113.9" r="7" fill="url(#bO)" />
+<circle cx="327.5" cy="43.9" r="6.5" fill="url(#bO)" />
+<circle cx="234.2" cy="97.2" r="7.5" fill="url(#bO)" />
+<circle cx="365.0" cy="136.1" r="5" fill="url(#bO)" />
+<circle cx="396.5" cy="59.3" r="6.5" fill="url(#bO)" />
+<circle cx="371.0" cy="121.5" r="7.5" fill="url(#bO)" />
+<circle cx="235.1" cy="139.8" r="6" fill="url(#bO)" />
+<circle cx="333.4" cy="94.0" r="5" fill="url(#bO)" />
+<circle cx="343.9" cy="117.7" r="8" fill="url(#bO)" />
+<circle cx="346.7" cy="47.5" r="8" fill="url(#bG)" />
+<circle cx="294.8" cy="118.7" r="7" fill="url(#bG)" />
+<circle cx="340.2" cy="59.0" r="5" fill="url(#bG)" />
+<circle cx="231.1" cy="111.7" r="7.5" fill="url(#bG)" />
+<circle cx="328.0" cy="113.3" r="6" fill="url(#bG)" />
+<circle cx="294.8" cy="87.3" r="5" fill="url(#bG)" />
+<circle cx="249.9" cy="123.5" r="5.5" fill="url(#bG)" />
+<circle cx="393.7" cy="70.4" r="5.5" fill="url(#bG)" />
+<circle cx="302.2" cy="68.7" r="6.5" fill="url(#bG)" />
+<circle cx="256.8" cy="75.3" r="5.5" fill="url(#bG)" />
+<circle cx="235.9" cy="39.3" r="5" fill="url(#bG)" />
+<circle cx="264.3" cy="40.3" r="5.5" fill="url(#bG)" />
+<circle cx="227.7" cy="46.5" r="5.5" fill="url(#bG)" />
+<circle cx="345.7" cy="69.0" r="5.5" fill="url(#bG)" />
+<circle cx="326.4" cy="102.0" r="5.5" fill="url(#bG)" />
+<circle cx="318.3" cy="96.1" r="5" fill="url(#bG)" />
+<circle cx="350.8" cy="97.0" r="6.5" fill="url(#bG)" />
+<circle cx="304.9" cy="106.9" r="7.5" fill="url(#bG)" />
+<circle cx="233.9" cy="126.6" r="7" fill="url(#bG)" />
+<circle cx="332.0" cy="128.5" r="6" fill="url(#bG)" />
+<circle cx="256.7" cy="93.3" r="7" fill="url(#bG)" />
+<circle cx="317.2" cy="110.3" r="5" fill="url(#bG)" />
+<circle cx="263.2" cy="125.1" r="8" fill="url(#bG)" />
+<circle cx="379.4" cy="45.4" r="5" fill="url(#bG)" />
+<circle cx="285.7" cy="137.0" r="5.5" fill="url(#bG)" />
+<circle cx="231.5" cy="64.6" r="6.5" fill="url(#bW)" />
+<circle cx="351.6" cy="80.4" r="6" fill="url(#bW)" />
+<circle cx="258.9" cy="108.6" r="5" fill="url(#bW)" />
+<circle cx="247.9" cy="108.0" r="6" fill="url(#bW)" />
+<circle cx="327.5" cy="55.4" r="5" fill="url(#bW)" />
+<circle cx="356.6" cy="59.4" r="8" fill="url(#bW)" />
+<circle cx="269.2" cy="50.2" r="6" fill="url(#bW)" />
+<circle cx="242.9" cy="89.0" r="5" fill="url(#bW)" />
+<circle cx="409.9" cy="99.8" r="5" fill="url(#bW)" />
+<circle cx="310.0" cy="122.1" r="8" fill="url(#bW)" />
+<circle cx="268.9" cy="114.1" r="5" fill="url(#bW)" />
+<circle cx="268.0" cy="87.0" r="5" fill="url(#bW)" />
+<circle cx="382.5" cy="91.4" r="5.5" fill="url(#bW)" />
+<circle cx="334.3" cy="68.2" r="5.5" fill="url(#bW)" />
+<circle cx="323.7" cy="81.9" r="6.5" fill="url(#bW)" />
+<circle cx="238.0" cy="78.9" r="6.5" fill="url(#bW)" />
+                <rect x="210" y="26" width="220" height="130" fill="url(#glassShade)" />
+              </g>
+              <path d="M214 30 H360 A60 60 0 0 1 360 150 H214 Z" fill="url(#glassG)" stroke="rgba(255,255,255,.55)" stroke-width="1.4" />
+              <path d="M236 44 H356 A44 14 0 0 1 356 56 H236 A6 6 0 0 1 236 44 Z" fill="#fff" opacity=".55" filter="url(#soft)" />
+              <ellipse cx="392" cy="70" rx="6" ry="11" fill="#fff" opacity=".6" filter="url(#softer)" transform="rotate(30 392 70)" />
+              <path d="M240 140 H350" stroke="#fff" stroke-opacity=".28" stroke-width="2" stroke-linecap="round" filter="url(#softer)" />
+              <!-- orange cap -->
+              <path d="M226 25 H84 A65 65 0 0 0 84 155 H226 Z" fill="url(#capG)" />
+              <path d="M226 25 H84 A65 65 0 0 0 84 155 H226 Z" fill="url(#capEdge)" />
+              <path d="M226 25 V155" stroke="#5a2a00" stroke-opacity=".55" stroke-width="2.5" />
+              <path d="M222.5 27 V153" stroke="#ffd9a0" stroke-opacity=".45" stroke-width="1" />
+              <g transform="rotate(14 132 92)" font-family="Inter, system-ui, sans-serif" font-weight="800" font-size="70" text-anchor="middle">
+                <text x="132" y="117" fill="#ffe1ad" fill-opacity=".45">₿</text>
+                <text x="132" y="115" fill="#8a4100" fill-opacity=".5">₿</text>
+              </g>
+              <path d="M60 40 H212 A0 0 0 0 1 212 52 H70 A9 6 0 0 1 60 40 Z" fill="#fff" opacity=".6" filter="url(#soft)" />
+              <path d="M40 120 Q60 148 100 150 H210" fill="none" stroke="#ffcf87" stroke-opacity=".35" stroke-width="2" filter="url(#softer)" />
+            </svg>
+          </div></div>
+          <div class="pill-shadow"></div>
+        </div>
+      </div>
+      <div class="scroll-hint" aria-hidden="true"><span>Прокрутите, проведите или нажмите ↓</span><i></i></div>
+    </section>
+
+    <!-- ============================== CHAPTER I ============================== -->
+    <section class="slide chapter" id="ch1" data-mood="cold" data-chapter="I · Великая утечка" data-toc="Великая утечка">
+      <div class="wrap">
+        <div class="numeral r wipe" translate="no">I</div>
+        <p class="kicker r" style="--d:1">Глава первая</p>
+        <h2 class="display r" style="--d:2">Великая утечка</h2>
+        <p class="lead r" style="--d:3">Что-то сломано. И это не вы.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="cold">
+      <div class="wrap">
+        <p class="kicker r">Знакомо?</p>
+        <h2 class="display r" style="--d:1">Вы работаете больше, чем когда-либо.<br><em>Почему на деньги можно купить всё меньше?</em></h2>
+        <div class="grid g4 mt">
+          <div class="card r" style="--d:2"><span class="card-n">01</span><p>Вы зарабатываете больше, чем ваши родители в вашем возрасте, но можете позволить себе меньше того, что было у них.</p></div>
+          <div class="card r" style="--d:3"><span class="card-n">02</span><p>Раньше дом стоил примерно <strong>3,5 года</strong> дохода типичной семьи. Сейчас — <strong>больше 5 лет</strong>.</p></div>
+          <div class="card r" style="--d:4"><span class="card-n">03</span><p>Копить в банке кажется бессмысленным. Инвестировать — как играть в казино. И всё равно вы это делаете.</p></div>
+          <div class="card r" style="--d:5"><span class="card-n">04</span><p>Одна и та же недельная корзина продуктов дорожает каждый год, и никто никогда за это не голосовал.</p></div>
+        </div>
+        <p class="punch r" style="--d:6">Дело не в вас. <span class="accent">Дело в деньгах.</span></p>
+        <p class="src r" style="--d:6">Медианная цена нового дома в США ÷ медианный доход семьи, 1984 и 2024 (Бюро переписи США)</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="cold" id="icecube">
+      <div class="wrap split">
+        <div>
+          <p class="kicker r">Лучшая аналогия для инфляции</p>
+          <h2 class="display r" style="--d:1">Ваши сбережения — это <em>кубик льда</em> на солнце.</h2>
+          <p class="lead r" style="--d:2">Вы не видите, как он тает день за днём, но он тает. Инфляция не забирает ваши деньги. Она делает так, что на каждую их единицу можно купить меньше — тихо, каждый год.</p>
+          <div class="calc r" style="--d:3">
+            <label class="field">
+              <span>Сбережения сегодня</span>
+              <span class="money-input"><i>$</i><input id="calc-amount" type="number" inputmode="numeric" min="100" step="100" value="10000"></span>
+            </label>
+            <label class="field">
+              <span>Лет: <strong id="calc-years-out">20</strong></span>
+              <input id="calc-years" type="range" min="1" max="50" value="20">
+            </label>
+            <div class="field">
+              <span>Ежегодная потеря покупательной способности</span>
+              <div class="seg" role="radiogroup" aria-label="Уровень инфляции">
+                <button role="radio" aria-checked="false" data-rate="0.02">2%<small>официальная цель</small></button>
+                <button role="radio" aria-checked="true" data-rate="0.031">3,1%<small>среднее по США с 1913</small></button>
+                <button role="radio" aria-checked="false" data-rate="0.07">7%<small>рост денежной массы</small></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ice r zoom" style="--d:2">
+          <svg viewBox="0 0 320 300" class="ice-svg" aria-hidden="true">
+            <defs>
+              <lineargradient id="iceTop" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8f6ff" /><stop offset="1" stop-color="#b9def5" /></lineargradient>
+              <lineargradient id="iceL" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a6d3ef" /><stop offset="1" stop-color="#6fa9cf" /></lineargradient>
+              <lineargradient id="iceR" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cbe8fa" /><stop offset="1" stop-color="#8cc0e2" /></lineargradient>
+              <radialgradient id="puddle"><stop offset="0" stop-color="#8cc0e2" stop-opacity=".55" /><stop offset="1" stop-color="#8cc0e2" stop-opacity="0" /></radialgradient>
+            </defs>
+            <ellipse id="ice-puddle" cx="160" cy="250" rx="60" ry="14" fill="url(#puddle)" />
+            <g id="ice-cube" style="transform-origin:160px 250px">
+              <path d="M160 110 L240 150 L160 190 L80 150 Z" fill="url(#iceTop)" />
+              <path d="M80 150 L160 190 L160 250 L80 210 Z" fill="url(#iceL)" />
+              <path d="M240 150 L160 190 L160 250 L240 210 Z" fill="url(#iceR)" />
+              <path d="M104 152 L150 129" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".7" />
+              <path d="M96 170 L96 196" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".45" />
+            </g>
+          </svg>
+          <div class="ice-out">
+            <p class="ice-label">Через <strong id="calc-years-out2">20</strong> лет на ваши <strong id="calc-amount-out">$10,000</strong> можно будет купить столько же, сколько</p>
+            <p class="ice-value" id="calc-real">$5,428</p>
+            <p class="ice-label">сегодня. Тихо потеряно: <strong class="neg" id="calc-lost">46%</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="cold" id="purchasing">
+      <div class="wrap">
+        <p class="kicker r">Покупательная способность одного доллара США</p>
+        <h2 class="display r" style="--d:1">Доллар 1913 года сегодня стоит <em>3 цента</em>.</h2>
+        <div class="chart-box r" style="--d:2">
+          <div class="chart" id="chart-pp" role="img" aria-label="Линейный график: покупательная способность доллара 1913 года упала с 1,00 $ в 1913 году примерно до 0,03 $ в 2024 году."></div>
+        </div>
+        <div class="row-note r" style="--d:3">
+          <p>ФРС была создана в 1913 году — в том же году, с которого начинается этот график. С тех пор доллар потерял <strong>~97%</strong> своей покупательной способности.</p>
+          <p class="src">Источник: Бюро статистики труда США, среднегодовые значения CPI-U</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="cold" id="m2">
+      <div class="wrap split wide-right">
+        <div>
+          <p class="kicker r">Откуда берётся инфляция?</p>
+          <h2 class="display r" style="--d:1">Они не создали больше ценности. <em>Они создали больше долларов.</em></h2>
+          <div class="stats-col">
+            <div class="stat r" style="--d:2"><span class="num">72×</span><span class="lbl">больше долларов в обращении, чем в 1960 году<br><small>(денежная масса M2, с 0,3 до ~21,5 трлн $)</small></span></div>
+            <div class="stat r" style="--d:3"><span class="num">+40%</span><span class="lbl">рост M2 всего за два года<br><small>(с февраля 2020 по декабрь 2021)</small></span></div>
+          </div>
+          <p class="lead small r" style="--d:4">Реальная экономика росла примерно на 3% в год. Денежная масса — примерно на 7% в год. Этот разрыв проявляется в ценах.</p>
+        </div>
+        <div class="chart-box r" style="--d:2">
+          <div class="chart" id="chart-m2" role="img" aria-label="Столбчатая диаграмма: денежная масса M2 в США выросла примерно с 0,3 трлн $ в 1960 году до примерно 21,5 трлн $ в 2025 году."></div>
+          <p class="src">Денежная масса M2 в США, трлн долларов, январь каждого года (прибл.). Источник: ФРС, FRED M2SL</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="cold">
+      <div class="wrap narrow center">
+        <p class="kicker r center-k">Мысленный эксперимент</p>
+        <h2 class="display r" style="--d:1">Представьте игру в <em>«Монополию»</em>…</h2>
+        <div class="monopoly">
+          <p class="big-line r" style="--d:2">…где один игрок ещё и банкир</p>
+          <p class="big-line r" style="--d:3">и может печатать новые деньги, когда захочет.</p>
+          <p class="lead r" style="--d:4">Он ни разу не берёт ни одной купюры из вашей стопки. Он просто добавляет в свою, и на каждую вашу купюру можно купить чуть меньше собственности, чем раньше.</p>
+          <p class="punch r" style="--d:5">Кто выиграет в этой игре? <span class="accent">Именно в эту игру мы все и играем.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="cold" id="cantillon">
+      <div class="wrap">
+        <p class="kicker r">Эффект Кантильона</p>
+        <h2 class="display r" style="--d:1">Новые деньги распределяются неравномерно. <em>Они стекают вниз.</em></h2>
+        <div class="flow r" style="--d:2">
+          <div class="flow-node"><span class="flow-i">⎙</span><b>Печатный станок</b><small>Центробанк</small><em class="tag t0">новые деньги</em></div>
+          <div class="flow-arrow"><i></i></div>
+          <div class="flow-node"><span class="flow-i">🏛</span><b>Банки и государство</b><small>Тратят первыми</small><em class="tag t1">старые цены</em></div>
+          <div class="flow-arrow"><i></i></div>
+          <div class="flow-node"><span class="flow-i">◈</span><b>Владельцы активов</b><small>Акции, недвижимость</small><em class="tag t2">цены растут</em></div>
+          <div class="flow-arrow"><i></i></div>
+          <div class="flow-node"><span class="flow-i">⚙</span><b>Бизнес</b><small>Поднимает цены</small><em class="tag t3">цены выросли</em></div>
+          <div class="flow-arrow"><i></i></div>
+          <div class="flow-node you"><span class="flow-i">☺</span><b>Вы</b><small>Зарплаты догоняют последними</small><em class="tag t4">новые цены</em></div>
+        </div>
+        <div class="grid g2 mt">
+          <p class="lead r" style="--d:3">Тот, кто ближе всех к печатному станку, тратит новые деньги, пока цены ещё низкие. Когда они доходят до работников и вкладчиков, цены уже выросли.</p>
+          <p class="lead r" style="--d:4">Экономист Ричард Кантильон описал это в 1730-х годах. Результат — скрытое перераспределение: <strong>от тех, кто копит, к тем, кто занимает; от наёмных работников к владельцам активов; от бедных к богатым.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="cold">
+      <div class="wrap">
+        <p class="kicker r">15 августа 1971 года</p>
+        <h2 class="display r" style="--d:1">День, когда деньги потеряли <em>якорь</em>.</h2>
+        <p class="lead r" style="--d:2">Президент Никсон «временно» приостановил обмен доллара на золото. Эта временная мера действует до сих пор. С тех пор деньги обеспечены лишь обещаниями, и цифры начали расходиться.</p>
+        <div class="grid g3 mt">
+          <div class="stat card r" style="--d:3"><span class="num">61.8% <small>vs</small> 17.5%</span><span class="lbl">Рост производительности в США и зарплаты типичного работника, 1979–2020</span><span class="src">Economic Policy Institute</span></div>
+          <div class="stat card r" style="--d:4"><span class="num">3.5 → 5.2</span><span class="lbl">Сколько лет медианного дохода семьи нужно на медианный новый дом, 1984 и 2024</span><span class="src">Бюро переписи США</span></div>
+          <div class="stat card r" style="--d:5"><span class="num">$0.4T → $37T+</span><span class="lbl">Госдолг США, 1971 и 2025. Легко влезать в долги, когда можешь напечатать то, что должен.</span><span class="src">Минфин США</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="cold">
+      <div class="wrap split">
+        <div>
+          <p class="kicker r">Беговая дорожка</p>
+          <h2 class="display r" style="--d:1">Когда копить стало бесполезно, <em>всех вынудили спекулировать.</em></h2>
+        </div>
+        <div class="stack">
+          <p class="lead r" style="--d:2">Ваши бабушки и дедушки могли положить деньги в банк и ожидать, что те сохранят ценность. Вам же приходится становиться управляющим фондом на полставки, только чтобы стоять на месте: как бег на дорожке, которая с каждым годом ускоряется.</p>
+          <div class="card r" style="--d:3"><h3>Дома стали сберегательными счетами</h3><p>Люди покупают жильё, чтобы сохранить капитал, а не только чтобы в нём жить. Этот дополнительный спрос отрезает молодые семьи от того, что им нужнее всего.</p></div>
+          <div class="card r" style="--d:4"><h3>Акции стали убежищем от инфляции</h3><p>Часть «роста» акций — это просто сжимающаяся линейка. Экономисты называют эту надбавку <em>монетарной премией</em>.</p></div>
+          <div class="card r" style="--d:5"><h3>Те, у кого нет активов, отстают</h3><p>Если вы снимаете жильё и копите наличными, система работает против вас. Если у вас уже есть активы, она работает на вас. Разрыв растёт каждый год.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="cold">
+      <div class="wrap">
+        <p class="kicker r">Банк</p>
+        <h2 class="display r" style="--d:1">Ваших денег нет <em>в</em> банке.</h2>
+        <p class="lead r" style="--d:2">Когда вы кладёте в банк 1000 $, банк отдаёт бо́льшую часть в кредит. У вас на руках долговая расписка — обещание, что деньги будут на месте, если за ними не придёт слишком много людей одновременно.</p>
+        <div class="grid g4 mt">
+          <div class="stat card r" style="--d:3"><span class="num">0%</span><span class="lbl">норма обязательных резервов банков США с марта 2020</span></div>
+          <div class="stat card r" style="--d:4"><span class="num">42 млрд $</span><span class="lbl">вывели из Silicon Valley Bank за один день (9 марта 2023). Наутро банк рухнул.</span></div>
+          <div class="stat card r" style="--d:5"><span class="num">47.5%</span><span class="lbl">крупных вкладов в Bank of Cyprus превратили в акции банка при «бейл-ине» 2013 года</span></div>
+          <div class="stat card r" style="--d:6"><span class="num">2022</span><span class="lbl">Канада заморозила банковские счета протестующих без решения суда. Позже федеральный суд признал эту меру необоснованной.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="cold">
+      <div class="wrap">
+        <p class="kicker r">Мировая картина</p>
+        <h2 class="display r" style="--d:1">И это ещё <em>хороший</em> вариант.</h2>
+        <p class="lead r" style="--d:2">Если вы живёте в США или Европе, у вас одни из лучших фиатных денег в мире. У большей части человечества — нет.</p>
+        <div class="grid g3 mt countries">
+          <div class="card r" style="--d:3"><span class="flag">Венесуэла</span><span class="num">130,000%</span><p>инфляция в 2018 году. Семьи видели, как сбережения всей жизни исчезают за месяцы.</p></div>
+          <div class="card r" style="--d:4"><span class="flag">Зимбабве</span><span class="num">100 трлн $</span><p>— номинал банкноты 2009 года. На неё нельзя было купить билет на автобус.</p></div>
+          <div class="card r" style="--d:5"><span class="flag">Ливан</span><span class="num">−98%</span><p>стоимости фунта с 2019 года. Банки закрыли людям доступ к их же вкладам.</p></div>
+          <div class="card r" style="--d:6"><span class="flag">Аргентина</span><span class="num">211%</span><p>инфляция в 2023 году — после десятилетий повторяющихся валютных кризисов.</p></div>
+          <div class="card r" style="--d:7"><span class="flag">Турция</span><span class="num">−90%+</span><p>стоимости лиры к доллару всего за одно десятилетие.</p></div>
+          <div class="card r" style="--d:8"><span class="flag">В мире</span><span class="num">1,4 млрд</span><p>взрослых вообще не имеют банковского счёта (Всемирный банк). Больше половины мира живёт при авторитарных режимах (Human Rights Foundation).</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CHAPTER II ============================== -->
+    <section class="slide chapter" id="ch2" data-mood="gold" data-chapter="II · Что такое деньги на самом деле" data-toc="Что такое деньги на самом деле">
+      <div class="wrap">
+        <div class="numeral r wipe" translate="no">II</div>
+        <p class="kicker r" style="--d:1">Глава вторая</p>
+        <h2 class="display r" style="--d:2">Что такое деньги на самом деле</h2>
+        <p class="lead r" style="--d:3">Прежде чем чинить деньги, нужно понять, для чего они.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="gold">
+      <div class="wrap split">
+        <div>
+          <p class="kicker r">Деньги = накопленное время</p>
+          <h2 class="display r" style="--d:1">Деньги — это <em>аккумулятор</em> энергии вашей жизни.</h2>
+          <p class="lead r" style="--d:2">Вы обмениваете часы своей жизни на деньги. Деньги хранят эти часы, чтобы вы могли использовать их позже: на следующей неделе или через тридцать лет, на пенсии.</p>
+          <p class="lead r" style="--d:3">Хорошие деньги — это аккумулятор, который держит заряд. <strong>Сегодняшние деньги — это аккумулятор, который разряжается, причём так задумано.</strong> Каждый утекший процент — это кусочек вашей жизни, который уже не вернуть.</p>
+        </div>
+        <div class="battery-wrap r zoom" style="--d:2" aria-hidden="true">
+          <div class="battery"><div class="battery-level"></div><div class="battery-cap"></div></div>
+          <p class="battery-cap-label"><span>40 часов вашей жизни</span><span class="neg">…медленно разряжаются</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="gold">
+      <div class="wrap narrow center">
+        <p class="kicker r center-k">Официальный план</p>
+        <h2 class="display r" style="--d:1">Центробанки <em>целятся</em> в 2% инфляции.</h2>
+        <p class="mega r" style="--d:2"><span class="accent">−50%</span></p>
+        <p class="lead r center-p" style="--d:3">Звучит немного. Но при 2% в год деньги теряют <strong>половину стоимости примерно за 35 лет</strong> — почти за всю трудовую жизнь. Это не баг. Это заявленная цель.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="gold">
+      <div class="wrap">
+        <p class="kicker r">Что делает деньги хорошими?</p>
+        <h2 class="display r" style="--d:1">Деньги — это инструмент. <em>Некоторые инструменты просто лучше.</em></h2>
+        <div class="grid g4 props mt">
+          <div class="card prop r" style="--d:2"><i data-icon="scarce"></i><h3>Редкость</h3><p>Трудно произвести больше. Иначе кто-то так и сделает — и размоет вашу долю.</p></div>
+          <div class="card prop r" style="--d:3"><i data-icon="durable"></i><h3>Долговечность</h3><p>Не гниют, не ржавеют и не ломаются со временем.</p></div>
+          <div class="card prop r" style="--d:4"><i data-icon="portable"></i><h3>Портативность</h3><p>Легко носить и пересылать — через улицу или через океан.</p></div>
+          <div class="card prop r" style="--d:5"><i data-icon="divisible"></i><h3>Делимость</h3><p>Можно разделить на мелкие единицы для платежа любого размера.</p></div>
+          <div class="card prop r" style="--d:6"><i data-icon="verify"></i><h3>Проверяемость</h3><p>Легко убедиться в подлинности, никому не доверяя.</p></div>
+          <div class="card prop r" style="--d:7"><i data-icon="fungible"></i><h3>Взаимозаменяемость</h3><p>Любая единица равноценна любой другой.</p></div>
+          <div class="card prop r" style="--d:8"><i data-icon="free"></i><h3>Устойчивость к цензуре</h3><p>Никто не может помешать вам копить или тратить. В цифровую эпоху это свойство важнее, чем когда-либо.</p></div>
+          <div class="card prop r note" style="--d:9"><p>Самое важное свойство — <strong>редкость</strong>, потому что деньги, которые легко создать, обязательно создают, а расплачиваются за это те, кто их хранит.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="gold">
+      <div class="wrap split">
+        <div>
+          <p class="kicker r">Предупреждение из истории</p>
+          <h2 class="display r" style="--d:1">Трагедия <em>стеклянных бусин</em>.</h2>
+          <p class="lead r" style="--d:2">Веками стеклянные бусины служили деньгами в некоторых районах Западной Африки. Их было трудно изготовить на месте, поэтому они сохраняли ценность.</p>
+          <p class="lead r" style="--d:3">Потом приплыли европейские торговцы с кораблями, полными бусин, дёшево сделанных на стекольных фабриках. На них они покупали золото, слоновую кость, землю, а затем и людей, расплачиваясь деньгами, производство которых им почти ничего не стоило.</p>
+          <p class="punch r" style="--d:4">Кто может дёшево создавать ваши деньги, <span class="accent">тот может купить труд всей вашей жизни за бесценок.</span></p>
+          <p class="lead small r" style="--d:5">Сегодня стеклянные бусины печатают центробанки.</p>
+        </div>
+        <div class="beads r zoom" style="--d:2" aria-hidden="true">
+          <div class="bead-strand"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="gold">
+      <div class="wrap">
+        <p class="kicker r">Почему золото победило, а потом проиграло</p>
+        <h2 class="display r" style="--d:1">Золото было самыми твёрдыми деньгами <em>5000 лет</em>.</h2>
+        <div class="grid g2 mt">
+          <div class="stack">
+            <p class="lead r" style="--d:2">Всё когда-либо добытое золото — около <strong>216 000 тонн</strong> — это примерно 60 лет нынешней добычи. Даже когда цена взлетает, горняки могут добавить лишь около <strong>1,5–2% в год</strong>. Трудно произвести — значит, сохраняет ценность.</p>
+            <p class="lead r" style="--d:3">Но у золота есть слабости: оно тяжёлое, его дорого хранить и трудно проверить. Поэтому люди отдали его банкам в обмен на бумажные расписки, и бумага постепенно заменила золото.</p>
+          </div>
+          <ol class="timeline r" style="--d:3">
+            <li><b>1933</b><span>Указ 6102 в США запрещает гражданам владеть золотом. Его нужно продать государству по 20,67 $ за унцию. Через несколько месяцев государство переоценивает золото до 35 $ — девальвация доллара на 41%.</span></li>
+            <li><b>1944</b><span>Бреттон-Вудс: валюты мира привязаны к доллару, а доллар — к золоту.</span></li>
+            <li><b>1971</b><span>Последняя связь между деньгами и золотом разорвана. С тех пор любая валюта на Земле обеспечена только обещаниями.</span></li>
+            <li class="hl"><b>2009</b><span>Появляется нечто новое.</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CHAPTER III ============================== -->
+    <section class="slide chapter" id="ch3" data-mood="orange" data-chapter="III · Появляется биткоин" data-toc="Появляется биткоин">
+      <div class="wrap">
+        <div class="numeral r wipe" translate="no">III</div>
+        <p class="kicker r" style="--d:1">Глава третья</p>
+        <h2 class="display r" style="--d:2">Появляется биткоин</h2>
+        <p class="lead r" style="--d:3">Деньги с правилами, которые никто не может изменить.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap split">
+        <div>
+          <p class="kicker r">3 января 2009 года</p>
+          <h2 class="display r" style="--d:1">Послание, спрятанное в <em>самом первом блоке</em>.</h2>
+          <p class="lead r" style="--d:2">В разгар финансового кризиса анонимный создатель под именем <strong>Сатоси Накамото</strong> запустил Биткоин. В его первый блок был встроен газетный заголовок о спасении банков: метка времени и заявление о намерениях.</p>
+          <p class="lead r" style="--d:3">Сатоси ушёл в 2011 году и больше не возвращался. Нет CEO. Нет компании. Нет штаб-квартиры. <strong>Некого арестовать, подкупить или прижать.</strong></p>
+        </div>
+        <div class="block-card r zoom" style="--d:2">
+          <div class="block-head"><span>БЛОК</span><b>#0</b><span class="pulse"></span></div>
+          <dl>
+            <div><dt>Добыт</dt><dd>2009-01-03 18:15:05 UTC</dd></div>
+            <div><dt>Награда</dt><dd>50 BTC</dd></div>
+            <div><dt>Предыдущий блок</dt><dd>0000000000000000…0000</dd></div>
+            <div><dt>Хеш</dt><dd>000000000019d6689c085ae1…8ce26f</dd></div>
+          </dl>
+          <div class="block-msg">
+            <span>Встроенный текст</span>
+            <p translate="no">The Times 03/Jan/2009 Chancellor on brink of second bailout for banks</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange" id="supply">
+      <div class="wrap">
+        <div class="supply-top">
+          <div>
+            <p class="kicker r">Самое важное число</p>
+            <p class="mega r" style="--d:1">21,000,000</p>
+            <p class="lead r" style="--d:2">Столько биткоинов будет существовать всего. Ни голосование, ни комитет, ни чрезвычайная ситуация не могут это изменить. Примерно каждые четыре года выпуск новых биткоинов сокращается вдвое (<em>халвинг</em>). Последняя доля будет добыта около 2140 года.</p>
+          </div>
+          <div class="live r" style="--d:3">
+            <span class="live-dot"></span>
+            <p class="live-k">Добыто на сегодня (оценка в реальном времени)</p>
+            <p class="live-v" id="live-supply">20,000,000</p>
+            <p class="live-s"><span id="live-pct">95.2%</span> всех биткоинов, которые когда-либо будут · блок ≈ <span id="live-height">900,000</span></p>
+          </div>
+        </div>
+        <div class="chart-box r" style="--d:3">
+          <div class="chart" id="chart-supply" role="img" aria-label="Линейный график: предложение биткоина быстро растёт с 2009 года, выравнивается с каждым халвингом и приближается к 21 миллиону около 2140 года."></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap">
+        <p class="kicker r">Прорыв, который мало кто замечает</p>
+        <h2 class="display r" style="--d:1">Первые деньги, где <em>спрос не может создать больше предложения</em>.</h2>
+        <div class="grid g4 mt supply-cards">
+          <div class="card r" style="--d:2"><h3>Золото</h3><p class="chain"><span>Цена ↑</span><span>Больше добычи</span><span class="neg">Предложение ↑</span></p></div>
+          <div class="card r" style="--d:3"><h3>Недвижимость</h3><p class="chain"><span>Цена ↑</span><span>Больше стройки</span><span class="neg">Предложение ↑</span></p></div>
+          <div class="card r" style="--d:4"><h3>Доллары</h3><p class="chain"><span>Кризис</span><span>Больше печати</span><span class="neg">Предложение ↑</span></p></div>
+          <div class="card hl r" style="--d:5"><h3>Bitcoin</h3><p class="chain"><span>Цена ↑</span><span>Приходят новые майнеры</span><span>Задача усложняется</span><span class="pos">Предложение неизменно</span></p></div>
+        </div>
+        <p class="lead r mt" style="--d:6">Каждые 2016 блоков (примерно две недели) Биткоин автоматически подстраивает сложность майнинга так, чтобы новый блок появлялся примерно раз в 10 минут, сколько бы машин ни подключилось. Впервые в истории <strong>предложение денег полностью невосприимчиво к спросу.</strong></p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap">
+        <p class="kicker r">Как это работает, без жаргона</p>
+        <h2 class="display r" style="--d:1">Представьте общий блокнот, который <em>никому не принадлежит</em>.</h2>
+        <div class="grid g3 mt steps3">
+          <div class="card r" style="--d:2"><span class="step-n">1</span><h3>Общий блокнот</h3><p>Каждая биткоин-транзакция в истории записана в одном реестре. Его идентичные копии хранят десятки тысяч компьютеров («узлов») по всему миру. Копию может хранить любой.</p></div>
+          <div class="card r" style="--d:3"><span class="step-n">2</span><h3>Лотерея за следующую страницу</h3><p>Примерно каждые 10 минут «майнеры» соревнуются за право добавить следующую страницу (<em>блок</em>), решая задачу, которую очень трудно решить, но мгновенно можно проверить. Победитель получает новые биткоины плюс комиссии.</p></div>
+          <div class="card r" style="--d:4"><span class="step-n">3</span><h3>Правила, которые проверяют все</h3><p>Каждый узел независимо проверяет каждую страницу по правилам. Попробуйте потратить монеты дважды или создать их из ничего — и сеть просто вас проигнорирует. Без разрешений и без исключений.</p></div>
+        </div>
+        <p class="lead r mt" style="--d:5">Майнинг превращает реальную энергию в безопасность — примерно как добыча золота из земли. Затраты нельзя подделать, поэтому реестр нельзя дёшево переписать.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange" id="mining">
+      <div class="wrap split">
+        <div>
+          <p class="kicker r">Попробуйте сами</p>
+          <h2 class="display r" style="--d:1">Побудьте майнером <em>десять секунд</em>.</h2>
+          <p class="lead r" style="--d:2">Майнеры снова и снова перемешивают данные блока с «нонсом» (числом, которое они меняют), пока получившийся отпечаток (хеш SHA-256) не начнётся с достаточного количества нулей. Короткого пути нет: только угадывать, миллионы раз.</p>
+          <p class="lead r" style="--d:3"><strong>Трудно найти, мгновенно проверить.</strong> Измените одну букву — и отпечаток изменится полностью. Поэтому историю нельзя тихо отредактировать.</p>
+        </div>
+        <div class="miner card r zoom" style="--d:2">
+          <label class="field"><span>Данные блока</span><input id="mine-data" type="text" value="Alice pays Bob 0.01 BTC" maxlength="80" spellcheck="false"></label>
+          <div class="field">
+            <span>Сложность (ведущие нули)</span>
+            <div class="seg small" role="radiogroup" aria-label="Сложность">
+              <button role="radio" aria-checked="false" data-diff="3">3</button>
+              <button role="radio" aria-checked="true" data-diff="4">4</button>
+              <button role="radio" aria-checked="false" data-diff="5">5</button>
+            </div>
+          </div>
+          <div class="mine-out">
+            <div><span>Нонс</span><b id="mine-nonce">0</b></div>
+            <div><span>Хеш</span><code id="mine-hash">–</code></div>
+          </div>
+          <div class="mine-actions">
+            <button class="btn primary" id="mine-btn">Начать майнинг</button>
+            <button class="btn ghost" id="verify-btn" disabled>✓ Проверить</button>
+          </div>
+          <p class="mine-status" id="mine-status" aria-live="polite">Нажмите «старт». Браузер будет угадывать, пока не найдёт подходящий хеш.</p>
+          <p class="src">Упрощённо: настоящий Биткоин дважды хеширует 80-байтовый заголовок блока, а вся сеть делает около секстиллиона попыток в секунду.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap split">
+        <div>
+          <p class="kicker r">Цифровой дефицит</p>
+          <h2 class="display r" style="--d:1">Первая цифровая вещь, которую <em>нельзя скопировать</em>.</h2>
+          <p class="lead r" style="--d:2">Фото, песни, файлы: всё цифровое можно бесплатно копировать бесконечно. Поэтому цифровым деньгам всегда нужен был банк посередине — чтобы вы не потратили один и тот же доллар дважды.</p>
+          <p class="lead r" style="--d:3">Биткоин решил эту «проблему двойной траты» без всяких посредников. В этом и есть изобретение. <strong>Что e-mail сделал для писем, то биткоин делает для ценности</strong>: она перемещается по планете за минуты, в любое время, ни у кого не спрашивая разрешения.</p>
+        </div>
+        <div class="stack">
+          <div class="card big-card r" style="--d:2">
+            <p class="kicker">Не нужно покупать целый</p>
+            <p class="sats"><span>1 BTC</span> = <span class="accent">100 000 000</span> сатоши</p>
+            <p>Биткоин делится на «сатоши», как рубль на копейки, только с куда большим запасом. Начать можно с суммы в пару долларов.</p>
+          </div>
+          <div class="card r" style="--d:3">
+            <p class="kicker">День биткоин-пиццы · 22 мая 2010</p>
+            <p>Ласло Ханеч заплатил <strong>10 000 BTC за две пиццы</strong> — это первая известная реальная покупка за биткоин. Любая новая форма денег поначалу кажется ничего не стоящей.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CHAPTER IV ============================== -->
+    <section class="slide chapter" id="ch4" data-mood="orange" data-chapter="IV · Настоящая собственность" data-toc="Настоящая собственность">
+      <div class="wrap">
+        <div class="numeral r wipe" translate="no">IV</div>
+        <p class="kicker r" style="--d:1">Глава четвёртая</p>
+        <h2 class="display r" style="--d:2">Настоящая собственность</h2>
+        <p class="lead r" style="--d:3">Безопасность, самохранение и деньги, которые нельзя остановить.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange" id="seed">
+      <div class="wrap split">
+        <div>
+          <p class="kicker r">Самохранение</p>
+          <h2 class="display r" style="--d:1">Весь ваш банк — в <em>12 словах</em>.</h2>
+          <p class="lead r" style="--d:2">Биткоин-кошелёк управляется <strong>сид-фразой</strong>: 12 или 24 обычных слова. Кто знает слова, тот управляет биткоинами. И никто другой, никогда.</p>
+          <p class="lead r" style="--d:3">Запишите их на бумаге, выбейте на стали или запомните — и вы сможете пересечь любую границу со сбережениями всей жизни в голове. <strong>Ни один актив в истории не был таким портативным.</strong></p>
+        </div>
+        <div class="seed card r zoom" style="--d:2">
+          <div class="seed-head"><span>Пример сид-фразы</span><button class="btn ghost tiny" id="seed-btn">↻ Перемешать</button></div>
+          <ol class="seed-grid" id="seed-grid" translate="no"></ol>
+          <p class="seed-warn">⚠ Только для иллюстрации. Никогда не используйте фразу, показанную на сайте, и никогда не вводите свою настоящую на сайтах.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap">
+        <p class="kicker r">Золотое правило</p>
+        <h2 class="display r" style="--d:1">Не ваши ключи — <em>не ваши монеты</em>.</h2>
+        <p class="lead r" style="--d:2">Оставив биткоин на бирже, вы не владеете биткоином. Вы владеете долговой распиской — точно как с банковским вкладом, со всеми теми же рисками.</p>
+        <div class="grid g3 mt">
+          <div class="stat card r" style="--d:3"><span class="kicker">2014 · Mt. Gox</span><span class="num">~850,000 BTC</span><span class="lbl">потеряно, когда рухнула крупнейшая биржа своего времени.</span></div>
+          <div class="stat card r" style="--d:4"><span class="kicker">2022 · FTX</span><span class="num">~8 млрд $</span><span class="lbl">средств клиентов пропало. Основателя позже осудили за мошенничество.</span></div>
+          <div class="stat card r" style="--d:5"><span class="kicker">2022 · Celsius</span><span class="num">1,7 млн</span><span class="lbl">пользователей остались без доступа, когда вывод средств заморозили.</span></div>
+        </div>
+        <p class="punch r mt" style="--d:6">Сам Биткоин ни разу не подвёл. <span class="accent">Подвели посредники — снова.</span></p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap">
+        <p class="kicker r">Безопасность</p>
+        <h2 class="display r" style="--d:1">Самая мощная компьютерная сеть <em>из когда-либо созданных</em>.</h2>
+        <div class="grid g4 mt">
+          <div class="stat card r" style="--d:2"><span class="num">10<sup>21</sup>+</span><span class="lbl">попыток в секунду защищают сеть (более 1 зеттахеша/с, 2025)</span></div>
+          <div class="stat card r" style="--d:3"><span class="num">99.98%</span><span class="lbl">времени работы с января 2009. Открыт 24/7/365, без выходных.</span></div>
+          <div class="stat card r" style="--d:4"><span class="num">0</span><span class="lbl">раз сам реестр Биткоина был взломан или подделан</span></div>
+          <div class="stat card r" style="--d:5"><span class="num">~144</span><span class="lbl">новых блоков в день, каждый всё глубже хоронит прошлое</span></div>
+        </div>
+        <p class="lead r mt" style="--d:6">Чтобы переписать историю Биткоина, нужно превзойти по вычислительной мощности всю майнинговую индустрию планеты, потратив миллиарды на оборудование и энергию, — и всё это на глазах у всех. Это как пытаться тайно отредактировать книгу, идентичные копии которой хранят десятки тысяч незнакомцев, а новая страница в ней появляется каждые десять минут.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap">
+        <p class="kicker r">Не доверяй. Проверяй.</p>
+        <h2 class="display r" style="--d:1">Отделение <em>денег от государства</em>.</h2>
+        <div class="versus mt">
+          <div class="card vs-a r" style="--d:2">
+            <h3>Сегодня: поверьте мне</h3>
+            <ul>
+              <li>Верьте, что центробанк не напечатает слишком много</li>
+              <li>Верьте, что ваш банк не раздаст в кредит слишком много</li>
+              <li>Верьте аудиторам, регуляторам, политикам</li>
+              <li>Верьте, что правила не поменяются завтра</li>
+            </ul>
+          </div>
+          <div class="vs-mid r" style="--d:3">vs</div>
+          <div class="card vs-b r" style="--d:4">
+            <h3>Биткоин: проверьте сами</h3>
+            <ul>
+              <li>Любой может запустить узел на дешёвом компьютере</li>
+              <li>Проверьте сами каждую созданную монету и каждое правило</li>
+              <li>Правила обеспечивают пользователи, а не правители</li>
+              <li>Чтобы их изменить, нужно почти всеобщее согласие</li>
+            </ul>
+          </div>
+        </div>
+        <p class="lead r mt" style="--d:5">Мы отделили церковь от государства, чтобы ни одно правительство не диктовало вам, во что верить. Биткоин отделяет деньги от государства, чтобы ни одно правительство не могло тихо обесценить то, что вы заработали.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap">
+        <p class="kicker r">Деньги свободы</p>
+        <h2 class="display r" style="--d:1">Деньги, которые <em>нельзя остановить</em>.</h2>
+        <p class="lead r" style="--d:2">Биткоину всё равно, кто вы, где родились и за кого голосовали. Для миллиардов людей это не философия. Это выживание.</p>
+        <div class="grid g4 mt stories">
+          <div class="card r" style="--d:3"><span class="kicker">Афганистан</span><p>Предпринимательница Роя Махбуб платила женщинам и девушкам в биткоине, когда им не разрешали распоряжаться банковским счётом, — и эти деньги действительно принадлежали им.</p></div>
+          <div class="card r" style="--d:4"><span class="kicker">Нигерия · 2020</span><p>Когда банки заморозили счета коалиции, поддерживавшей протесты #EndSARS против полицейского насилия, она перешла на пожертвования в биткоине и продолжила работу.</p></div>
+          <div class="card r" style="--d:5"><span class="kicker">Украина · 2022</span><p>В первые недели вторжения со всего мира пришло более 100 млн $ криптопожертвований — за часы, а не недели.</p></div>
+          <div class="card r" style="--d:6"><span class="kicker">Венесуэла</span><p>Семьи защищали сбережения от гиперинфляции, а беженцы уезжали, запомнив своё состояние в виде двенадцати слов.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CHAPTER V ============================== -->
+    <section class="slide chapter" id="ch5" data-mood="orange" data-chapter="V · Сравнение" data-toc="Сравнение">
+      <div class="wrap">
+        <div class="numeral r wipe" translate="no">V</div>
+        <p class="kicker r" style="--d:1">Глава пятая</p>
+        <h2 class="display r" style="--d:2">Наличные, золото, дома, акции и биткоин</h2>
+        <p class="lead r" style="--d:3">Честное сравнение того, где люди хранят труд всей жизни.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange" id="compare">
+      <div class="wrap">
+        <p class="kicker r">Таблица оценок</p>
+        <h2 class="display compact r" style="--d:1">Где хранить <em>ваше время</em>?</h2>
+        <div class="matrix-wrap r" style="--d:2">
+          <table class="matrix" id="matrix"></table>
+        </div>
+        <div class="verdict r" style="--d:3" id="verdict" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange" id="hardness">
+      <div class="wrap split">
+        <div>
+          <p class="kicker r">Твёрже золота</p>
+          <h2 class="display r" style="--d:1">Уже <em>реже золота</em> — и становится ещё реже.</h2>
+          <p class="lead r" style="--d:2">После халвинга 2024 года предложение биткоина растёт медленнее, чем золота. В 2028 году оно снова сократится вдвое, и ещё раз, пока новое предложение не дойдёт до нуля.</p>
+          <p class="lead r" style="--d:3">Золото: редкость, в которую нужно верить. Биткоин: редкость, которую <strong>может проверить каждый</strong>, со скоростью интернета.</p>
+        </div>
+        <div class="chart-box r" style="--d:2">
+          <div class="chart" id="chart-hard" role="img" aria-label="Диаграмма годового прироста предложения: доллар США около 7%, золото около 1,7%, биткоин около 0,8% сегодня, 0,4% после 2028 и 0% после 2140."></div>
+          <p class="src">Новое предложение в год. USD: средний рост M2 с 1960. Золото: оценки World Gold Council. Биткоин: график протокола.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CHAPTER VI ============================== -->
+    <section class="slide chapter" id="ch6" data-mood="orange" data-chapter="VI · Суверенное мышление" data-toc="Суверенное мышление">
+      <div class="wrap">
+        <div class="numeral r wipe" translate="no">VI</div>
+        <p class="kicker r" style="--d:1">Глава шестая</p>
+        <h2 class="display r" style="--d:2">Суверенное мышление</h2>
+        <p class="lead r" style="--d:3">Исправь деньги — исправишь мир.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap">
+        <p class="kicker r">Временное предпочтение</p>
+        <h2 class="display r" style="--d:1">Когда деньги сохраняют ценность, <em>можно мыслить десятилетиями</em>.</h2>
+        <div class="versus mt">
+          <div class="card vs-a r" style="--d:2">
+            <h3>Тающие деньги учат</h3>
+            <ul>
+              <li>Трать сейчас, завтра будет дешевле</li>
+              <li>Бери в долг, инфляция его съест</li>
+              <li>Гоняйся за доходностью, чтобы стоять на месте</li>
+              <li>Краткосрочное мышление повсюду</li>
+            </ul>
+          </div>
+          <div class="vs-mid r" style="--d:3">→</div>
+          <div class="card vs-b r" style="--d:4">
+            <h3>Твёрдые деньги учат</h3>
+            <ul>
+              <li>Бережливость вознаграждается, а не наказывается</li>
+              <li>Покупай меньше, но лучше и надолго</li>
+              <li>Вкладывай только в то, что действительно того стоит</li>
+              <li>Планируй ради детей своих детей</li>
+            </ul>
+          </div>
+        </div>
+        <p class="lead r mt" style="--d:5">Экономисты называют это <strong>временным предпочтением</strong>: насколько вы цените будущее по сравнению с настоящим. Люди с низким временным предпочтением сажали сады и строили соборы, которые не надеялись увидеть достроенными. Хорошие деньги снова делают терпение разумным.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap split">
+        <div>
+          <p class="kicker r">Миф о дефляции</p>
+          <h2 class="display r" style="--d:1">Цены <em>должны</em> падать.</h2>
+          <p class="lead r" style="--d:2">Технологии удешевляют производство почти всего: вычислений, телевизоров, солнечных панелей, связи. В мире честных денег эти достижения доходят до вас в виде более низких цен.</p>
+          <p class="lead r" style="--d:3">В нашем мире новые деньги съедают их раньше, чем вы их увидите. Падение цен благодаря прогрессу — не кризис. <strong>Это производительность человечества, наконец-то разделённая со всеми.</strong></p>
+        </div>
+        <div class="stack">
+          <div class="card r" style="--d:3"><h3>«Но тогда никто не будет тратить!»</h3><p>Телевизоры и телефоны каждый год дешевеют и становятся лучше, а люди всё равно их покупают. Вы покупаете то, что нужно, когда нужно. Просто перестаёте покупать ненужный хлам.</p></div>
+          <div class="card r" style="--d:4"><h3>Что почитать</h3><p>Книга Джеффа Бута <em>The Price of Tomorrow</em> объясняет, почему технологии дефляционны и почему наша денежная система с этим борется.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap">
+        <p class="kicker r">Из клиента — в собственника</p>
+        <h2 class="display r" style="--d:1">Перемена сначала происходит <em>в голове</em>.</h2>
+        <ul class="shift mt">
+          <li class="r" style="--d:2"><span>Просить разрешения</span><i>→</i><b>Без разрешений</b></li>
+          <li class="r" style="--d:3"><span>Доверять институтам</span><i>→</i><b>Проверять самому</b></li>
+          <li class="r" style="--d:4"><span>Арендовать своё богатство у банка</span><i>→</i><b>Держать свои ключи</b></li>
+          <li class="r" style="--d:5"><span>Правила, меняющиеся указом</span><i>→</i><b>Правила в открытом коде</b></li>
+          <li class="r" style="--d:6"><span>Тратить сегодня, волноваться завтра</span><i>→</i><b>Копить, строить и планировать на поколения</b></li>
+          <li class="r" style="--d:7"><span>Зависимый</span><i>→</i><b>Суверенный</b></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================== CHAPTER VII ============================== -->
+    <section class="slide chapter" id="ch7" data-mood="orange" data-chapter="VII · Честные вопросы" data-toc="Честные вопросы">
+      <div class="wrap">
+        <div class="numeral r wipe" translate="no">VII</div>
+        <p class="kicker r" style="--d:1">Глава седьмая</p>
+        <h2 class="display r" style="--d:2">Честные вопросы</h2>
+        <p class="lead r" style="--d:3">Скептицизм — это здорово. Вот прямые ответы.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange" id="faq">
+      <div class="wrap">
+        <p class="kicker r">Частые возражения</p>
+        <h2 class="display r" style="--d:1">«Да, но…»</h2>
+        <div class="faq mt">
+          <details class="r" style="--d:2"><summary>Не слишком ли он волатилен?</summary><p>Да, сегодня это так. Новый денежный актив растёт с нуля до мирового масштаба, и цена по пути скачет. Волатильность — это плата за то, что вы пришли рано, и с ростом принятия она, как правило, снижается. По состоянию на 2025 год каждый четырёхлетний период в истории биткоина заканчивался выше, чем начинался, но прошлые результаты ничего не гарантируют. Держите только ту сумму, которую можете не трогать четыре года и больше.</p></details>
+          <details class="r" style="--d:2"><summary>Разве им не пользуются преступники?</summary><p>В основном нет. Chainalysis оценивает незаконную активность менее чем в 1% объёма криптотранзакций, тогда как ООН оценивает, что ежегодно отмывается 2–5% мирового ВВП, в основном в долларах и евро. А публичный реестр, навсегда записывающий каждую транзакцию, — ужасное место, чтобы прятать преступления.</p></details>
+          <details class="r" style="--d:3"><summary>Разве он не тратит энергию впустую?</summary><p>Энергия — это то, что делает реестр невозможным для подделки. Считать ли это «пустой тратой», зависит от того, стоит ли, по-вашему, защищать честные деньги. Больше половины майнинга уже работает на устойчивых источниках (Cambridge, 2025). Майнеры могут размещаться где угодно, поэтому покупают изолированную и избыточную энергию, которая иначе пропала бы, помогают финансировать новые ветровые и солнечные проекты (Cornell, 2023) и стабилизировать энергосети.</p></details>
+          <details class="r" style="--d:3"><summary>Разве государства не могут его запретить?</summary><p>Китай запретил майнинг в 2021 году, а вычислительная мощность сети примерно за год обновила рекорды. Биткоин — это просто информация: математику не запретишь. Тем временем США одобрили спотовые биткоин-ETF в 2024 году и создали Стратегический биткоин-резерв в 2025-м.</p></details>
+          <details class="r" style="--d:4"><summary>А нельзя сделать лучше?</summary><p>Скопировать можно код, но не сеть. Пробовали тысячи. Почти у всех есть основатель, компания, инсайдеры, получившие монеты первыми, или команда, способная менять правила. Честный запуск Биткоина, исчезнувший создатель, 17 лет истории и непревзойдённую безопасность скопировать нельзя — так же как копия кода Википедии не даст вам Википедию.</p></details>
+          <details class="r" style="--d:4"><summary>Я уже опоздал?</summary><p>Так говорили при цене 1 $, 100 $, 1000 $ и 10 000 $. Его объявляли «мёртвым» больше 400 раз. Общая стоимость биткоина всё ещё лишь доля стоимости золота, и лишь малая часть человечества хранит его самостоятельно. Спрашивать об этом сегодня — всё равно что в 1999 году спрашивать, не опоздали ли вы к интернету.</p></details>
+          <details class="r" style="--d:5"><summary>Это не финансовая пирамида?</summary><p>Пирамиде нужен организатор, который обещает доходность и платит ранним инвесторам деньгами новых. У Биткоина нет организатора, нет эмитента, нет обещанной доходности, и никто никому не платит. Это открытое ПО, и каждую монету может проверить любой.</p></details>
+          <details class="r" style="--d:5"><summary>А если я потеряю ключи?</summary><p>Тогда никто не восстановит их за вас. Это цена настоящей собственности. Начните с малого, потренируйтесь восстанавливать кошелёк из сид-фразы, храните резервные копии в разных надёжных местах и продумайте, как ваша семья получит наследство. Мультиподписные схемы убирают единую точку отказа.</p></details>
+          <details class="r" style="--d:6"><summary>Квантовые компьютеры его не взломают?</summary><p>Сегодняшние квантовые компьютеры далеки от того, чтобы быть угрозой. Когда станут, перед той же проблемой окажутся банки, правительства и весь интернет. Биткоин тоже может обновиться: предложения квантово-устойчивых подписей уже открыто разрабатываются.</p></details>
+          <details class="r" style="--d:6"><summary>Не слишком ли это сложно для меня?</summary><p>Чтобы отправить письмо, не нужно понимать, как работают почтовые серверы. Современные кошельки просты, как банковское приложение. Начните с пары долларов, потренируйтесь отправлять и получать, а глубокие вещи изучайте постепенно. Самое трудное — не технология. А разучиться тому, чему нас учили о деньгах.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CHAPTER VIII ============================== -->
+    <section class="slide chapter" id="ch8" data-mood="orange" data-chapter="VIII · Ваши первые шаги" data-toc="Ваши первые шаги">
+      <div class="wrap">
+        <div class="numeral r wipe" translate="no">VIII</div>
+        <p class="kicker r" style="--d:1">Глава восьмая</p>
+        <h2 class="display r" style="--d:2">Ваши первые шаги</h2>
+        <p class="lead r" style="--d:3">Сначала любопытство. Потом сатоши. Ключи — всегда.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap">
+        <p class="kicker r">Простой путь</p>
+        <h2 class="display r" style="--d:1">Изучайте, начинайте с малого, <em>держите свои ключи</em>.</h2>
+        <div class="grid g3 mt path">
+          <div class="card r" style="--d:2"><span class="step-n">1</span><h3>Сначала учитесь</h3><p>Тратьте часы, а не минуты. Читайте, слушайте, задавайте вопросы. Именно понимание помогает пережить волатильность.</p></div>
+          <div class="card r" style="--d:3"><span class="step-n">2</span><h3>Начните с малого</h3><p>Купите сатоши на пару долларов в надёжном регулируемом сервисе. Многие регулярно покупают небольшую фиксированную сумму вместо того, чтобы угадывать момент.</p></div>
+          <div class="card r" style="--d:4"><span class="step-n">3</span><h3>Заберите на хранение</h3><p>Выведите на кошелёк, который контролируете сами. Для больших сумм используйте аппаратный кошелёк, хранящий ключи офлайн.</p></div>
+          <div class="card r" style="--d:5"><span class="step-n">4</span><h3>Берегите сид-фразу</h3><p>Запишите её на бумаге или стали. Никогда не фотографируйте, не храните в облаке и не вводите на сайтах. Никто добросовестный никогда её не попросит.</p></div>
+          <div class="card r" style="--d:6"><span class="step-n">5</span><h3>Проверяйте</h3><p>Когда будете готовы, запустите свой узел. Тогда не придётся верить кому-то на слово.</p></div>
+          <div class="card r" style="--d:7"><span class="step-n">6</span><h3>Передайте дальше</h3><p>Объясните это тому, кто вам дорог. Именно так распространялась каждая оранжевая таблетка.</p></div>
+        </div>
+        <p class="src r mt" style="--d:8">Эта презентация — образовательная, а не финансовая рекомендация. Проводите собственное исследование и никогда не вкладывайте больше, чем готовы потерять.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange" id="library">
+      <div class="wrap">
+        <p class="kicker r">Глубже · Читать</p>
+        <h2 class="display r" style="--d:1"><em>Библиотека</em> кроличьей норы.</h2>
+        <div class="grid g4 mt books">
+          <a class="card book r" style="--d:2" href="https://bitcoin.org/bitcoin.pdf" target="_blank" rel="noopener"><span class="kicker">Satoshi Nakamoto · 2008</span><h3>Белая книга Биткоина</h3><p>Девять страниц, с которых всё началось. Читается на удивление легко.</p></a>
+          <div class="card book r" style="--d:3"><span class="kicker">Saifedean Ammous</span><h3>The Bitcoin Standard</h3><p>История денег — от ракушек к золоту и биткоину.</p></div>
+          <div class="card book r" style="--d:4"><span class="kicker">Lyn Alden</span><h3>Broken Money</h3><p>Как на самом деле работает финансовая система и почему она подводит обычных людей.</p></div>
+          <div class="card book r" style="--d:5"><span class="kicker">Jeff Booth</span><h3>The Price of Tomorrow</h3><p>Почему технологии дефляционны и почему это хорошая новость.</p></div>
+          <div class="card book r" style="--d:6"><span class="kicker">Alex Gladstein</span><h3>Check Your Financial Privilege</h3><p>Биткоин глазами людей, живущих при авторитарных режимах.</p></div>
+          <a class="card book r" style="--d:7" href="https://mempool.space" target="_blank" rel="noopener"><span class="kicker">Инструмент · mempool.space</span><h3>Смотрите на сеть вживую</h3><p>Как добываются блоки и подтверждаются транзакции в реальном времени.</p></a>
+          <a class="card book energy r" style="--d:8" href="https://news.cornell.edu/stories/2023/11/bitcoin-could-support-renewable-energy-development" target="_blank" rel="noopener"><span class="kicker">Энергия · Cornell · 2023</span><h3>From Mining to Mitigation</h3><p>Рецензируемое исследование: майнинг может помочь финансировать новые ветровые и солнечные электростанции, покупая их энергию до подключения к сети.</p></a>
+          <a class="card book energy r" style="--d:9" href="https://www.jbs.cam.ac.uk/2025/cambridge-study-sustainable-energy-rising-in-bitcoin-mining/" target="_blank" rel="noopener"><span class="kicker">Энергия · Cambridge · 2025</span><h3>Digital Mining Industry Report</h3><p>52,4% майнинга уже работает на устойчивой энергии против 37,6% в 2022 году. Доля угля упала с 36,6% до 8,9%.</p></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange" id="watch">
+      <div class="wrap">
+        <p class="kicker r">Глубже · Смотреть и слушать</p>
+        <h2 class="display r" style="--d:1">Фильмы, которыми стоит делиться, <em>голоса, за которыми стоит следить</em>.</h2>
+        <div class="media mt">
+          <div class="films">
+            <h3 class="col-h r" style="--d:2">Фильмы · бесплатно на YouTube (на английском)</h3>
+            <a class="film card r" style="--d:2" href="https://www.youtube.com/watch?v=YtFOxNbmD38" target="_blank" rel="noopener">
+              <span class="thumb"><img src="https://i.ytimg.com/vi/YtFOxNbmD38/hqdefault.jpg" alt="" loading="lazy"><i aria-hidden="true"></i></span>
+              <span class="film-t"><span class="kicker">Joe Bryan · Начните здесь</span><b>What's the Problem?</b><small>Без жаргона: почему так многое в современной жизни кажется сломанным — и как всё сводится к деньгам. Лучшее первое видео, чтобы поделиться.</small></span>
+            </a>
+            <a class="film card r" style="--d:3" href="https://www.youtube.com/watch?v=ZKwqNgG-Sv4" target="_blank" rel="noopener">
+              <span class="thumb"><img src="https://i.ytimg.com/vi/ZKwqNgG-Sv4/hqdefault.jpg" alt="" loading="lazy"><i aria-hidden="true"></i></span>
+              <span class="film-t"><span class="kicker">Art of the Problem</span><b>Bitcoin: The Trust Machine</b><small>Прекрасно анимированное объяснение того, как на самом деле работает биткоин, с самых основ.</small></span>
+            </a>
+            <a class="film card r" style="--d:4" href="https://www.youtube.com/watch?v=oksraL7wN6Q" target="_blank" rel="noopener">
+              <span class="thumb"><img src="https://i.ytimg.com/vi/oksraL7wN6Q/hqdefault.jpg" alt="" loading="lazy"><i aria-hidden="true"></i></span>
+              <span class="film-t"><span class="kicker">Документальный фильм · 2024</span><b>God Bless Bitcoin</b><small>Деньги, мораль и свобода: как сломанные деньги формируют общество и почему биткоин даёт надежду.</small></span>
+            </a>
+          </div>
+          <div class="pods">
+            <h3 class="col-h r" style="--d:2">Подкасты, которые стоят вашего времени</h3>
+            <ul class="pod-list">
+              <li class="r" style="--d:3"><a href="https://podcasts.apple.com/us/podcast/coin-stories/id1569130932" target="_blank" rel="noopener"><b>Coin Stories</b><span>Natalie Brunell</span><small>Понятные новичкам разговоры о деньгах, инфляции и свободе.</small></a></li>
+              <li class="r" style="--d:4"><a href="https://www.bitcoinaudible.com" target="_blank" rel="noopener"><b>Bitcoin Audible</b><span>Guy Swann</span><small>Лучшие эссе о биткоине — вслух и с обсуждением.</small></a></li>
+              <li class="r" style="--d:5"><a href="https://www.theinvestorspodcast.com/bitcoin-fundamentals/" target="_blank" rel="noopener"><b>Bitcoin Fundamentals</b><span>Preston Pysh</span><small>Биткоин с точки зрения инвестиций и макроэкономики.</small></a></li>
+              <li class="r" style="--d:6"><a href="https://www.whatbitcoindid.com" target="_blank" rel="noopener"><b>What Bitcoin Did</b><span>Длинные интервью</span><small>Люди, политика и идеи, которые формируют биткоин.</small></a></li>
+              <li class="r" style="--d:7"><a href="https://saifedean.com/podcast" target="_blank" rel="noopener"><b>The Bitcoin Standard Podcast</b><span>Saifedean Ammous</span><small>Экономика, твёрдые деньги и история денег.</small></a></li>
+              <li class="r" style="--d:8"><a href="https://www.stephanlivera.com" target="_blank" rel="noopener"><b>Stephan Livera Podcast</b><span>Stephan Livera</span><small>Глубоко о самохранении, Lightning и технологиях.</small></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide finale" data-mood="orange" data-chapter="Эпилог" data-toc="Эпилог">
+      <div class="wrap narrow center">
+        <div class="mini-pill r zoom" aria-hidden="true"><span></span><span></span></div>
+        <h2 class="display huge r" style="--d:1">Оранжевая таблетка — не о том, чтобы разбогатеть.<br><em>Она о том, чтобы стать свободным.</em></h2>
+        <blockquote class="r" style="--d:2">
+          <p>«Корневая проблема обычной валюты — в том огромном доверии, которое требуется, чтобы она работала».</p>
+          <cite>Сатоси Накамото, 2009</cite>
+        </blockquote>
+        <div class="cta center r" style="--d:3">
+          <button class="btn primary" id="share-btn">Поделитесь с тем, кто вам дорог</button>
+          <button class="btn ghost" data-go="first">↺ Начать сначала</button>
+        </div>
+        <div class="share-row r" style="--d:4" aria-label="Поделиться">
+          <a class="share-chip" data-share="x" target="_blank" rel="noopener">Поделиться в X</a>
+          <a class="share-chip" data-share="telegram" target="_blank" rel="noopener">Telegram</a>
+          <a class="share-chip" data-share="whatsapp" target="_blank" rel="noopener">WhatsApp</a>
+          <button class="share-chip" data-share="copy" type="button">Копировать ссылку</button>
+        </div>
+        <p class="signoff r" style="--d:5">Оставайтесь скромными. Копите сатоши. Храните свои ключи.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script>window.I18N_JS = {"Slide {n}: {title}":"Слайд {n}: {title}","The Orange Pill":"Оранжевая таблетка","1933 · gold confiscated":"1933 · конфискация золота","1971 · gold link cut":"1971 · отвязка от золота","{year} · value of a 1913 dollar":"{year} · стоимость доллара 1913 года","{amount} trillion":"{amount} трлн","M2 · January {year}":"M2 · январь {year}","{year} · {pct}% mined":"{year} · добыто {pct}%","Hard cap · 21,000,000":"Лимит · 21 000 000","Today · {pct}% mined":"Сегодня · добыто {pct}%","○ halvings: 2012 · 2016 · 2020 · 2024 …":"○ халвинги: 2012 · 2016 · 2020 · 2024 …","US dollar":"Доллар США","M2, avg since 1960":"M2, среднее с 1960","Gold":"Золото","new mine supply":"новая добыча","after ~2140":"после ~2140","Start mining":"Начать майнинг","Press start. Your browser will guess until it finds a valid hash.":"Нажмите «старт». Браузер будет угадывать, пока не найдёт подходящий хеш.","Mine again":"Майнить снова","\u003cspan class=\"pos\">Block found!\u003c/span> It took \u003cstrong>{n}\u003c/strong> guesses in {s}s. Now verify it, or edit the data and see what breaks.":"\u003cspan class=\"pos\">Блок найден!\u003c/span> Понадобилось \u003cstrong>{n}\u003c/strong> попыток за {s} с. Теперь проверьте его или измените данные и посмотрите, что сломается.","Guessing… {n} hashes per second":"Угадываем… {n} хешей в секунду","Resume mining":"Продолжить майнинг","Paused.":"Пауза.","Stop":"Стоп","\u003cspan class=\"pos\">✓ Valid.\u003c/span> Checked with \u003cstrong>one\u003c/strong> hash in {time}. Finding it took {n}. That asymmetry is the whole trick.":"\u003cspan class=\"pos\">✓ Верно.\u003c/span> Проверено \u003cstrong>одним\u003c/strong> хешем за {time}. На поиск ушло {n}. В этой асимметрии весь фокус.","a fraction of a millisecond":"долю миллисекунды","\u003cspan class=\"neg\">✗ Invalid.\u003c/span> The data changed, so the old proof no longer fits. Every node would reject this block.":"\u003cspan class=\"neg\">✗ Неверно.\u003c/span> Данные изменились, поэтому старое доказательство больше не подходит. Каждый узел отверг бы этот блок.","Re-mine":"Перемайнить","\u003cspan class=\"pos\">Still valid.\u003c/span>":"\u003cspan class=\"pos\">Всё ещё верно.\u003c/span>","\u003cspan class=\"neg\">Tampered!\u003c/span> Same nonce, one edit, completely different hash. Re-mining is the only way to fix it, and on the real network that means outrunning everyone.":"\u003cspan class=\"neg\">Подделка!\u003c/span> Тот же нонс, одна правка — совершенно другой хеш. Исправить это можно только повторным майнингом, а в реальной сети это значит обогнать всех.","Cash":"Наличные","Fiat money":"Фиатные деньги","Physical":"Физическое","Real estate":"Недвижимость","Land, buildings":"Земля, здания","Stocks":"Акции","Equities":"Ценные бумаги","Digital, sound":"Цифровые, твёрдые","Scarcity":"Редкость","Unlimited printing":"Печать без лимита","~1.7% new per year":"~1,7% новых в год","More can be built":"Можно построить ещё","Dilution, new issues":"Размытие, новые выпуски","Fixed at 21M":"Фиксировано: 21 млн","Portability":"Портативность","Needs permission":"Нужно разрешение","Heavy, guarded":"Тяжёлое, под охраной","Immovable":"Неподвижна","Through brokers":"Через брокеров","12 words, global":"12 слов, глобально","Divisibility":"Делимость","Down to cents":"До копеек","Hard to split":"Трудно делить","Can't sell a room":"Комнату не продашь","Fractional shares":"Дробные акции","100M sats each":"100 млн сатоши в каждом","Verifiability":"Проверяемость","Counterfeits exist":"Бывают подделки","Fake bars exist":"Бывают фальшивые слитки","Lawyers, registries":"Юристы, реестры","Trust the auditors":"Верьте аудиторам","Anyone, in seconds":"Любой, за секунды","Seizure resistance":"Защита от изъятия","Freezes, bail-ins":"Заморозки, бейл-ины","Confiscated in 1933":"Конфисковано в 1933","Taxed, expropriated":"Налоги, изъятие","Held by custodians":"У кастодианов","Self-custody":"Самохранение","No middleman needed":"Без посредников","Bank, central bank":"Банк, центробанк","If you hold it":"Если держите сами","Title, state, tax":"Право, государство, налоги","Managers, brokers":"Управляющие, брокеры","In self-custody":"При самохранении","Cost to hold":"Стоимость хранения","Inflation tax":"Инфляционный налог","Vaults, insurance":"Хранилища, страховка","Taxes, upkeep":"Налоги, содержание","Fees, dilution":"Комиссии, размытие","Near zero":"Почти ноль","Open 24/7, global":"Открыт 24/7, глобально","Bank hours":"Часы работы банка","Slow, physical":"Медленно, физически","Months to sell":"Месяцы на продажу","Market hours":"Часы торгов","Price stability today":"Стабильность цены сегодня","Short-term":"В краткосроке","Mature market":"Зрелый рынок","Mostly":"В основном","Cyclical":"Цикличны","Volatile (young)":"Волатилен (молод)","Track record":"История","Decades":"Десятилетия","5,000 years":"5000 лет","Centuries":"Века","Since 2009":"С 2009 года","A melting ice cube. Great for spending, terrible for saving. It is designed to lose purchasing power every year.":"Тающий кубик льда. Отлично для трат, ужасно для сбережений. Он спроектирован терять покупательную способность каждый год.","The hardest money for 5,000 years. But you can't email it, it's hard to verify, and governments have confiscated it before.":"Самые твёрдые деньги на протяжении 5000 лет. Но золото не отправишь по e-mail, его трудно проверить, и государства уже его конфисковывали.","Shelter turned into a savings account. Illiquid, taxed and immovable, and you can't sell a bedroom to buy groceries.":"Крыша над головой, ставшая сберегательным счётом. Неликвидно, облагается налогами, неподвижно — и спальню не продашь, чтобы купить продукты.","A claim on businesses that others run. Valuable, but diluted and custodied, and part of the \"growth\" is just money losing value.":"Право на компании, которыми управляют другие. Ценно, но размывается и хранится у посредников, а часть «роста» — это просто обесценивание денег.","Scarcer than gold, more portable than cash, divisible like stocks, and the only one you can truly own without anyone's permission. The trade-offs: volatility while it grows up, and the responsibility of holding your own keys.":"Реже золота, портативнее наличных, делится, как акции, и это единственное, чем можно по-настоящему владеть без чьего-либо разрешения. Компромиссы: волатильность, пока он взрослеет, и ответственность за хранение собственных ключей.","weak":"слабо","fair":"средне","strong":"сильно","Comparison of cash, gold, real estate, stocks and bitcoin":"Сравнение наличных, золота, недвижимости, акций и биткоина","Property":"Свойство","Music on":"Музыка вкл.","Music off":"Музыка выкл.","Music playing · tap to mute":"Играет музыка · нажмите, чтобы выключить","Turn on the music":"Включить музыку","You're not bad with money. Your money is bad. 🟠 A free 20-minute interactive presentation on inflation, money and bitcoin:":"Дело не в том, что вы плохо обращаетесь с деньгами. Плохи сами деньги. 🟠 Бесплатная 20-минутная интерактивная презентация об инфляции, деньгах и биткоине:","Link copied. Pass it on 🧡":"Ссылка скопирована. Передайте дальше 🧡"};</script><script src="../js/main.js" defer></script>
+</body>
+</html>

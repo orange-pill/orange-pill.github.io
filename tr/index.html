@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="tr" class="no-js" data-mood="orange">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Turuncu Hap</title>
+  <meta name="description" content="Enflasyon sıradan insanları neden sessizce yoksullaştırıyor, para aslında nedir ve bitcoin neden insan özgürlüğü için bir araçtır. Sekiz bölümlük ücretsiz, etkileşimli bir sunum.">
+  <link rel="canonical" href="https://orange-pill.github.io/tr/">
+  <!-- i18n:alternates -->
+  <link rel="alternate" hreflang="en" href="https://orange-pill.github.io/">
+  <link rel="alternate" hreflang="es" href="https://orange-pill.github.io/es/">
+  <link rel="alternate" hreflang="pt" href="https://orange-pill.github.io/pt/">
+  <link rel="alternate" hreflang="fr" href="https://orange-pill.github.io/fr/">
+  <link rel="alternate" hreflang="de" href="https://orange-pill.github.io/de/">
+  <link rel="alternate" hreflang="pl" href="https://orange-pill.github.io/pl/">
+  <link rel="alternate" hreflang="ru" href="https://orange-pill.github.io/ru/">
+  <link rel="alternate" hreflang="tr" href="https://orange-pill.github.io/tr/">
+  <link rel="alternate" hreflang="zh" href="https://orange-pill.github.io/zh/">
+  <link rel="alternate" hreflang="ja" href="https://orange-pill.github.io/ja/">
+  <link rel="alternate" hreflang="hi" href="https://orange-pill.github.io/hi/">
+  <link rel="alternate" hreflang="x-default" href="https://orange-pill.github.io/">
+  <!-- /i18n:alternates -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The Orange Pill">
+  <meta property="og:url" content="https://orange-pill.github.io/tr/">
+  <meta property="og:title" content="Turuncu Hap: Sorun sende değil, paranda.">
+  <meta property="og:description" content="Enflasyon sıradan insanları neden sessizce yoksullaştırıyor ve bitcoin neden insan özgürlüğü için bir araçtır. Sekiz bölümlük ücretsiz, etkileşimli bir sunum.">
+  <meta property="og:image" content="https://orange-pill.github.io/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Turuncu Hap: &quot;Sorun sende değil, paranda&quot; yazısının yanında turuncu bir bitcoin kapsülü.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Turuncu Hap: Sorun sende değil, paranda.">
+  <meta name="twitter:description" content="Enflasyon, para ve bitcoin üzerine ücretsiz, etkileşimli bir sunum. Sekiz bölüm, yaklaşık 20 dakika.">
+  <meta name="twitter:image" content="https://orange-pill.github.io/assets/og-image.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LearningResource",
+    "name": "Turuncu Hap",
+    "headline": "You're not bad with money. Your money is bad.",
+    "description": "A free, interactive presentation in eight chapters on inflation, the history of money, and why bitcoin empowers ordinary people.",
+    "url": "https://orange-pill.github.io/tr/",
+    "image": "https://orange-pill.github.io/assets/og-image.png",
+    "inLanguage": "tr",
+    "isAccessibleForFree": true,
+    "learningResourceType": "Presentation",
+    "educationalLevel": "Beginner",
+    "about": [
+      "Bitcoin",
+      "Inflation",
+      "Money",
+      "Sound money",
+      "Self-custody"
+    ],
+    "timeRequired": "PT20M"
+  }
+  </script>
+  <meta name="theme-color" content="#09090a">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <canvas id="rain" aria-hidden="true"></canvas>
+  <div class="glow" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div id="progress" aria-hidden="true"><span></span></div>
+
+  <header class="topbar">
+    <a class="brand" href="#start" aria-label="Başa dön"><span class="brand-mark" translate="no">₿</span><span>Turuncu Hap</span></a>
+    <div class="top-actions">
+      <div class="lang-wrap">
+        <button class="lang-btn" id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-controls="lang-pop" aria-label="Dil"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z" /></svg><span translate="no" id="lang-code">EN</span></button>
+        <ul class="lang-pop" id="lang-pop" hidden translate="no">
+          <li><a href="../" hreflang="en" lang="en" data-lang="en">English</a></li>
+          <li><a href="../es/" hreflang="es" lang="es" data-lang="es">Español</a></li>
+          <li><a href="../pt/" hreflang="pt" lang="pt" data-lang="pt">Português</a></li>
+          <li><a href="../fr/" hreflang="fr" lang="fr" data-lang="fr">Français</a></li>
+          <li><a href="../de/" hreflang="de" lang="de" data-lang="de">Deutsch</a></li>
+          <li><a href="../pl/" hreflang="pl" lang="pl" data-lang="pl">Polski</a></li>
+          <li><a href="../ru/" hreflang="ru" lang="ru" data-lang="ru">Русский</a></li>
+          <li><a href="../tr/" hreflang="tr" lang="tr" data-lang="tr">Türkçe</a></li>
+          <li><a href="../zh/" hreflang="zh" lang="zh" data-lang="zh">中文</a></li>
+          <li><a href="../ja/" hreflang="ja" lang="ja" data-lang="ja">日本語</a></li>
+          <li><a href="../hi/" hreflang="hi" lang="hi" data-lang="hi">हिन्दी</a></li>
+        </ul>
+      </div>
+      <button class="sound-btn" id="sound-btn" aria-pressed="false" aria-label="Müzik" hidden><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="sound-label">Müzik kapalı</span></button>
+      <audio id="music" src="../assets/music/soundtrack.mp3" preload="none" loop></audio>
+      <button class="menu-btn" data-open-menu="" aria-haspopup="dialog" aria-controls="menu"><span>İçindekiler</span><i></i></button>
+    </div>
+  </header>
+
+  <nav id="dots" aria-label="Slaytlar"></nav>
+
+  <div class="hud" aria-live="polite">
+    <span class="hud-chapter" id="hud-chapter">Giriş</span>
+    <div class="hud-ctrl">
+      <button class="hud-btn" data-go="prev" aria-label="Önceki slayt">↑</button>
+      <span class="hud-count" id="hud-count">01 / 40</span>
+      <button class="hud-btn" data-go="next" aria-label="Sonraki slayt">↓</button>
+    </div>
+  </div>
+
+  <div id="menu" role="dialog" aria-modal="true" aria-label="İçindekiler" hidden>
+    <div class="menu-inner">
+      <div class="menu-head">
+        <p class="kicker">İçindekiler</p>
+        <button class="menu-close" data-close-menu="" aria-label="İçindekileri kapat">✕</button>
+      </div>
+      <ol class="menu-list" id="menu-list"></ol>
+      <p class="menu-keys">Klavye: <kbd>↓</kbd> <kbd>↑</kbd> <kbd>Space</kbd> gezin · <kbd>M</kbd> içindekiler · <kbd>S</kbd> müzik · <kbd>F</kbd> tam ekran</p>
+    </div>
+  </div>
+
+  <main id="deck">
+
+    <!-- ============================== PROLOGUE ============================== -->
+    <section class="slide hero" id="start" data-mood="orange" data-chapter="Giriş">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="kicker r">Sekiz bölümlük etkileşimli bir sunum</p>
+          <h1 class="r" style="--d:1"><span class="o">Turuncu</span><br>Hap</h1>
+          <p class="hero-sub r" style="--d:2">Sorun sende değil.<br><em>Sorun paranda.</em></p>
+          <p class="lead r" style="--d:3">Sistem sıradan insanların birikimlerini neden sessizce eritiyor ve 2009'da ortaya çıkan, lideri olmayan, açık kaynaklı bir buluş neden çağımızın insan özgürlüğü için en önemli araçlarından biri olabilir.</p>
+          <div class="cta r" style="--d:4">
+            <button class="btn primary" data-go="next">Turuncu hapı al <span aria-hidden="true">→</span></button>
+            <button class="btn ghost" data-open-menu="">İçindekiler</button>
+          </div>
+          <button class="sound-hint r" style="--d:5" data-sound-toggle="" aria-pressed="false" hidden>♪ <span>Müziği aç</span></button>
+        </div>
+        <div class="pill-stage r zoom" style="--d:2" aria-hidden="true">
+          <div class="orbit o1"></div><div class="orbit o2"></div><div class="orbit o3"></div>
+          <div class="pill-tilt" id="pill-tilt"><div class="pill-float">
+            <svg class="pill-svg" viewBox="0 0 440 180" aria-hidden="true">
+              <defs>
+                <lineargradient id="capG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd58e" /><stop offset=".16" stop-color="#ffae45" /><stop offset=".5" stop-color="#f7931a" /><stop offset=".8" stop-color="#c46200" /><stop offset="1" stop-color="#7e3c00" /></lineargradient>
+                <lineargradient id="capEdge" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3a1a00" stop-opacity=".45" /><stop offset=".22" stop-color="#3a1a00" stop-opacity="0" /><stop offset=".86" stop-color="#3a1a00" stop-opacity="0" /><stop offset="1" stop-color="#3a1a00" stop-opacity=".35" /></lineargradient>
+                <lineargradient id="glassG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".30" /><stop offset=".35" stop-color="#fff" stop-opacity=".06" /><stop offset=".75" stop-color="#fff" stop-opacity=".04" /><stop offset="1" stop-color="#fff" stop-opacity=".22" /></lineargradient>
+                <lineargradient id="glassShade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity="0" /><stop offset=".55" stop-color="#000" stop-opacity="0" /><stop offset="1" stop-color="#2a1200" stop-opacity=".55" /></lineargradient>
+                <radialgradient id="bO" cx=".35" cy=".3" r=".75"><stop offset="0" stop-color="#ffe0a8" /><stop offset=".35" stop-color="#ffa733" /><stop offset="1" stop-color="#a14d00" /></radialgradient>
+                <radialgradient id="bG" cx=".35" cy=".3" r=".75"><stop offset="0" stop-color="#fff4c9" /><stop offset=".4" stop-color="#e8b955" /><stop offset="1" stop-color="#8a6416" /></radialgradient>
+                <radialgradient id="bW" cx=".35" cy=".3" r=".75"><stop offset="0" stop-color="#ffffff" /><stop offset=".45" stop-color="#efe7da" /><stop offset="1" stop-color="#9c9284" /></radialgradient>
+                <clippath id="bodyClip"><path d="M214 30 H360 A60 60 0 0 1 360 150 H214 Z" /></clippath>
+                <filter id="soft" x="-20%" y="-50%" width="140%" height="200%"><fegaussianblur stdDeviation="3" /></filter>
+                <filter id="softer" x="-20%" y="-50%" width="140%" height="200%"><fegaussianblur stdDeviation="1.4" /></filter>
+              </defs>
+              <!-- glass body with sats inside -->
+              <path d="M214 30 H360 A60 60 0 0 1 360 150 H214 Z" fill="rgba(20,12,6,.55)" />
+              <g clip-path="url(#bodyClip)">
+                <circle cx="275.7" cy="124.0" r="5" fill="url(#bO)" />
+<circle cx="390.1" cy="81.9" r="6" fill="url(#bO)" />
+<circle cx="304.0" cy="93.2" r="5" fill="url(#bO)" />
+<circle cx="254.7" cy="61.8" r="6" fill="url(#bO)" />
+<circle cx="316.9" cy="52.4" r="6.5" fill="url(#bO)" />
+<circle cx="409.9" cy="87.9" r="5" fill="url(#bO)" />
+<circle cx="294.2" cy="100.2" r="5" fill="url(#bO)" />
+<circle cx="338.5" cy="103.6" r="6.5" fill="url(#bO)" />
+<circle cx="289.8" cy="76.5" r="5.5" fill="url(#bO)" />
+<circle cx="404.8" cy="112.8" r="5" fill="url(#bO)" />
+<circle cx="373.3" cy="57.7" r="7" fill="url(#bO)" />
+<circle cx="275.0" cy="139.6" r="5.5" fill="url(#bO)" />
+<circle cx="321.6" cy="139.6" r="6" fill="url(#bO)" />
+<circle cx="394.1" cy="107.5" r="5" fill="url(#bO)" />
+<circle cx="361.5" cy="73.6" r="5.5" fill="url(#bO)" />
+<circle cx="278.0" cy="80.3" r="7.5" fill="url(#bO)" />
+<circle cx="363.3" cy="40.9" r="6.5" fill="url(#bO)" />
+<circle cx="266.0" cy="62.2" r="5" fill="url(#bO)" />
+<circle cx="259.9" cy="139.6" r="5.5" fill="url(#bO)" />
+<circle cx="362.5" cy="85.7" r="6.5" fill="url(#bO)" />
+<circle cx="354.0" cy="140.2" r="5.5" fill="url(#bO)" />
+<circle cx="344.8" cy="131.7" r="5" fill="url(#bO)" />
+<circle cx="337.2" cy="82.7" r="7" fill="url(#bO)" />
+<circle cx="242.8" cy="68.3" r="5.5" fill="url(#bO)" />
+<circle cx="399.9" cy="90.8" r="5.5" fill="url(#bO)" />
+<circle cx="357.5" cy="130.0" r="5" fill="url(#bO)" />
+<circle cx="266.5" cy="73.0" r="5" fill="url(#bO)" />
+<circle cx="385.7" cy="53.6" r="5.5" fill="url(#bO)" />
+<circle cx="303.6" cy="80.2" r="5.5" fill="url(#bO)" />
+<circle cx="306.5" cy="57.7" r="5.5" fill="url(#bO)" />
+<circle cx="276.9" cy="68.2" r="5" fill="url(#bO)" />
+<circle cx="375.5" cy="134.0" r="5" fill="url(#bO)" />
+<circle cx="320.9" cy="127.9" r="5" fill="url(#bO)" />
+<circle cx="279.9" cy="94.4" r="6" fill="url(#bO)" />
+<circle cx="383.5" cy="113.8" r="6.5" fill="url(#bO)" />
+<circle cx="256.1" cy="50.4" r="5" fill="url(#bO)" />
+<circle cx="268.0" cy="101.9" r="5" fill="url(#bO)" />
+<circle cx="287.6" cy="62.4" r="7.5" fill="url(#bO)" />
+<circle cx="239.2" cy="51.2" r="7" fill="url(#bO)" />
+<circle cx="293.1" cy="48.5" r="8" fill="url(#bO)" />
+<circle cx="310.8" cy="137.3" r="5.5" fill="url(#bO)" />
+<circle cx="383.8" cy="128.1" r="5" fill="url(#bO)" />
+<circle cx="381.2" cy="67.5" r="5.5" fill="url(#bO)" />
+<circle cx="393.1" cy="120.2" r="5" fill="url(#bO)" />
+<circle cx="297.5" cy="133.7" r="5" fill="url(#bO)" />
+<circle cx="385.3" cy="101.6" r="5.5" fill="url(#bO)" />
+<circle cx="403.3" cy="77.9" r="6" fill="url(#bO)" />
+<circle cx="227.0" cy="80.2" r="5" fill="url(#bO)" />
+<circle cx="334.2" cy="139.4" r="5.5" fill="url(#bO)" />
+<circle cx="374.1" cy="78.8" r="7.5" fill="url(#bO)" />
+<circle cx="280.1" cy="44.2" r="5" fill="url(#bO)" />
+<circle cx="250.3" cy="39.7" r="5.5" fill="url(#bO)" />
+<circle cx="356.0" cy="114.7" r="5" fill="url(#bO)" />
+<circle cx="320.3" cy="68.2" r="6.5" fill="url(#bO)" />
+<circle cx="371.4" cy="102.5" r="7" fill="url(#bO)" />
+<circle cx="312.0" cy="86.7" r="5.5" fill="url(#bO)" />
+<circle cx="249.6" cy="134.7" r="5.5" fill="url(#bO)" />
+<circle cx="313.2" cy="40.5" r="5.5" fill="url(#bO)" />
+<circle cx="282.0" cy="113.9" r="7" fill="url(#bO)" />
+<circle cx="327.5" cy="43.9" r="6.5" fill="url(#bO)" />
+<circle cx="234.2" cy="97.2" r="7.5" fill="url(#bO)" />
+<circle cx="365.0" cy="136.1" r="5" fill="url(#bO)" />
+<circle cx="396.5" cy="59.3" r="6.5" fill="url(#bO)" />
+<circle cx="371.0" cy="121.5" r="7.5" fill="url(#bO)" />
+<circle cx="235.1" cy="139.8" r="6" fill="url(#bO)" />
+<circle cx="333.4" cy="94.0" r="5" fill="url(#bO)" />
+<circle cx="343.9" cy="117.7" r="8" fill="url(#bO)" />
+<circle cx="346.7" cy="47.5" r="8" fill="url(#bG)" />
+<circle cx="294.8" cy="118.7" r="7" fill="url(#bG)" />
+<circle cx="340.2" cy="59.0" r="5" fill="url(#bG)" />
+<circle cx="231.1" cy="111.7" r="7.5" fill="url(#bG)" />
+<circle cx="328.0" cy="113.3" r="6" fill="url(#bG)" />
+<circle cx="294.8" cy="87.3" r="5" fill="url(#bG)" />
+<circle cx="249.9" cy="123.5" r="5.5" fill="url(#bG)" />
+<circle cx="393.7" cy="70.4" r="5.5" fill="url(#bG)" />
+<circle cx="302.2" cy="68.7" r="6.5" fill="url(#bG)" />
+<circle cx="256.8" cy="75.3" r="5.5" fill="url(#bG)" />
+<circle cx="235.9" cy="39.3" r="5" fill="url(#bG)" />
+<circle cx="264.3" cy="40.3" r="5.5" fill="url(#bG)" />
+<circle cx="227.7" cy="46.5" r="5.5" fill="url(#bG)" />
+<circle cx="345.7" cy="69.0" r="5.5" fill="url(#bG)" />
+<circle cx="326.4" cy="102.0" r="5.5" fill="url(#bG)" />
+<circle cx="318.3" cy="96.1" r="5" fill="url(#bG)" />
+<circle cx="350.8" cy="97.0" r="6.5" fill="url(#bG)" />
+<circle cx="304.9" cy="106.9" r="7.5" fill="url(#bG)" />
+<circle cx="233.9" cy="126.6" r="7" fill="url(#bG)" />
+<circle cx="332.0" cy="128.5" r="6" fill="url(#bG)" />
+<circle cx="256.7" cy="93.3" r="7" fill="url(#bG)" />
+<circle cx="317.2" cy="110.3" r="5" fill="url(#bG)" />
+<circle cx="263.2" cy="125.1" r="8" fill="url(#bG)" />
+<circle cx="379.4" cy="45.4" r="5" fill="url(#bG)" />
+<circle cx="285.7" cy="137.0" r="5.5" fill="url(#bG)" />
+<circle cx="231.5" cy="64.6" r="6.5" fill="url(#bW)" />
+<circle cx="351.6" cy="80.4" r="6" fill="url(#bW)" />
+<circle cx="258.9" cy="108.6" r="5" fill="url(#bW)" />
+<circle cx="247.9" cy="108.0" r="6" fill="url(#bW)" />
+<circle cx="327.5" cy="55.4" r="5" fill="url(#bW)" />
+<circle cx="356.6" cy="59.4" r="8" fill="url(#bW)" />
+<circle cx="269.2" cy="50.2" r="6" fill="url(#bW)" />
+<circle cx="242.9" cy="89.0" r="5" fill="url(#bW)" />
+<circle cx="409.9" cy="99.8" r="5" fill="url(#bW)" />
+<circle cx="310.0" cy="122.1" r="8" fill="url(#bW)" />
+<circle cx="268.9" cy="114.1" r="5" fill="url(#bW)" />
+<circle cx="268.0" cy="87.0" r="5" fill="url(#bW)" />
+<circle cx="382.5" cy="91.4" r="5.5" fill="url(#bW)" />
+<circle cx="334.3" cy="68.2" r="5.5" fill="url(#bW)" />
+<circle cx="323.7" cy="81.9" r="6.5" fill="url(#bW)" />
+<circle cx="238.0" cy="78.9" r="6.5" fill="url(#bW)" />
+                <rect x="210" y="26" width="220" height="130" fill="url(#glassShade)" />
+              </g>
+              <path d="M214 30 H360 A60 60 0 0 1 360 150 H214 Z" fill="url(#glassG)" stroke="rgba(255,255,255,.55)" stroke-width="1.4" />
+              <path d="M236 44 H356 A44 14 0 0 1 356 56 H236 A6 6 0 0 1 236 44 Z" fill="#fff" opacity=".55" filter="url(#soft)" />
+              <ellipse cx="392" cy="70" rx="6" ry="11" fill="#fff" opacity=".6" filter="url(#softer)" transform="rotate(30 392 70)" />
+              <path d="M240 140 H350" stroke="#fff" stroke-opacity=".28" stroke-width="2" stroke-linecap="round" filter="url(#softer)" />
+              <!-- orange cap -->
+              <path d="M226 25 H84 A65 65 0 0 0 84 155 H226 Z" fill="url(#capG)" />
+              <path d="M226 25 H84 A65 65 0 0 0 84 155 H226 Z" fill="url(#capEdge)" />
+              <path d="M226 25 V155" stroke="#5a2a00" stroke-opacity=".55" stroke-width="2.5" />
+              <path d="M222.5 27 V153" stroke="#ffd9a0" stroke-opacity=".45" stroke-width="1" />
+              <g transform="rotate(14 132 92)" font-family="Inter, system-ui, sans-serif" font-weight="800" font-size="70" text-anchor="middle">
+                <text x="132" y="117" fill="#ffe1ad" fill-opacity=".45">₿</text>
+                <text x="132" y="115" fill="#8a4100" fill-opacity=".5">₿</text>
+              </g>
+              <path d="M60 40 H212 A0 0 0 0 1 212 52 H70 A9 6 0 0 1 60 40 Z" fill="#fff" opacity=".6" filter="url(#soft)" />
+              <path d="M40 120 Q60 148 100 150 H210" fill="none" stroke="#ffcf87" stroke-opacity=".35" stroke-width="2" filter="url(#softer)" />
+            </svg>
+          </div></div>
+          <div class="pill-shadow"></div>
+        </div>
+      </div>
+      <div class="scroll-hint" aria-hidden="true"><span>Kaydır ya da ↓ tuşuna bas</span><i></i></div>
+    </section>
+
+    <!-- ============================== CHAPTER I ============================== -->
+    <section class="slide chapter" id="ch1" data-mood="cold" data-chapter="I · Büyük Sızıntı" data-toc="Büyük Sızıntı">
+      <div class="wrap">
+        <div class="numeral r wipe" translate="no">I</div>
+        <p class="kicker r" style="--d:1">Birinci bölüm</p>
+        <h2 class="display r" style="--d:2">Büyük Sızıntı</h2>
+        <p class="lead r" style="--d:3">Bir şeyler bozuk. Ve sorun sende değil.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="cold">
+      <div class="wrap">
+        <p class="kicker r">Tanıdık geliyor mu?</p>
+        <h2 class="display r" style="--d:1">Hiç olmadığı kadar çok çalışıyorsun.<br><em>Peki neden daha azını alabiliyorsun?</em></h2>
+        <div class="grid g4 mt">
+          <div class="card r" style="--d:2"><span class="card-n">01</span><p>Senin yaşındayken annenle babanın kazandığından fazlasını kazanıyorsun, ama onların sahip olduklarının daha azını karşılayabiliyorsun.</p></div>
+          <div class="card r" style="--d:3"><span class="card-n">02</span><p>Bir ev eskiden tipik bir hanenin yaklaşık <strong>3,5 yıllık</strong> gelirine mal oluyordu. Şimdi <strong>5 yıldan fazla</strong>.</p></div>
+          <div class="card r" style="--d:4"><span class="card-n">03</span><p>Bankada birikim yapmak anlamsız geliyor. Yatırım yapmak kumar gibi. Yine de yapıyorsun.</p></div>
+          <div class="card r" style="--d:5"><span class="card-n">04</span><p>Aynı haftalık market alışverişi her yıl daha pahalı ve buna kimse oy vermedi.</p></div>
+        </div>
+        <p class="punch r" style="--d:6">Sorun sende değil. <span class="accent">Sorun parada.</span></p>
+        <p class="src r" style="--d:6">ABD'de yeni ev medyan fiyatı ÷ medyan hane geliri, 1984 vs 2024 (ABD Nüfus Sayım Bürosu)</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="cold" id="icecube">
+      <div class="wrap split">
+        <div>
+          <p class="kicker r">Enflasyon için en iyi benzetme</p>
+          <h2 class="display r" style="--d:1">Birikimin güneşteki bir <em>buz küpü</em>.</h2>
+          <p class="lead r" style="--d:2">Gün gün eridiğini görmezsin ama eriyor. Enflasyon paranı almaz. Her bir biriminin her yıl, sessizce, daha az şey almasını sağlar.</p>
+          <div class="calc r" style="--d:3">
+            <label class="field">
+              <span>Bugünkü birikim</span>
+              <span class="money-input"><i>$</i><input id="calc-amount" type="number" inputmode="numeric" min="100" step="100" value="10000"></span>
+            </label>
+            <label class="field">
+              <span>Yıl: <strong id="calc-years-out">20</strong></span>
+              <input id="calc-years" type="range" min="1" max="50" value="20">
+            </label>
+            <div class="field">
+              <span>Yıllık alım gücü kaybı</span>
+              <div class="seg" role="radiogroup" aria-label="Enflasyon oranı">
+                <button role="radio" aria-checked="false" data-rate="0.02">%2<small>resmi hedef</small></button>
+                <button role="radio" aria-checked="true" data-rate="0.031">%3,1<small>1913'ten beri ABD ort.</small></button>
+                <button role="radio" aria-checked="false" data-rate="0.07">%7<small>para arzı artışı</small></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ice r zoom" style="--d:2">
+          <svg viewBox="0 0 320 300" class="ice-svg" aria-hidden="true">
+            <defs>
+              <lineargradient id="iceTop" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8f6ff" /><stop offset="1" stop-color="#b9def5" /></lineargradient>
+              <lineargradient id="iceL" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a6d3ef" /><stop offset="1" stop-color="#6fa9cf" /></lineargradient>
+              <lineargradient id="iceR" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cbe8fa" /><stop offset="1" stop-color="#8cc0e2" /></lineargradient>
+              <radialgradient id="puddle"><stop offset="0" stop-color="#8cc0e2" stop-opacity=".55" /><stop offset="1" stop-color="#8cc0e2" stop-opacity="0" /></radialgradient>
+            </defs>
+            <ellipse id="ice-puddle" cx="160" cy="250" rx="60" ry="14" fill="url(#puddle)" />
+            <g id="ice-cube" style="transform-origin:160px 250px">
+              <path d="M160 110 L240 150 L160 190 L80 150 Z" fill="url(#iceTop)" />
+              <path d="M80 150 L160 190 L160 250 L80 210 Z" fill="url(#iceL)" />
+              <path d="M240 150 L160 190 L160 250 L240 210 Z" fill="url(#iceR)" />
+              <path d="M104 152 L150 129" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".7" />
+              <path d="M96 170 L96 196" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".45" />
+            </g>
+          </svg>
+          <div class="ice-out">
+            <p class="ice-label"><strong id="calc-years-out2">20</strong> yıl sonra <strong id="calc-amount-out">$10,000</strong> ile ancak bugün</p>
+            <p class="ice-value" id="calc-real">$5,428</p>
+            <p class="ice-label">ile alınabilecek kadarını alabileceksin. Sessizce kaybedilen: <strong class="neg" id="calc-lost">46%</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="cold" id="purchasing">
+      <div class="wrap">
+        <p class="kicker r">Bir ABD dolarının alım gücü</p>
+        <h2 class="display r" style="--d:1">1913'ün bir doları bugün <em>3 sent</em> ediyor.</h2>
+        <div class="chart-box r" style="--d:2">
+          <div class="chart" id="chart-pp" role="img" aria-label="Çizgi grafik: 1913 dolarının alım gücü 1913'te 1,00 $'dan 2024'te yaklaşık 0,03 $'a düştü."></div>
+        </div>
+        <div class="row-note r" style="--d:3">
+          <p>Fed, bu grafiğin başladığı yıl olan 1913'te kuruldu. O zamandan beri dolar, alım gücünün <strong>~%97'sini</strong> kaybetti.</p>
+          <p class="src">Kaynak: ABD Çalışma İstatistikleri Bürosu, CPI-U yıllık ortalamaları</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="cold" id="m2">
+      <div class="wrap split wide-right">
+        <div>
+          <p class="kicker r">Enflasyon nereden geliyor?</p>
+          <h2 class="display r" style="--d:1">Daha fazla değer yaratmadılar. <em>Daha fazla dolar yarattılar.</em></h2>
+          <div class="stats-col">
+            <div class="stat r" style="--d:2"><span class="num">72×</span><span class="lbl">1960'takinden daha fazla dolar dolaşımda<br><small>(M2 para arzı, 0,3'ten ~21,5 trilyon $'a)</small></span></div>
+            <div class="stat r" style="--d:3"><span class="num">+40%</span><span class="lbl">sadece iki yılda M2 artışı<br><small>(Şubat 2020'den Aralık 2021'e)</small></span></div>
+          </div>
+          <p class="lead small r" style="--d:4">Reel ekonomi yılda yaklaşık %3 büyüdü. Para arzı yılda yaklaşık %7 büyüdü. Bu farkın görüldüğü yer fiyatlar.</p>
+        </div>
+        <div class="chart-box r" style="--d:2">
+          <div class="chart" id="chart-m2" role="img" aria-label="Çubuk grafik: ABD M2 para arzı 1960'ta yaklaşık 0,3 trilyon $'dan 2025'te yaklaşık 21,5 trilyon $'a çıktı."></div>
+          <p class="src">ABD M2 para arzı, trilyon dolar, her yılın ocak ayı (yaklaşık). Kaynak: Federal Reserve, FRED M2SL</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="cold">
+      <div class="wrap narrow center">
+        <p class="kicker r center-k">Bir düşünce deneyi</p>
+        <h2 class="display r" style="--d:1"><em>Monopoly</em> oynadığını düşün…</h2>
+        <div class="monopoly">
+          <p class="big-line r" style="--d:2">…oyunculardan biri aynı zamanda bankacı,</p>
+          <p class="big-line r" style="--d:3">ve istediği zaman yeni para basabiliyor.</p>
+          <p class="lead r" style="--d:4">Senin destenden tek bir banknot bile almıyor. Sadece kendi destesine eklemeye devam ediyor, ve elindeki her banknot öncekinden biraz daha az mülk alıyor.</p>
+          <p class="punch r" style="--d:5">Bu oyunu kim kazanır? <span class="accent">Hepimizin oynadığı oyun tam olarak bu.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="cold" id="cantillon">
+      <div class="wrap">
+        <p class="kicker r">Cantillon Etkisi</p>
+        <h2 class="display r" style="--d:1">Yeni para eşit dağıtılmaz. <em>Yokuş aşağı akar.</em></h2>
+        <div class="flow r" style="--d:2">
+          <div class="flow-node"><span class="flow-i">⎙</span><b>Para matbaası</b><small>Merkez bankası</small><em class="tag t0">yeni para</em></div>
+          <div class="flow-arrow"><i></i></div>
+          <div class="flow-node"><span class="flow-i">🏛</span><b>Bankalar ve devlet</b><small>İlk onlar harcar</small><em class="tag t1">eski fiyatlar</em></div>
+          <div class="flow-arrow"><i></i></div>
+          <div class="flow-node"><span class="flow-i">◈</span><b>Varlık sahipleri</b><small>Hisseler, gayrimenkul</small><em class="tag t2">fiyatlar yükseliyor</em></div>
+          <div class="flow-arrow"><i></i></div>
+          <div class="flow-node"><span class="flow-i">⚙</span><b>Şirketler</b><small>Fiyat artırır</small><em class="tag t3">fiyatlar yükseldi</em></div>
+          <div class="flow-arrow"><i></i></div>
+          <div class="flow-node you"><span class="flow-i">☺</span><b>Sen</b><small>Maaşlar en son ayarlanır</small><em class="tag t4">yeni fiyatlar</em></div>
+        </div>
+        <div class="grid g2 mt">
+          <p class="lead r" style="--d:3">Matbaaya en yakın olan, yeni parayı fiyatlar hâlâ düşükken harcar. Para çalışanlara ve birikim yapanlara ulaştığında fiyatlar çoktan yükselmiştir.</p>
+          <p class="lead r" style="--d:4">İktisatçı Richard Cantillon bunu 1730'larda anlattı. Sonuç gizli bir transfer: <strong>birikim yapanlardan borçlananlara, maaşlılardan varlık sahiplerine, yoksullardan zenginlere.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="cold">
+      <div class="wrap">
+        <p class="kicker r">15 Ağustos 1971</p>
+        <h2 class="display r" style="--d:1">Paranın <em>çapasını</em> kaybettiği gün.</h2>
+        <p class="lead r" style="--d:2">Başkan Nixon, doların altına çevrilebilirliğini "geçici olarak" askıya aldı. O geçici önlem bugün hâlâ yürürlükte. O zamandan beri paranın arkasında vaatlerden başka bir şey yok ve rakamlar birbirinden uzaklaşmaya başladı.</p>
+        <div class="grid g3 mt">
+          <div class="stat card r" style="--d:3"><span class="num">61.8% <small>vs</small> 17.5%</span><span class="lbl">ABD'de verimlilik artışı vs tipik çalışan ücreti, 1979–2020</span><span class="src">Economic Policy Institute</span></div>
+          <div class="stat card r" style="--d:4"><span class="num">3.5 → 5.2</span><span class="lbl">Medyan yeni bir ev için gereken medyan hane geliri yılı, 1984 vs 2024</span><span class="src">ABD Nüfus Sayım Bürosu</span></div>
+          <div class="stat card r" style="--d:5"><span class="num">$0.4T → $37T+</span><span class="lbl">ABD federal borcu, 1971 vs 2025. Borcunu basabiliyorsan borçlanmak kolaydır.</span><span class="src">ABD Hazinesi</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="cold">
+      <div class="wrap split">
+        <div>
+          <p class="kicker r">Koşu bandı</p>
+          <h2 class="display r" style="--d:1">Birikim işe yaramaz hale gelince <em>herkes spekülasyona zorlandı.</em></h2>
+        </div>
+        <div class="stack">
+          <p class="lead r" style="--d:2">Büyükannenle büyükbaban parayı bankaya koyup değerini korumasını bekleyebilirdi. Sen ise sadece yerinde saymak için yarı zamanlı bir fon yöneticisi olmak zorundasın: her yıl hızlanan bir koşu bandında koşmak gibi.</p>
+          <div class="card r" style="--d:3"><h3>Evler birikim hesabına dönüştü</h3><p>İnsanlar ev alıyor çünkü servetlerini korumak istiyorlar, sadece içinde oturmak için değil. Bu ek talep, genç aileleri en çok ihtiyaç duydukları şeyden uzaklaştırıyor.</p></div>
+          <div class="card r" style="--d:4"><h3>Hisseler enflasyon sığınağı oldu</h3><p>Hisse fiyatlarındaki "büyümenin" bir kısmı aslında ölçü biriminin küçülmesi. İktisatçılar bu ek fiyata <em>parasal prim</em> der.</p></div>
+          <div class="card r" style="--d:5"><h3>Varlığı olmayanlar geride kalıyor</h3><p>Kirada oturup nakit biriktiriyorsan sistem sana karşı çalışır. Zaten varlıkların varsa senin için çalışır. Uçurum her yıl büyür.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="cold">
+      <div class="wrap">
+        <p class="kicker r">Banka</p>
+        <h2 class="display r" style="--d:1">Paran bankada <em>değil</em>.</h2>
+        <p class="lead r" style="--d:2">1.000 $ yatırdığında banka bunun çoğunu kredi olarak verir. Elindeki şey bir borç senedi: aynı anda çok fazla kişi istemediği sürece paranın orada olacağına dair bir söz.</p>
+        <div class="grid g4 mt">
+          <div class="stat card r" style="--d:3"><span class="num">0%</span><span class="lbl">Mart 2020'den beri ABD bankalarının zorunlu karşılık oranı</span></div>
+          <div class="stat card r" style="--d:4"><span class="num">42 milyar $</span><span class="lbl">tek bir günde Silicon Valley Bank'tan çekildi (9 Mart 2023). Banka ertesi sabah battı.</span></div>
+          <div class="stat card r" style="--d:5"><span class="num">47.5%</span><span class="lbl">Bank of Cyprus'taki büyük mevduatların bu oranı, 2013 "bail-in" ile banka hissesine çevrildi</span></div>
+          <div class="stat card r" style="--d:6"><span class="num">2022</span><span class="lbl">Kanada, protestocuların banka hesaplarını mahkeme kararı olmadan dondurdu. Federal mahkeme daha sonra bu kararı makul bulmadı.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="cold">
+      <div class="wrap">
+        <p class="kicker r">Küresel tablo</p>
+        <h2 class="display r" style="--d:1">Ve bu, <em>iyi</em> versiyon.</h2>
+        <p class="lead r" style="--d:2">ABD'de ya da Avrupa'da yaşıyorsan, dünyanın en iyi fiat paralarından bazılarına sahipsin. İnsanlığın çoğu öyle değil.</p>
+        <div class="grid g3 mt countries">
+          <div class="card r" style="--d:3"><span class="flag">Venezuela</span><span class="num">130,000%</span><p>2018'deki enflasyon. Aileler bir ömürlük birikimin aylar içinde yok olduğunu izledi.</p></div>
+          <div class="card r" style="--d:4"><span class="flag">Zimbabve</span><span class="num">100 trilyon $</span><p>2009'da basılan banknot. Bir otobüs biletine bile yetmiyordu.</p></div>
+          <div class="card r" style="--d:5"><span class="flag">Lübnan</span><span class="num">−98%</span><p>2019'dan beri lira değer kaybı. Bankalar insanların kendi mevduatlarına erişimini kesti.</p></div>
+          <div class="card r" style="--d:6"><span class="flag">Arjantin</span><span class="num">211%</span><p>2023'teki enflasyon; on yıllardır tekrarlanan para krizlerinin ardından.</p></div>
+          <div class="card r" style="--d:7"><span class="flag">Türkiye</span><span class="num">−90%+</span><p>tek bir on yılda Türk lirasının dolar karşısındaki değer kaybı.</p></div>
+          <div class="card r" style="--d:8"><span class="flag">Dünya genelinde</span><span class="num">1,4 milyar</span><p>yetişkinin hiç banka hesabı yok (Dünya Bankası). Dünyanın yarısından fazlası otoriter rejimler altında yaşıyor (Human Rights Foundation).</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CHAPTER II ============================== -->
+    <section class="slide chapter" id="ch2" data-mood="gold" data-chapter="II · Para Aslında Nedir" data-toc="Para Aslında Nedir">
+      <div class="wrap">
+        <div class="numeral r wipe" translate="no">II</div>
+        <p class="kicker r" style="--d:1">İkinci bölüm</p>
+        <h2 class="display r" style="--d:2">Para Aslında Nedir</h2>
+        <p class="lead r" style="--d:3">Parayı düzeltmeden önce ne işe yaradığını anlamamız gerekiyor.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="gold">
+      <div class="wrap split">
+        <div>
+          <p class="kicker r">Para = depolanmış zaman</p>
+          <h2 class="display r" style="--d:1">Para, hayat enerjin için bir <em>batarya</em>.</h2>
+          <p class="lead r" style="--d:2">Hayatının saatlerini paraya çevirirsin. Para bu saatleri saklar, böylece onları sonra kullanabilirsin: gelecek hafta ya da otuz yıl sonra emekli olduğunda.</p>
+          <p class="lead r" style="--d:3">İyi para, şarjını koruyan bir bataryadır. <strong>Bugünün parası ise bilerek tasarlanmış, sızdıran bir batarya.</strong> Sızan her yüzde, hayatından bir daha geri gelmeyecek bir parça.</p>
+        </div>
+        <div class="battery-wrap r zoom" style="--d:2" aria-hidden="true">
+          <div class="battery"><div class="battery-level"></div><div class="battery-cap"></div></div>
+          <p class="battery-cap-label"><span>Hayatının 40 saati</span><span class="neg">…yavaş yavaş boşalıyor</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="gold">
+      <div class="wrap narrow center">
+        <p class="kicker r center-k">Resmi plan</p>
+        <h2 class="display r" style="--d:1">Merkez bankaları %2 enflasyonu <em>hedefler</em>.</h2>
+        <p class="mega r" style="--d:2"><span class="accent">−50%</span></p>
+        <p class="lead r center-p" style="--d:3">Az gibi geliyor. Ama yılda %2 ile para, <strong>yaklaşık 35 yılda değerinin yarısını</strong> kaybeder; aşağı yukarı bir çalışma ömrü. Bu bir hata değil. Açıkça ilan edilmiş hedef.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="gold">
+      <div class="wrap">
+        <p class="kicker r">Parayı iyi yapan ne?</p>
+        <h2 class="display r" style="--d:1">Para bir araçtır. <em>Bazı araçlar basitçe daha iyidir.</em></h2>
+        <div class="grid g4 props mt">
+          <div class="card prop r" style="--d:2"><i data-icon="scarce"></i><h3>Kıt</h3><p>Daha fazlasını üretmek zor. Yoksa biri üretir ve seni sulandırır.</p></div>
+          <div class="card prop r" style="--d:3"><i data-icon="durable"></i><h3>Dayanıklı</h3><p>Zamanla çürümez, paslanmaz, kırılmaz.</p></div>
+          <div class="card prop r" style="--d:4"><i data-icon="portable"></i><h3>Taşınabilir</h3><p>Sokağın karşısına da okyanusun ötesine de taşıması ve göndermesi kolay.</p></div>
+          <div class="card prop r" style="--d:5"><i data-icon="divisible"></i><h3>Bölünebilir</h3><p>Her büyüklükte ödeme için küçük birimlere ayrılabilir.</p></div>
+          <div class="card prop r" style="--d:6"><i data-icon="verify"></i><h3>Doğrulanabilir</h3><p>Kimseye güvenmeden gerçek olup olmadığını kontrol etmek kolay.</p></div>
+          <div class="card prop r" style="--d:7"><i data-icon="fungible"></i><h3>Değiştirilebilir</h3><p>Her birim diğer her birimle aynı değerde ve takas edilebilir.</p></div>
+          <div class="card prop r" style="--d:8"><i data-icon="free"></i><h3>Sansüre dirençli</h3><p>Kimse onu biriktirmeni ya da harcamanı engelleyemez. Dijital çağda bu özellik her zamankinden önemli.</p></div>
+          <div class="card prop r note" style="--d:9"><p>En önemli özellik <strong>kıtlıktır</strong>, çünkü kolay yaratılabilen para yaratılır ve bedelini onu tutanlar öder.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="gold">
+      <div class="wrap split">
+        <div>
+          <p class="kicker r">Tarihten bir uyarı</p>
+          <h2 class="display r" style="--d:1"><em>Cam boncukların</em> trajedisi.</h2>
+          <p class="lead r" style="--d:2">Yüzyıllar boyunca Batı Afrika'nın bazı bölgelerinde cam boncuklar para olarak kullanıldı. Yerelde üretmesi zordu, bu yüzden değerlerini korudular.</p>
+          <p class="lead r" style="--d:3">Sonra Avrupalı tüccarlar cam fabrikalarında ucuza üretilmiş boncuklarla dolu gemilerle geldi. Bunlarla altın, fildişi, toprak ve sonunda insan satın aldılar; üretmesi neredeyse hiçbir şeye mal olmayan bir parayla ödeme yaparak.</p>
+          <p class="punch r" style="--d:4">Paranı ucuza yaratabilen <span class="accent">bir ömürlük emeğini bedavaya alabilir.</span></p>
+          <p class="lead small r" style="--d:5">Bugün cam boncukları merkez bankaları basıyor.</p>
+        </div>
+        <div class="beads r zoom" style="--d:2" aria-hidden="true">
+          <div class="bead-strand"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="gold">
+      <div class="wrap">
+        <p class="kicker r">Altın neden kazandı, sonra neden kaybetti</p>
+        <h2 class="display r" style="--d:1">Altın <em>5.000 yıl</em> boyunca en sağlam paraydı.</h2>
+        <div class="grid g2 mt">
+          <div class="stack">
+            <p class="lead r" style="--d:2">Bugüne kadar çıkarılmış tüm altın, yaklaşık <strong>216.000 ton</strong>, bugünkü üretimin aşağı yukarı 60 yılına denk. Fiyatı fırlasa bile madenciler yılda ancak <strong>%1,5–2</strong> kadar ekleyebilir. Üretmesi zor, bu yüzden değerini korur.</p>
+            <p class="lead r" style="--d:3">Ama altının zayıf yanları var: ağır, saklaması pahalı ve doğrulaması zor. Bu yüzden insanlar onu kâğıt makbuzlar karşılığında bankalara verdi ve kâğıt yavaş yavaş altının yerini aldı.</p>
+          </div>
+          <ol class="timeline r" style="--d:3">
+            <li><b>1933</b><span>ABD'nin 6102 sayılı Başkanlık Kararnamesi vatandaşların altın tutmasını yasaklıyor. Altınlarını devlete onsu 20,67 $'dan satmak zorundalar. Aylar sonra devlet altını 35 $'a yeniden fiyatlıyor: doların %41 devalüasyonu.</span></li>
+            <li><b>1944</b><span>Bretton Woods: dünyanın paraları dolara, dolar da altına bağlanıyor.</span></li>
+            <li><b>1971</b><span>Para ile altın arasındaki son bağ koparılıyor. O günden beri yeryüzündeki her paranın arkasında yalnızca vaatler var.</span></li>
+            <li class="hl"><b>2009</b><span>Yeni bir şey ortaya çıkıyor.</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CHAPTER III ============================== -->
+    <section class="slide chapter" id="ch3" data-mood="orange" data-chapter="III · Bitcoin Sahneye Çıkıyor" data-toc="Bitcoin Sahneye Çıkıyor">
+      <div class="wrap">
+        <div class="numeral r wipe" translate="no">III</div>
+        <p class="kicker r" style="--d:1">Üçüncü bölüm</p>
+        <h2 class="display r" style="--d:2">Bitcoin Sahneye Çıkıyor</h2>
+        <p class="lead r" style="--d:3">Kurallarını kimsenin değiştiremediği para.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap split">
+        <div>
+          <p class="kicker r">3 Ocak 2009</p>
+          <h2 class="display r" style="--d:1"><em>İlk bloğa</em> gizlenmiş bir mesaj.</h2>
+          <p class="lead r" style="--d:2">Finansal krizin ortasında <strong>Satoshi Nakamoto</strong> adlı anonim bir yaratıcı Bitcoin'i başlattı. İlk bloğuna banka kurtarmalarıyla ilgili bir gazete manşeti yerleştirildi: bir zaman damgası ve bir niyet beyanı.</p>
+          <p class="lead r" style="--d:3">Satoshi 2011'de çekildi ve bir daha dönmedi. CEO yok. Şirket yok. Merkez yok. <strong>Tutuklanacak, rüşvet verilecek ya da baskı yapılacak kimse yok.</strong></p>
+        </div>
+        <div class="block-card r zoom" style="--d:2">
+          <div class="block-head"><span>BLOK</span><b>#0</b><span class="pulse"></span></div>
+          <dl>
+            <div><dt>Kazıldı</dt><dd>2009-01-03 18:15:05 UTC</dd></div>
+            <div><dt>Ödül</dt><dd>50 BTC</dd></div>
+            <div><dt>Önceki blok</dt><dd>0000000000000000…0000</dd></div>
+            <div><dt>Hash</dt><dd>000000000019d6689c085ae1…8ce26f</dd></div>
+          </dl>
+          <div class="block-msg">
+            <span>Gömülü metin</span>
+            <p translate="no">The Times 03/Jan/2009 Chancellor on brink of second bailout for banks</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange" id="supply">
+      <div class="wrap">
+        <div class="supply-top">
+          <div>
+            <p class="kicker r">En önemli sayı</p>
+            <p class="mega r" style="--d:1">21,000,000</p>
+            <p class="lead r" style="--d:2">Var olacak bitcoin miktarı bu kadar. Hiçbir oylama, komite ya da acil durum bunu değiştiremez. Kabaca her dört yılda bir yeni bitcoin üretimi yarıya iner (<em>halving</em>). Son kesir yaklaşık 2140 yılında kazılacak.</p>
+          </div>
+          <div class="live r" style="--d:3">
+            <span class="live-dot"></span>
+            <p class="live-k">Şimdiye kadar kazılan (canlı tahmin)</p>
+            <p class="live-v" id="live-supply">20,000,000</p>
+            <p class="live-s"><span id="live-pct">95.2%</span> · var olacak tüm bitcoin'in bu kadarı kazıldı · blok ≈ <span id="live-height">900,000</span></p>
+          </div>
+        </div>
+        <div class="chart-box r" style="--d:3">
+          <div class="chart" id="chart-supply" role="img" aria-label="Çizgi grafik: bitcoin arzı 2009'dan itibaren hızla artar, her halving ile yataylaşır ve 2140 civarında 21 milyona yaklaşır."></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap">
+        <p class="kicker r">Çoğu insanın kaçırdığı atılım</p>
+        <h2 class="display r" style="--d:1"><em>Talebin daha fazla arz yaratamadığı</em> ilk para.</h2>
+        <div class="grid g4 mt supply-cards">
+          <div class="card r" style="--d:2"><h3>Altın</h3><p class="chain"><span>Fiyat ↑</span><span>Daha çok madencilik</span><span class="neg">Arz ↑</span></p></div>
+          <div class="card r" style="--d:3"><h3>Gayrimenkul</h3><p class="chain"><span>Fiyat ↑</span><span>Daha çok inşaat</span><span class="neg">Arz ↑</span></p></div>
+          <div class="card r" style="--d:4"><h3>Dolar</h3><p class="chain"><span>Kriz</span><span>Daha çok para basımı</span><span class="neg">Arz ↑</span></p></div>
+          <div class="card hl r" style="--d:5"><h3>Bitcoin</h3><p class="chain"><span>Fiyat ↑</span><span>Daha çok madenci katılır</span><span>Bulmaca zorlaşır</span><span class="pos">Arz değişmez</span></p></div>
+        </div>
+        <p class="lead r mt" style="--d:6">Her 2.016 blokta (yaklaşık iki hafta) Bitcoin, kaç makine katılırsa katılsın yaklaşık her 10 dakikada bir yeni blok çıkacak şekilde madencilik zorluğunu otomatik ayarlar. Tarihte ilk kez <strong>para arzı talebe tamamen bağışık.</strong></p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap">
+        <p class="kicker r">Jargonsuz, nasıl çalışır</p>
+        <h2 class="display r" style="--d:1"><em>Kimseye ait olmayan</em> ortak bir defter düşün.</h2>
+        <div class="grid g3 mt steps3">
+          <div class="card r" style="--d:2"><span class="step-n">1</span><h3>Ortak bir defter</h3><p>Bugüne kadar yapılmış her bitcoin işlemi tek bir deftere yazılı. Dünya genelinde on binlerce bilgisayar ("düğüm") bunun birebir kopyalarını tutuyor. Herkes bir kopya tutabilir.</p></div>
+          <div class="card r" style="--d:3"><span class="step-n">2</span><h3>Bir sonraki sayfa için piyango</h3><p>Yaklaşık her 10 dakikada bir "madenciler", çözmesi çok zor ama kontrol etmesi anında olan bir bulmacayı çözerek bir sonraki sayfayı (bir <em>blok</em>) eklemek için yarışır. Kazanan yeni bitcoin ve işlem ücretlerini alır.</p></div>
+          <div class="card r" style="--d:4"><span class="step-n">3</span><h3>Herkesin denetlediği kurallar</h3><p>Her düğüm her sayfayı kurallara göre bağımsız olarak denetler. Aynı coinleri iki kez harcamayı ya da yoktan coin yaratmayı dene; ağ seni basitçe görmezden gelir. İzin gerekmez, istisna yoktur.</p></div>
+        </div>
+        <p class="lead r mt" style="--d:5">Madencilik gerçek dünyadaki enerjiyi güvenliğe dönüştürür; tıpkı topraktan altın çıkarmak gibi. Maliyet sahte olamaz, bu yüzden kayıt ucuza yeniden yazılamaz.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange" id="mining">
+      <div class="wrap split">
+        <div>
+          <p class="kicker r">Kendin dene</p>
+          <h2 class="display r" style="--d:1"><em>On saniyeliğine</em> madenci ol.</h2>
+          <p class="lead r" style="--d:2">Madenciler blok verisini bir "nonce" (sürekli değiştirdikleri bir sayı) ile tekrar tekrar karıştırır; ta ki ortaya çıkan parmak izi (bir SHA-256 hash) yeterince sıfırla başlayana kadar. Kestirme yol yok: sadece tahmin, milyonlarca kez.</p>
+          <p class="lead r" style="--d:3"><strong>Bulması zor, doğrulaması anında.</strong> Tek bir harfi değiştir, parmak izi tamamen değişir. Tarihin sessizce düzenlenememesinin nedeni bu.</p>
+        </div>
+        <div class="miner card r zoom" style="--d:2">
+          <label class="field"><span>Blok verisi</span><input id="mine-data" type="text" value="Alice pays Bob 0.01 BTC" maxlength="80" spellcheck="false"></label>
+          <div class="field">
+            <span>Zorluk (baştaki sıfırlar)</span>
+            <div class="seg small" role="radiogroup" aria-label="Zorluk">
+              <button role="radio" aria-checked="false" data-diff="3">3</button>
+              <button role="radio" aria-checked="true" data-diff="4">4</button>
+              <button role="radio" aria-checked="false" data-diff="5">5</button>
+            </div>
+          </div>
+          <div class="mine-out">
+            <div><span>Nonce</span><b id="mine-nonce">0</b></div>
+            <div><span>Hash</span><code id="mine-hash">–</code></div>
+          </div>
+          <div class="mine-actions">
+            <button class="btn primary" id="mine-btn">Kazmaya başla</button>
+            <button class="btn ghost" id="verify-btn" disabled>✓ Doğrula</button>
+          </div>
+          <p class="mine-status" id="mine-status" aria-live="polite">Başlat'a bas. Tarayıcın geçerli bir hash bulana kadar tahmin edecek.</p>
+          <p class="src">Basitleştirilmiş: gerçek Bitcoin 80 baytlık blok başlığını iki kez hash'ler ve ağ bütün olarak saniyede yaklaşık bir sekstilyon tahmin yapar.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap split">
+        <div>
+          <p class="kicker r">Dijital kıtlık</p>
+          <h2 class="display r" style="--d:1"><em>Kopyalanamayan</em> ilk dijital şey.</h2>
+          <p class="lead r" style="--d:2">Fotoğraflar, şarkılar, dosyalar: dijital olan her şey bedavaya ve sonsuzca kopyalanabilir. Bu yüzden dijital para her zaman ortada bir bankaya ihtiyaç duydu; aynı doları iki kez harcamanı engellemek için.</p>
+          <p class="lead r" style="--d:3">Bitcoin bu "çifte harcama sorununu" hiçbir aracı olmadan çözdü. Buluş bu. <strong>E-postanın mektuplara yaptığını bitcoin değere yapıyor</strong>: kimsenin onayı olmadan, günün her saati, dakikalar içinde gezegenin öbür ucuna gider.</p>
+        </div>
+        <div class="stack">
+          <div class="card big-card r" style="--d:2">
+            <p class="kicker">Tamamını almana gerek yok</p>
+            <p class="sats"><span>1 BTC</span> = <span class="accent">100.000.000</span> sat</p>
+            <p>Bitcoin, bir liranın kuruşa bölündüğü gibi "satoshi"lere bölünür; ama çok daha fazla alanla. Birkaç dolarlık tutarla başlayabilirsin.</p>
+          </div>
+          <div class="card r" style="--d:3">
+            <p class="kicker">Bitcoin Pizza Günü · 22 Mayıs 2010</p>
+            <p>Laszlo Hanyecz <strong>iki pizza için 10.000 BTC</strong> ödedi; bitcoin ile bilinen ilk gerçek alışveriş. Her yeni para biçimi başta değersiz görünür.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CHAPTER IV ============================== -->
+    <section class="slide chapter" id="ch4" data-mood="orange" data-chapter="IV · Gerçek Sahiplik" data-toc="Gerçek Sahiplik">
+      <div class="wrap">
+        <div class="numeral r wipe" translate="no">IV</div>
+        <p class="kicker r" style="--d:1">Dördüncü bölüm</p>
+        <h2 class="display r" style="--d:2">Gerçek Sahiplik</h2>
+        <p class="lead r" style="--d:3">Güvenlik, öz saklama ve durdurulamayan para.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange" id="seed">
+      <div class="wrap split">
+        <div>
+          <p class="kicker r">Öz saklama</p>
+          <h2 class="display r" style="--d:1">Tüm bankan, <em>12 kelimede</em>.</h2>
+          <p class="lead r" style="--d:2">Bir bitcoin cüzdanı bir <strong>kurtarma ifadesi</strong> ile kontrol edilir: 12 ya da 24 sıradan kelime. Kelimeleri bilen bitcoin'leri kontrol eder. Başka kimse, asla.</p>
+          <p class="lead r" style="--d:3">Onları kâğıda yaz, çeliğe kazı ya da ezberle; böylece bir ömürlük birikimini kafanda taşıyarak her sınırı geçebilirsin. <strong>Tarihte hiçbir varlık bu kadar taşınabilir olmadı.</strong></p>
+        </div>
+        <div class="seed card r zoom" style="--d:2">
+          <div class="seed-head"><span>Örnek kurtarma ifadesi</span><button class="btn ghost tiny" id="seed-btn">↻ Karıştır</button></div>
+          <ol class="seed-grid" id="seed-grid" translate="no"></ol>
+          <p class="seed-warn">⚠ Sadece örnek. Bir web sitesinde gösterilen ifadeyi asla kullanma ve gerçek ifadeni asla bir siteye yazma.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap">
+        <p class="kicker r">Altın kural</p>
+        <h2 class="display r" style="--d:1">Anahtarlar senin değilse, <em>coinler de senin değil</em>.</h2>
+        <p class="lead r" style="--d:2">Bitcoin'i bir borsada bırakırsan bitcoin'e sahip değilsin. Bir borç senedine sahipsin; tıpkı banka mevduatı gibi, aynı risklerle.</p>
+        <div class="grid g3 mt">
+          <div class="stat card r" style="--d:3"><span class="kicker">2014 · Mt. Gox</span><span class="num">~850,000 BTC</span><span class="lbl">döneminin en büyük borsası çökünce kayboldu.</span></div>
+          <div class="stat card r" style="--d:4"><span class="kicker">2022 · FTX</span><span class="num">~8 milyar $</span><span class="lbl">müşteri fonu kayıp. Kurucusu daha sonra dolandırıcılıktan mahkûm edildi.</span></div>
+          <div class="stat card r" style="--d:5"><span class="kicker">2022 · Celsius</span><span class="num">1,7 milyon</span><span class="lbl">kullanıcı, çekimler dondurulunca hesabına erişemedi.</span></div>
+        </div>
+        <p class="punch r mt" style="--d:6">Bitcoin'in kendisi hiç çökmedi. <span class="accent">Aracılar çöktü, yine.</span></p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap">
+        <p class="kicker r">Güvenlik</p>
+        <h2 class="display r" style="--d:1"><em>Şimdiye kadar kurulmuş</em> en güçlü bilgisayar ağı.</h2>
+        <div class="grid g4 mt">
+          <div class="stat card r" style="--d:2"><span class="num">10<sup>21</sup>+</span><span class="lbl">saniyede ağı koruyan tahmin (1 zettahash/s üzeri, 2025)</span></div>
+          <div class="stat card r" style="--d:3"><span class="num">99.98%</span><span class="lbl">Ocak 2009'dan beri çalışma süresi. 7/24/365 açık, tatil yok.</span></div>
+          <div class="stat card r" style="--d:4"><span class="num">0</span><span class="lbl">kez Bitcoin defterinin kendisi hacklendi ya da sahtesi yapıldı</span></div>
+          <div class="stat card r" style="--d:5"><span class="num">~144</span><span class="lbl">günde yeni blok; her biri geçmişi daha derine gömer</span></div>
+        </div>
+        <p class="lead r mt" style="--d:6">Bitcoin'in tarihini yeniden yazmak için gezegendeki tüm madencilik endüstrisini işlem gücünde geçmen, donanım ve enerjiye milyarlar harcaman gerekir; hem de herkes seni izlerken. Bu, on binlerce yabancının birebir kopyasını tuttuğu ve her on dakikada bir yeni sayfa eklenen bir kitabı gizlice düzenlemeye çalışmak gibi.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap">
+        <p class="kicker r">Güvenme. Doğrula.</p>
+        <h2 class="display r" style="--d:1"><em>Para ile devletin</em> ayrılması.</h2>
+        <div class="versus mt">
+          <div class="card vs-a r" style="--d:2">
+            <h3>Bugün: bana güven</h3>
+            <ul>
+              <li>Merkez bankasının çok fazla basmayacağına güven</li>
+              <li>Bankanın çok fazla kredi vermeyeceğine güven</li>
+              <li>Denetçilere, düzenleyicilere, politikacılara güven</li>
+              <li>Kuralların yarın değişmeyeceğine güven</li>
+            </ul>
+          </div>
+          <div class="vs-mid r" style="--d:3">vs</div>
+          <div class="card vs-b r" style="--d:4">
+            <h3>Bitcoin: doğrula</h3>
+            <ul>
+              <li>Herkes ucuz bir bilgisayarda düğüm çalıştırabilir</li>
+              <li>Şimdiye kadar yaratılan her coini, her kuralı kendin denetle</li>
+              <li>Kuralları yöneticiler değil kullanıcılar uygular</li>
+              <li>Değiştirmek neredeyse oybirliği gerektirir</li>
+            </ul>
+          </div>
+        </div>
+        <p class="lead r mt" style="--d:5">Hiçbir hükümet neye inanacağını dikte edemesin diye din ile devleti ayırdık. Bitcoin, hiçbir hükümet kazandığını sessizce eritemesin diye para ile devleti ayırır.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap">
+        <p class="kicker r">Özgürlük parası</p>
+        <h2 class="display r" style="--d:1"><em>Durdurulamayan</em> para.</h2>
+        <p class="lead r" style="--d:2">Bitcoin kim olduğuna, nerede doğduğuna ya da kime oy verdiğine bakmaz. Milyarlarca insan için bu bir felsefe değil. Hayatta kalma meselesi.</p>
+        <div class="grid g4 mt stories">
+          <div class="card r" style="--d:3"><span class="kicker">Afganistan</span><p>Girişimci Roya Mahboob, banka hesabı yönetmelerine izin verilmeyen kadınlara ve kız çocuklarına bitcoin ile ödeme yaptı; ve o para gerçekten onlarındı.</p></div>
+          <div class="card r" style="--d:4"><span class="kicker">Nijerya · 2020</span><p>Bankalar polis şiddetine karşı #EndSARS protestolarını destekleyen bir koalisyonun hesaplarını dondurunca, koalisyon bitcoin bağışlarına geçti ve yoluna devam etti.</p></div>
+          <div class="card r" style="--d:5"><span class="kicker">Ukrayna · 2022</span><p>İşgalin ilk haftalarında dünyanın dört bir yanından 100 milyon $'ın üzerinde kripto bağış geldi; haftalar değil, saatler içinde.</p></div>
+          <div class="card r" style="--d:6"><span class="kicker">Venezuela</span><p>Aileler birikimlerini hiperenflasyondan korudu, mülteciler servetlerini on iki kelime olarak ezberleyip kaçtı.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CHAPTER V ============================== -->
+    <section class="slide chapter" id="ch5" data-mood="orange" data-chapter="V · Karşılaştırma" data-toc="Karşılaştırma">
+      <div class="wrap">
+        <div class="numeral r wipe" translate="no">V</div>
+        <p class="kicker r" style="--d:1">Beşinci bölüm</p>
+        <h2 class="display r" style="--d:2">Nakit, Altın, Ev, Hisse ve Bitcoin</h2>
+        <p class="lead r" style="--d:3">İnsanların bir ömürlük emeklerini nerede sakladıklarının dürüst bir karşılaştırması.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange" id="compare">
+      <div class="wrap">
+        <p class="kicker r">Puan tablosu</p>
+        <h2 class="display compact r" style="--d:1"><em>Zamanını</em> nerede saklamalısın?</h2>
+        <div class="matrix-wrap r" style="--d:2">
+          <table class="matrix" id="matrix"></table>
+        </div>
+        <div class="verdict r" style="--d:3" id="verdict" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange" id="hardness">
+      <div class="wrap split">
+        <div>
+          <p class="kicker r">Altından sağlam</p>
+          <h2 class="display r" style="--d:1">Şimdiden <em>altından kıt</em>, üstelik giderek daha da kıtlaşıyor.</h2>
+          <p class="lead r" style="--d:2">2024 halving'inden beri bitcoin arzı altınınkinden daha yavaş büyüyor. 2028'de yine yarıya iniyor, sonra yine; ta ki yeni arz sıfıra inene kadar.</p>
+          <p class="lead r" style="--d:3">Altın: güvenmek zorunda olduğun bir kıtlık. Bitcoin: <strong>herkesin doğrulayabildiği</strong> bir kıtlık, üstelik internet hızında.</p>
+        </div>
+        <div class="chart-box r" style="--d:2">
+          <div class="chart" id="chart-hard" role="img" aria-label="Yıllık yeni arz çubuk grafiği: ABD doları yaklaşık %7, altın yaklaşık %1,7, bitcoin bugün yaklaşık %0,8, 2028'den sonra %0,4 ve 2140'tan sonra %0."></div>
+          <p class="src">Yıllık yeni arz. USD: 1960'tan beri ortalama M2 artışı. Altın: World Gold Council tahminleri. Bitcoin: protokol takvimi.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CHAPTER VI ============================== -->
+    <section class="slide chapter" id="ch6" data-mood="orange" data-chapter="VI · Egemen Zihniyet" data-toc="Egemen Zihniyet">
+      <div class="wrap">
+        <div class="numeral r wipe" translate="no">VI</div>
+        <p class="kicker r" style="--d:1">Altıncı bölüm</p>
+        <h2 class="display r" style="--d:2">Egemen Zihniyet</h2>
+        <p class="lead r" style="--d:3">Parayı düzelt, dünyayı düzelt.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap">
+        <p class="kicker r">Zaman tercihi</p>
+        <h2 class="display r" style="--d:1">Para değerini koruduğunda <em>on yıllarla düşünebilirsin</em>.</h2>
+        <div class="versus mt">
+          <div class="card vs-a r" style="--d:2">
+            <h3>Eriyen paranın öğrettikleri</h3>
+            <ul>
+              <li>Şimdi harca, yarın daha az eder</li>
+              <li>Borçlan, enflasyon borcu eritir</li>
+              <li>Sadece yerinde saymak için getiri kovala</li>
+              <li>Her yerde kısa vadeli düşünce</li>
+            </ul>
+          </div>
+          <div class="vs-mid r" style="--d:3">→</div>
+          <div class="card vs-b r" style="--d:4">
+            <h3>Sağlam paranın öğrettikleri</h3>
+            <ul>
+              <li>Birikim ödüllendirilir, cezalandırılmaz</li>
+              <li>Daha az ama daha iyi ve uzun ömürlü şeyler al</li>
+              <li>Sadece gerçekten değeri olana yatırım yap</li>
+              <li>Torunlarının çocuklarını düşünerek planla</li>
+            </ul>
+          </div>
+        </div>
+        <p class="lead r mt" style="--d:5">İktisatçılar buna <strong>zaman tercihi</strong> der: geleceğe bugüne kıyasla ne kadar değer verdiğin. Zaman tercihi düşük insanlar, bitişini asla göremeyecekleri meyve bahçeleri dikti ve katedraller inşa etti. İyi para, sabrı yeniden akıllıca kılar.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap split">
+        <div>
+          <p class="kicker r">Deflasyon efsanesi</p>
+          <h2 class="display r" style="--d:1">Fiyatların düşmesi <em>gerekir</em>.</h2>
+          <p class="lead r" style="--d:2">Teknoloji neredeyse her şeyi üretmeyi ucuzlatır: bilgi işlem, televizyon, güneş paneli, iletişim. Dürüst paranın olduğu bir dünyada bu kazanımlar sana daha düşük fiyatlar olarak ulaşır.</p>
+          <p class="lead r" style="--d:3">Bizimkinde ise sen görmeden yeni parayla eritilip gider. İlerleme sayesinde düşen fiyatlar kriz değildir. <strong>İnsanlığın verimliliğinin nihayet herkesle paylaşılmasıdır.</strong></p>
+        </div>
+        <div class="stack">
+          <div class="card r" style="--d:3"><h3>"Ama o zaman kimse harcamaz!"</h3><p>Televizyonlar ve telefonlar her yıl ucuzluyor ve iyileşiyor, insanlar yine de alıyor. İhtiyacın olanı, ihtiyacın olduğunda alırsın. Sadece gereksiz ıvır zıvırı almayı bırakırsın.</p></div>
+          <div class="card r" style="--d:4"><h3>Daha fazla okuma</h3><p>Jeff Booth'un <em>The Price of Tomorrow</em> kitabı, teknolojinin neden deflasyonist olduğunu ve para sistemimizin neden buna karşı savaştığını anlatır.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap">
+        <p class="kicker r">Müşteriden sahibe</p>
+        <h2 class="display r" style="--d:1">Dönüşüm önce <em>kafanda</em> olur.</h2>
+        <ul class="shift mt">
+          <li class="r" style="--d:2"><span>İzin istemek</span><i>→</i><b>İzinsiz</b></li>
+          <li class="r" style="--d:3"><span>Kurumlara güvenmek</span><i>→</i><b>Kendin doğrulamak</b></li>
+          <li class="r" style="--d:4"><span>Servetini bir bankadan kiralamak</span><i>→</i><b>Kendi anahtarlarını tutmak</b></li>
+          <li class="r" style="--d:5"><span>Kararnameyle değişen kurallar</span><i>→</i><b>Açık kodla yazılmış kurallar</b></li>
+          <li class="r" style="--d:6"><span>Bugün harca, yarın dert et</span><i>→</i><b>Biriktir, inşa et, nesiller için planla</b></li>
+          <li class="r" style="--d:7"><span>Bağımlı</span><i>→</i><b>Egemen</b></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================== CHAPTER VII ============================== -->
+    <section class="slide chapter" id="ch7" data-mood="orange" data-chapter="VII · Dürüst Sorular" data-toc="Dürüst Sorular">
+      <div class="wrap">
+        <div class="numeral r wipe" translate="no">VII</div>
+        <p class="kicker r" style="--d:1">Yedinci bölüm</p>
+        <h2 class="display r" style="--d:2">Dürüst Sorular</h2>
+        <p class="lead r" style="--d:3">Şüphecilik sağlıklıdır. İşte net cevaplar.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange" id="faq">
+      <div class="wrap">
+        <p class="kicker r">Sık duyulan itirazlar</p>
+        <h2 class="display r" style="--d:1">“Evet, ama…”</h2>
+        <div class="faq mt">
+          <details class="r" style="--d:2"><summary>Çok oynak değil mi?</summary><p>Evet, bugün öyle. Yeni bir parasal varlık sıfırdan küresel ölçeğe büyürken fiyat yol boyunca dalgalanır. Oynaklık erken gelmenin bedelidir ve benimseme arttıkça azalma eğiliminde oldu. 2025 itibarıyla bitcoin tarihindeki her dört yıllık dönem başladığından daha yüksekte bitti, ama geçmiş performans hiçbir şeyi garanti etmez. Yalnızca dört yıl veya daha uzun süre dokunmadan bırakabileceğin bir miktar tut.</p></details>
+          <details class="r" style="--d:2"><summary>Suçlular kullanmıyor mu?</summary><p>Büyük ölçüde hayır. Chainalysis yasa dışı faaliyetin kripto işlem hacminin %1'inden az olduğunu tahmin ediyor; BM ise her yıl küresel GSYH'nin %2–5'inin, çoğunlukla dolar ve euro ile aklandığını tahmin ediyor. Ayrıca her işlemi sonsuza dek kaydeden açık bir defter, suç saklamak için berbat bir yer.</p></details>
+          <details class="r" style="--d:3"><summary>Enerji israfı değil mi?</summary><p>Enerji, defteri sahtesi yapılamaz kılan şeydir. Bunun "israf" olup olmadığı, dürüst paranın korunmaya değer olduğunu düşünüp düşünmemene bağlı. Madenciliğin yarısından fazlası artık sürdürülebilir kaynaklarla çalışıyor (Cambridge, 2025). Madenciler her yere kurulabildiği için aksi halde boşa gidecek atıl ve fazla enerjiyi satın alır, yeni rüzgâr ve güneş projelerinin finansmanına yardım eder (Cornell, 2023) ve elektrik şebekelerini dengelemeye katkı sağlar.</p></details>
+          <details class="r" style="--d:3"><summary>Hükümetler yasaklayamaz mı?</summary><p>Çin 2021'de madenciliği yasakladı ve ağın işlem gücü yaklaşık bir yıl içinde yeni rekorlara ulaştı. Bitcoin sadece bilgidir: matematiği yasaklayamazsın. Bu arada ABD 2024'te spot bitcoin ETF'lerini onayladı ve 2025'te Stratejik Bitcoin Rezervi oluşturdu.</p></details>
+          <details class="r" style="--d:4"><summary>Biri daha iyisini yapamaz mı?</summary><p>Kodu kopyalayabilirsin, ağı değil. Binlerce kişi denedi. Neredeyse hepsinin bir kurucusu, bir şirketi, coinleri ilk alan içerdekileri ya da kuralları değiştirebilen bir ekibi var. Bitcoin'in adil başlangıcı, kaybolan yaratıcısı, 17 yıllık geçmişi ve eşsiz güvenliği kopyalanamaz; tıpkı Vikipedi'nin kodunu kopyalamanın sana Vikipedi'yi vermeyeceği gibi.</p></details>
+          <details class="r" style="--d:4"><summary>Treni kaçırmadım mı?</summary><p>İnsanlar bunu 1 $'da, 100 $'da, 1.000 $'da ve 10.000 $'da da söyledi. 400'den fazla kez "öldü" ilan edildi. Bitcoin'in toplam değeri hâlâ altınınkinin küçük bir kesri ve insanlığın yalnızca küçük bir kısmı onu öz saklamada tutuyor. Bunu bugün sormak, 1999'da interneti kaçırıp kaçırmadığını sormak gibi.</p></details>
+          <details class="r" style="--d:5"><summary>Saadet zinciri değil mi?</summary><p>Bir saadet zinciri; getiri vaat eden ve eski yatırımcılara yenilerin parasıyla ödeme yapan bir organizatöre ihtiyaç duyar. Bitcoin'in organizatörü, ihraççısı, vaat edilmiş getirisi yok ve kimse kimseye ödeme yapmıyor. Açık kaynaklı bir yazılım ve her coin herkes tarafından denetlenebilir.</p></details>
+          <details class="r" style="--d:5"><summary>Anahtarlarımı kaybedersem?</summary><p>O zaman kimse senin yerine kurtaramaz. Gerçek sahipliğin bedeli bu. Küçük başla, bir cüzdanı kurtarma ifadesinden geri yüklemeyi dene, yedekleri ayrı güvenli yerlerde tut ve ailenin nasıl miras alacağını planla. Çoklu imza kurulumları tek hata noktasını ortadan kaldırır.</p></details>
+          <details class="r" style="--d:6"><summary>Kuantum bilgisayarlar kırmaz mı?</summary><p>Bugünün kuantum bilgisayarları tehdit olmaktan çok uzak. Tehdit olduklarında bankalar, hükümetler ve tüm internet aynı zorlukla yüzleşecek. Bitcoin de güncellenebilir: kuantuma dayanıklı imza önerileri şimdiden açık şekilde geliştiriliyor.</p></details>
+          <details class="r" style="--d:6"><summary>Benim için çok karmaşık değil mi?</summary><p>E-posta göndermek için e-posta sunucularının nasıl çalıştığını bilmen gerekmez. Modern cüzdanlar bir bankacılık uygulaması kadar basit. Birkaç dolarla başla, göndermeyi ve almayı dene, derin konuları zamanla öğren. En zor kısım teknoloji değil. Bize para hakkında öğretilenleri unutmak.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CHAPTER VIII ============================== -->
+    <section class="slide chapter" id="ch8" data-mood="orange" data-chapter="VIII · İlk Adımların" data-toc="İlk Adımların">
+      <div class="wrap">
+        <div class="numeral r wipe" translate="no">VIII</div>
+        <p class="kicker r" style="--d:1">Sekizinci bölüm</p>
+        <h2 class="display r" style="--d:2">İlk Adımların</h2>
+        <p class="lead r" style="--d:3">Önce merak. Sonra sat. Anahtarlar her zaman.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap">
+        <p class="kicker r">Basit bir yol</p>
+        <h2 class="display r" style="--d:1">Öğren, küçük başla, <em>kendi anahtarlarını tut</em>.</h2>
+        <div class="grid g3 mt path">
+          <div class="card r" style="--d:2"><span class="step-n">1</span><h3>Önce öğren</h3><p>Dakikalar değil saatler ayır. Oku, dinle, soru sor. Oynaklık karşısında dayanmanı sağlayan şey anlamaktır.</p></div>
+          <div class="card r" style="--d:3"><span class="step-n">2</span><h3>Küçük başla</h3><p>Saygın, düzenlemeye tabi bir hizmetten birkaç dolarlık sat al. Birçok kişi doğru anı tahmin etmeye çalışmak yerine düzenli olarak küçük, sabit bir miktar alır.</p></div>
+          <div class="card r" style="--d:4"><span class="step-n">3</span><h3>Saklamayı üstlen</h3><p>Kontrol ettiğin bir cüzdana çek. Daha büyük tutarlar için anahtarlarını çevrimdışı tutan bir donanım cüzdanı kullan.</p></div>
+          <div class="card r" style="--d:5"><span class="step-n">4</span><h3>Kurtarma ifadesini koru</h3><p>Kâğıda ya da çeliğe yaz. Asla fotoğrafını çekme, buluta kaydetme ya da bir siteye yazma. Meşru hiç kimse onu senden istemez.</p></div>
+          <div class="card r" style="--d:6"><span class="step-n">5</span><h3>Doğrula</h3><p>Hazır olduğunda kendi düğümünü çalıştır. O zaman hiçbir konuda kimsenin sözüne güvenmen gerekmez.</p></div>
+          <div class="card r" style="--d:7"><span class="step-n">6</span><h3>Başkasına aktar</h3><p>Değer verdiğin birine anlat. Her turuncu hap böyle yayıldı.</p></div>
+        </div>
+        <p class="src r mt" style="--d:8">Bu sunum eğitim amaçlıdır, yatırım tavsiyesi değildir. Kendi araştırmanı yap ve asla kaybetmeyi göze alabileceğinden fazlasını yatırma.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange" id="library">
+      <div class="wrap">
+        <p class="kicker r">Daha derine · Oku</p>
+        <h2 class="display r" style="--d:1">Tavşan deliği <em>kütüphanesi</em>.</h2>
+        <div class="grid g4 mt books">
+          <a class="card book r" style="--d:2" href="https://bitcoin.org/bitcoin.pdf" target="_blank" rel="noopener"><span class="kicker">Satoshi Nakamoto · 2008</span><h3>Bitcoin Whitepaper'ı</h3><p>Her şeyi başlatan dokuz sayfa. Şaşırtıcı derecede okunaklı.</p></a>
+          <div class="card book r" style="--d:3"><span class="kicker">Saifedean Ammous</span><h3>The Bitcoin Standard</h3><p>Paranın tarihi: deniz kabuklarından altına, altından bitcoin'e.</p></div>
+          <div class="card book r" style="--d:4"><span class="kicker">Lyn Alden</span><h3>Broken Money</h3><p>Finansal sistemimiz gerçekte nasıl işliyor ve sıradan insanları neden yüzüstü bırakıyor.</p></div>
+          <div class="card book r" style="--d:5"><span class="kicker">Jeff Booth</span><h3>The Price of Tomorrow</h3><p>Teknoloji neden deflasyonist ve bu neden iyi bir haber.</p></div>
+          <div class="card book r" style="--d:6"><span class="kicker">Alex Gladstein</span><h3>Check Your Financial Privilege</h3><p>Otoriter rejimler altında yaşayan insanların gözünden bitcoin.</p></div>
+          <a class="card book r" style="--d:7" href="https://mempool.space" target="_blank" rel="noopener"><span class="kicker">Araç · mempool.space</span><h3>Ağı canlı izle</h3><p>Blokların kazılmasını ve işlemlerin onaylanmasını gerçek zamanlı gör.</p></a>
+          <a class="card book energy r" style="--d:8" href="https://news.cornell.edu/stories/2023/11/bitcoin-could-support-renewable-energy-development" target="_blank" rel="noopener"><span class="kicker">Enerji · Cornell · 2023</span><h3>From Mining to Mitigation</h3><p>Hakemli çalışma: madencilik, yeni rüzgâr ve güneş santrallerinin elektriğini şebekeye bağlanmadan önce satın alarak finansmanlarına yardım edebilir.</p></a>
+          <a class="card book energy r" style="--d:9" href="https://www.jbs.cam.ac.uk/2025/cambridge-study-sustainable-energy-rising-in-bitcoin-mining/" target="_blank" rel="noopener"><span class="kicker">Enerji · Cambridge · 2025</span><h3>Digital Mining Industry Report</h3><p>Madenciliğin %52,4'ü artık sürdürülebilir enerjiyle çalışıyor; 2022'de bu oran %37,6 idi. Kömür %36,6'dan %8,9'a düştü.</p></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange" id="watch">
+      <div class="wrap">
+        <p class="kicker r">Daha derine · İzle ve dinle</p>
+        <h2 class="display r" style="--d:1">Paylaşılacak filmler, <em>takip edilecek sesler</em>.</h2>
+        <div class="media mt">
+          <div class="films">
+            <h3 class="col-h r" style="--d:2">Filmler · YouTube'da ücretsiz (İngilizce)</h3>
+            <a class="film card r" style="--d:2" href="https://www.youtube.com/watch?v=YtFOxNbmD38" target="_blank" rel="noopener">
+              <span class="thumb"><img src="https://i.ytimg.com/vi/YtFOxNbmD38/hqdefault.jpg" alt="" loading="lazy"><i aria-hidden="true"></i></span>
+              <span class="film-t"><span class="kicker">Joe Bryan · Buradan başla</span><b>What's the Problem?</b><small>Jargonsuz: modern hayatta bu kadar çok şeyin neden bozuk hissettirdiği, paraya kadar izlenerek. Paylaşılacak en iyi ilk video.</small></span>
+            </a>
+            <a class="film card r" style="--d:3" href="https://www.youtube.com/watch?v=ZKwqNgG-Sv4" target="_blank" rel="noopener">
+              <span class="thumb"><img src="https://i.ytimg.com/vi/ZKwqNgG-Sv4/hqdefault.jpg" alt="" loading="lazy"><i aria-hidden="true"></i></span>
+              <span class="film-t"><span class="kicker">Art of the Problem</span><b>Bitcoin: The Trust Machine</b><small>Bitcoin'in gerçekte nasıl çalıştığına dair temel ilkelerden başlayan, çok güzel bir animasyonlu anlatım.</small></span>
+            </a>
+            <a class="film card r" style="--d:4" href="https://www.youtube.com/watch?v=oksraL7wN6Q" target="_blank" rel="noopener">
+              <span class="thumb"><img src="https://i.ytimg.com/vi/oksraL7wN6Q/hqdefault.jpg" alt="" loading="lazy"><i aria-hidden="true"></i></span>
+              <span class="film-t"><span class="kicker">Belgesel · 2024</span><b>God Bless Bitcoin</b><small>Para, ahlak ve özgürlük: bozuk paranın toplumu nasıl şekillendirdiği ve bitcoin'in neden umut verdiği.</small></span>
+            </a>
+          </div>
+          <div class="pods">
+            <h3 class="col-h r" style="--d:2">Zamanına değecek podcast'ler</h3>
+            <ul class="pod-list">
+              <li class="r" style="--d:3"><a href="https://podcasts.apple.com/us/podcast/coin-stories/id1569130932" target="_blank" rel="noopener"><b>Coin Stories</b><span>Natalie Brunell</span><small>Para, enflasyon ve özgürlük üzerine yeni başlayanlara uygun sohbetler.</small></a></li>
+              <li class="r" style="--d:4"><a href="https://www.bitcoinaudible.com" target="_blank" rel="noopener"><b>Bitcoin Audible</b><span>Guy Swann</span><small>En iyi bitcoin makaleleri, sesli okunup tartışılıyor.</small></a></li>
+              <li class="r" style="--d:5"><a href="https://www.theinvestorspodcast.com/bitcoin-fundamentals/" target="_blank" rel="noopener"><b>Bitcoin Fundamentals</b><span>Preston Pysh</span><small>Yatırım ve makroekonomi merceğinden bitcoin.</small></a></li>
+              <li class="r" style="--d:6"><a href="https://www.whatbitcoindid.com" target="_blank" rel="noopener"><b>What Bitcoin Did</b><span>Uzun röportajlar</span><small>Bitcoin'i şekillendiren insanlar, politika ve fikirler.</small></a></li>
+              <li class="r" style="--d:7"><a href="https://saifedean.com/podcast" target="_blank" rel="noopener"><b>The Bitcoin Standard Podcast</b><span>Saifedean Ammous</span><small>İktisat, sağlam para ve paranın tarihi.</small></a></li>
+              <li class="r" style="--d:8"><a href="https://www.stephanlivera.com" target="_blank" rel="noopener"><b>Stephan Livera Podcast</b><span>Stephan Livera</span><small>Öz saklama, Lightning ve teknoloji üzerine derinlemesine.</small></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide finale" data-mood="orange" data-chapter="Son söz" data-toc="Son söz">
+      <div class="wrap narrow center">
+        <div class="mini-pill r zoom" aria-hidden="true"><span></span><span></span></div>
+        <h2 class="display huge r" style="--d:1">Turuncu hap zengin olmakla ilgili değil.<br><em>Özgür olmakla ilgili.</em></h2>
+        <blockquote class="r" style="--d:2">
+          <p>"Geleneksel paranın kökteki sorunu, çalışması için gereken onca güvendir."</p>
+          <cite>Satoshi Nakamoto, 2009</cite>
+        </blockquote>
+        <div class="cta center r" style="--d:3">
+          <button class="btn primary" id="share-btn">Değer verdiğin biriyle paylaş</button>
+          <button class="btn ghost" data-go="first">↺ Baştan başla</button>
+        </div>
+        <div class="share-row r" style="--d:4" aria-label="Paylaş">
+          <a class="share-chip" data-share="x" target="_blank" rel="noopener">X'te paylaş</a>
+          <a class="share-chip" data-share="telegram" target="_blank" rel="noopener">Telegram</a>
+          <a class="share-chip" data-share="whatsapp" target="_blank" rel="noopener">WhatsApp</a>
+          <button class="share-chip" data-share="copy" type="button">Bağlantıyı kopyala</button>
+        </div>
+        <p class="signoff r" style="--d:5">Mütevazı kal. Sat biriktir. Anahtarlarını tut.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script>window.I18N_JS = {"Slide {n}: {title}":"Slayt {n}: {title}","The Orange Pill":"Turuncu Hap","1933 · gold confiscated":"1933 · altına el konuldu","1971 · gold link cut":"1971 · altın bağı koptu","{year} · value of a 1913 dollar":"{year} · 1913 dolarının değeri","{amount} trillion":"{amount} trilyon","M2 · January {year}":"M2 · Ocak {year}","{year} · {pct}% mined":"{year} · %{pct} kazıldı","Hard cap · 21,000,000":"Üst sınır · 21.000.000","Today · {pct}% mined":"Bugün · %{pct} kazıldı","○ halvings: 2012 · 2016 · 2020 · 2024 …":"○ halving'ler: 2012 · 2016 · 2020 · 2024 …","US dollar":"ABD doları","M2, avg since 1960":"M2, 1960'tan beri ort.","Gold":"Altın","new mine supply":"yeni maden arzı","after ~2140":"~2140 sonrası","Start mining":"Kazmaya başla","Press start. Your browser will guess until it finds a valid hash.":"Başlat'a bas. Tarayıcın geçerli bir hash bulana kadar tahmin edecek.","Mine again":"Yeniden kaz","\u003cspan class=\"pos\">Block found!\u003c/span> It took \u003cstrong>{n}\u003c/strong> guesses in {s}s. Now verify it, or edit the data and see what breaks.":"\u003cspan class=\"pos\">Blok bulundu!\u003c/span> {s} sn içinde \u003cstrong>{n}\u003c/strong> tahmin gerekti. Şimdi doğrula ya da veriyi değiştirip neyin bozulduğunu gör.","Guessing… {n} hashes per second":"Tahmin ediliyor… saniyede {n} hash","Resume mining":"Kazmaya devam et","Paused.":"Duraklatıldı.","Stop":"Durdur","\u003cspan class=\"pos\">✓ Valid.\u003c/span> Checked with \u003cstrong>one\u003c/strong> hash in {time}. Finding it took {n}. That asymmetry is the whole trick.":"\u003cspan class=\"pos\">✓ Geçerli.\u003c/span> {time} içinde \u003cstrong>tek bir\u003c/strong> hash ile doğrulandı. Bulmak {n} tahmin sürdü. Bütün hile bu asimetride.","a fraction of a millisecond":"bir milisaniyenin kesri","\u003cspan class=\"neg\">✗ Invalid.\u003c/span> The data changed, so the old proof no longer fits. Every node would reject this block.":"\u003cspan class=\"neg\">✗ Geçersiz.\u003c/span> Veri değişti, bu yüzden eski kanıt artık uymuyor. Her düğüm bu bloğu reddederdi.","Re-mine":"Yeniden kaz","\u003cspan class=\"pos\">Still valid.\u003c/span>":"\u003cspan class=\"pos\">Hâlâ geçerli.\u003c/span>","\u003cspan class=\"neg\">Tampered!\u003c/span> Same nonce, one edit, completely different hash. Re-mining is the only way to fix it, and on the real network that means outrunning everyone.":"\u003cspan class=\"neg\">Oynanmış!\u003c/span> Aynı nonce, tek bir değişiklik, tamamen farklı bir hash. Düzeltmenin tek yolu yeniden kazmak; gerçek ağda bu, herkesi geçmek demek.","Cash":"Nakit","Fiat money":"Fiat para","Physical":"Fiziksel","Real estate":"Gayrimenkul","Land, buildings":"Arsa, bina","Stocks":"Hisseler","Equities":"Pay senetleri","Digital, sound":"Dijital, sağlam","Scarcity":"Kıtlık","Unlimited printing":"Sınırsız basım","~1.7% new per year":"Yılda ~%1,7 yeni","More can be built":"Daha fazlası inşa edilebilir","Dilution, new issues":"Sulanma, yeni ihraçlar","Fixed at 21M":"21M'de sabit","Portability":"Taşınabilirlik","Needs permission":"İzin gerekir","Heavy, guarded":"Ağır, korunmalı","Immovable":"Taşınamaz","Through brokers":"Aracı kurumlarla","12 words, global":"12 kelime, küresel","Divisibility":"Bölünebilirlik","Down to cents":"Kuruşa kadar","Hard to split":"Bölmesi zor","Can't sell a room":"Bir oda satılamaz","Fractional shares":"Kesirli hisse","100M sats each":"Her biri 100M sat","Verifiability":"Doğrulanabilirlik","Counterfeits exist":"Sahtesi var","Fake bars exist":"Sahte külçe var","Lawyers, registries":"Avukat, tapu","Trust the auditors":"Denetçilere güven","Anyone, in seconds":"Herkes, saniyeler içinde","Seizure resistance":"El konulmaya direnç","Freezes, bail-ins":"Dondurma, bail-in","Confiscated in 1933":"1933'te el konuldu","Taxed, expropriated":"Vergi, kamulaştırma","Held by custodians":"Saklayıcıda","Self-custody":"Öz saklama","No middleman needed":"Aracı gerekmez","Bank, central bank":"Banka, merkez bankası","If you hold it":"Kendinde tutarsan","Title, state, tax":"Tapu, devlet, vergi","Managers, brokers":"Yöneticiler, aracılar","In self-custody":"Öz saklamada","Cost to hold":"Tutma maliyeti","Inflation tax":"Enflasyon vergisi","Vaults, insurance":"Kasa, sigorta","Taxes, upkeep":"Vergi, bakım","Fees, dilution":"Ücret, sulanma","Near zero":"Neredeyse sıfır","Open 24/7, global":"7/24 açık, küresel","Bank hours":"Banka saatleri","Slow, physical":"Yavaş, fiziksel","Months to sell":"Satmak aylar sürer","Market hours":"Piyasa saatleri","Price stability today":"Bugünkü fiyat istikrarı","Short-term":"Kısa vadede","Mature market":"Olgun piyasa","Mostly":"Çoğunlukla","Cyclical":"Döngüsel","Volatile (young)":"Oynak (genç)","Track record":"Geçmiş","Decades":"On yıllar","5,000 years":"5.000 yıl","Centuries":"Yüzyıllar","Since 2009":"2009'dan beri","A melting ice cube. Great for spending, terrible for saving. It is designed to lose purchasing power every year.":"Eriyen bir buz küpü. Harcamak için harika, biriktirmek için berbat. Her yıl alım gücü kaybetmek üzere tasarlanmış.","The hardest money for 5,000 years. But you can't email it, it's hard to verify, and governments have confiscated it before.":"5.000 yıldır en sağlam para. Ama e-postayla gönderemezsin, doğrulaması zor ve hükümetler daha önce el koydu.","Shelter turned into a savings account. Illiquid, taxed and immovable, and you can't sell a bedroom to buy groceries.":"Birikim hesabına dönüşmüş bir çatı. Likit değil, vergili ve taşınamaz; market alışverişi için bir yatak odasını satamazsın.","A claim on businesses that others run. Valuable, but diluted and custodied, and part of the \"growth\" is just money losing value.":"Başkalarının yönettiği şirketler üzerinde bir hak. Değerli ama sulanıyor ve saklayıcıda duruyor; \"büyümenin\" bir kısmı da sadece paranın değer kaybetmesi.","Scarcer than gold, more portable than cash, divisible like stocks, and the only one you can truly own without anyone's permission. The trade-offs: volatility while it grows up, and the responsibility of holding your own keys.":"Altından kıt, nakitten taşınabilir, hisse gibi bölünebilir ve kimsenin izni olmadan gerçekten sahip olabileceğin tek şey. Bedelleri: olgunlaşana kadar oynaklık ve kendi anahtarlarını tutma sorumluluğu.","weak":"zayıf","fair":"orta","strong":"güçlü","Comparison of cash, gold, real estate, stocks and bitcoin":"Nakit, altın, gayrimenkul, hisse ve bitcoin karşılaştırması","Property":"Özellik","Music on":"Müzik açık","Music off":"Müzik kapalı","Music playing · tap to mute":"Müzik çalıyor · kapatmak için dokun","Turn on the music":"Müziği aç","You're not bad with money. Your money is bad. 🟠 A free 20-minute interactive presentation on inflation, money and bitcoin:":"Sorun sende değil, paranda. 🟠 Enflasyon, para ve bitcoin üzerine ücretsiz, 20 dakikalık etkileşimli bir sunum:","Link copied. Pass it on 🧡":"Bağlantı kopyalandı. Başkasına aktar 🧡"};</script><script src="../js/main.js" defer></script>
+</body>
+</html>

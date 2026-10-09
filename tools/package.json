@@ -1,0 +1,9 @@
+{
+  "name": "orange-pill-tools",
+  "private": true,
+  "type": "module",
+  "description": "Translation build for The Orange Pill",
+  "dependencies": {
+    "linkedom": "0.18.5"
+  }
+}

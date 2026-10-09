@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="de" class="no-js" data-mood="orange">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Die Orange Pille</title>
+  <meta name="description" content="Warum Inflation normale Menschen still und leise ausblutet, was Geld wirklich ist und warum Bitcoin ein Werkzeug für menschliche Freiheit ist. Eine kostenlose, interaktive Präsentation in acht Kapiteln.">
+  <link rel="canonical" href="https://orange-pill.github.io/de/">
+  <!-- i18n:alternates -->
+  <link rel="alternate" hreflang="en" href="https://orange-pill.github.io/">
+  <link rel="alternate" hreflang="es" href="https://orange-pill.github.io/es/">
+  <link rel="alternate" hreflang="pt" href="https://orange-pill.github.io/pt/">
+  <link rel="alternate" hreflang="fr" href="https://orange-pill.github.io/fr/">
+  <link rel="alternate" hreflang="de" href="https://orange-pill.github.io/de/">
+  <link rel="alternate" hreflang="pl" href="https://orange-pill.github.io/pl/">
+  <link rel="alternate" hreflang="ru" href="https://orange-pill.github.io/ru/">
+  <link rel="alternate" hreflang="tr" href="https://orange-pill.github.io/tr/">
+  <link rel="alternate" hreflang="zh" href="https://orange-pill.github.io/zh/">
+  <link rel="alternate" hreflang="ja" href="https://orange-pill.github.io/ja/">
+  <link rel="alternate" hreflang="hi" href="https://orange-pill.github.io/hi/">
+  <link rel="alternate" hreflang="x-default" href="https://orange-pill.github.io/">
+  <!-- /i18n:alternates -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The Orange Pill">
+  <meta property="og:url" content="https://orange-pill.github.io/de/">
+  <meta property="og:title" content="Die Orange Pille: Du kannst sehr wohl mit Geld umgehen. Dein Geld ist das Problem.">
+  <meta property="og:description" content="Warum Inflation normale Menschen still und leise ausblutet und warum Bitcoin ein Werkzeug für menschliche Freiheit ist. Eine kostenlose, interaktive Präsentation in acht Kapiteln.">
+  <meta property="og:image" content="https://orange-pill.github.io/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Die Orange Pille: eine orange Bitcoin-Kapsel neben den Worten Du kannst sehr wohl mit Geld umgehen. Dein Geld ist das Problem.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Die Orange Pille: Du kannst sehr wohl mit Geld umgehen. Dein Geld ist das Problem.">
+  <meta name="twitter:description" content="Eine kostenlose, interaktive Präsentation über Inflation, Geld und Bitcoin. Acht Kapitel, etwa 20 Minuten.">
+  <meta name="twitter:image" content="https://orange-pill.github.io/assets/og-image.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LearningResource",
+    "name": "Die Orange Pille",
+    "headline": "You're not bad with money. Your money is bad.",
+    "description": "A free, interactive presentation in eight chapters on inflation, the history of money, and why bitcoin empowers ordinary people.",
+    "url": "https://orange-pill.github.io/de/",
+    "image": "https://orange-pill.github.io/assets/og-image.png",
+    "inLanguage": "de",
+    "isAccessibleForFree": true,
+    "learningResourceType": "Presentation",
+    "educationalLevel": "Beginner",
+    "about": [
+      "Bitcoin",
+      "Inflation",
+      "Money",
+      "Sound money",
+      "Self-custody"
+    ],
+    "timeRequired": "PT20M"
+  }
+  </script>
+  <meta name="theme-color" content="#09090a">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <canvas id="rain" aria-hidden="true"></canvas>
+  <div class="glow" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div id="progress" aria-hidden="true"><span></span></div>
+
+  <header class="topbar">
+    <a class="brand" href="#start" aria-label="Zurück zum Anfang"><span class="brand-mark" translate="no">₿</span><span>Die Orange Pille</span></a>
+    <div class="top-actions">
+      <div class="lang-wrap">
+        <button class="lang-btn" id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-controls="lang-pop" aria-label="Sprache"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z" /></svg><span translate="no" id="lang-code">EN</span></button>
+        <ul class="lang-pop" id="lang-pop" hidden translate="no">
+          <li><a href="../" hreflang="en" lang="en" data-lang="en">English</a></li>
+          <li><a href="../es/" hreflang="es" lang="es" data-lang="es">Español</a></li>
+          <li><a href="../pt/" hreflang="pt" lang="pt" data-lang="pt">Português</a></li>
+          <li><a href="../fr/" hreflang="fr" lang="fr" data-lang="fr">Français</a></li>
+          <li><a href="../de/" hreflang="de" lang="de" data-lang="de">Deutsch</a></li>
+          <li><a href="../pl/" hreflang="pl" lang="pl" data-lang="pl">Polski</a></li>
+          <li><a href="../ru/" hreflang="ru" lang="ru" data-lang="ru">Русский</a></li>
+          <li><a href="../tr/" hreflang="tr" lang="tr" data-lang="tr">Türkçe</a></li>
+          <li><a href="../zh/" hreflang="zh" lang="zh" data-lang="zh">中文</a></li>
+          <li><a href="../ja/" hreflang="ja" lang="ja" data-lang="ja">日本語</a></li>
+          <li><a href="../hi/" hreflang="hi" lang="hi" data-lang="hi">हिन्दी</a></li>
+        </ul>
+      </div>
+      <button class="sound-btn" id="sound-btn" aria-pressed="false" aria-label="Musik" hidden><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="sound-label">Musik aus</span></button>
+      <audio id="music" src="../assets/music/soundtrack.mp3" preload="none" loop></audio>
+      <button class="menu-btn" data-open-menu="" aria-haspopup="dialog" aria-controls="menu"><span>Inhalt</span><i></i></button>
+    </div>
+  </header>
+
+  <nav id="dots" aria-label="Folien"></nav>
+
+  <div class="hud" aria-live="polite">
+    <span class="hud-chapter" id="hud-chapter">Prolog</span>
+    <div class="hud-ctrl">
+      <button class="hud-btn" data-go="prev" aria-label="Vorherige Folie">↑</button>
+      <span class="hud-count" id="hud-count">01 / 40</span>
+      <button class="hud-btn" data-go="next" aria-label="Nächste Folie">↓</button>
+    </div>
+  </div>
+
+  <div id="menu" role="dialog" aria-modal="true" aria-label="Inhalt" hidden>
+    <div class="menu-inner">
+      <div class="menu-head">
+        <p class="kicker">Inhalt</p>
+        <button class="menu-close" data-close-menu="" aria-label="Inhalt schließen">✕</button>
+      </div>
+      <ol class="menu-list" id="menu-list"></ol>
+      <p class="menu-keys">Tastatur: <kbd>↓</kbd> <kbd>↑</kbd> <kbd>Space</kbd> navigieren · <kbd>M</kbd> Inhalt · <kbd>S</kbd> Musik · <kbd>F</kbd> Vollbild</p>
+    </div>
+  </div>
+
+  <main id="deck">
+
+    <!-- ============================== PROLOGUE ============================== -->
+    <section class="slide hero" id="start" data-mood="orange" data-chapter="Prolog">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="kicker r">Eine interaktive Präsentation in acht Kapiteln</p>
+          <h1 class="r" style="--d:1">Die <span class="o">Orange</span><br>Pille</h1>
+          <p class="hero-sub r" style="--d:2">Du kannst sehr wohl mit Geld umgehen.<br><em>Dein Geld ist das Problem.</em></p>
+          <p class="lead r" style="--d:3">Warum das System still und leise die Ersparnisse normaler Menschen aufzehrt, und warum eine führungslose Open-Source-Erfindung aus dem Jahr 2009 eines der wichtigsten Werkzeuge für menschliche Freiheit unserer Zeit sein könnte.</p>
+          <div class="cta r" style="--d:4">
+            <button class="btn primary" data-go="next">Nimm die orange Pille <span aria-hidden="true">→</span></button>
+            <button class="btn ghost" data-open-menu="">Inhalt</button>
+          </div>
+          <button class="sound-hint r" style="--d:5" data-sound-toggle="" aria-pressed="false" hidden>♪ <span>Musik einschalten</span></button>
+        </div>
+        <div class="pill-stage r zoom" style="--d:2" aria-hidden="true">
+          <div class="orbit o1"></div><div class="orbit o2"></div><div class="orbit o3"></div>
+          <div class="pill-tilt" id="pill-tilt"><div class="pill-float">
+            <svg class="pill-svg" viewBox="0 0 440 180" aria-hidden="true">
+              <defs>
+                <lineargradient id="capG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd58e" /><stop offset=".16" stop-color="#ffae45" /><stop offset=".5" stop-color="#f7931a" /><stop offset=".8" stop-color="#c46200" /><stop offset="1" stop-color="#7e3c00" /></lineargradient>
+                <lineargradient id="capEdge" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3a1a00" stop-opacity=".45" /><stop offset=".22" stop-color="#3a1a00" stop-opacity="0" /><stop offset=".86" stop-color="#3a1a00" stop-opacity="0" /><stop offset="1" stop-color="#3a1a00" stop-opacity=".35" /></lineargradient>
+                <lineargradient id="glassG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".30" /><stop offset=".35" stop-color="#fff" stop-opacity=".06" /><stop offset=".75" stop-color="#fff" stop-opacity=".04" /><stop offset="1" stop-color="#fff" stop-opacity=".22" /></lineargradient>
+                <lineargradient id="glassShade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity="0" /><stop offset=".55" stop-color="#000" stop-opacity="0" /><stop offset="1" stop-color="#2a1200" stop-opacity=".55" /></lineargradient>
+                <radialgradient id="bO" cx=".35" cy=".3" r=".75"><stop offset="0" stop-color="#ffe0a8" /><stop offset=".35" stop-color="#ffa733" /><stop offset="1" stop-color="#a14d00" /></radialgradient>
+                <radialgradient id="bG" cx=".35" cy=".3" r=".75"><stop offset="0" stop-color="#fff4c9" /><stop offset=".4" stop-color="#e8b955" /><stop offset="1" stop-color="#8a6416" /></radialgradient>
+                <radialgradient id="bW" cx=".35" cy=".3" r=".75"><stop offset="0" stop-color="#ffffff" /><stop offset=".45" stop-color="#efe7da" /><stop offset="1" stop-color="#9c9284" /></radialgradient>
+                <clippath id="bodyClip"><path d="M214 30 H360 A60 60 0 0 1 360 150 H214 Z" /></clippath>
+                <filter id="soft" x="-20%" y="-50%" width="140%" height="200%"><fegaussianblur stdDeviation="3" /></filter>
+                <filter id="softer" x="-20%" y="-50%" width="140%" height="200%"><fegaussianblur stdDeviation="1.4" /></filter>
+              </defs>
+              <!-- glass body with sats inside -->
+              <path d="M214 30 H360 A60 60 0 0 1 360 150 H214 Z" fill="rgba(20,12,6,.55)" />
+              <g clip-path="url(#bodyClip)">
+                <circle cx="275.7" cy="124.0" r="5" fill="url(#bO)" />
+<circle cx="390.1" cy="81.9" r="6" fill="url(#bO)" />
+<circle cx="304.0" cy="93.2" r="5" fill="url(#bO)" />
+<circle cx="254.7" cy="61.8" r="6" fill="url(#bO)" />
+<circle cx="316.9" cy="52.4" r="6.5" fill="url(#bO)" />
+<circle cx="409.9" cy="87.9" r="5" fill="url(#bO)" />
+<circle cx="294.2" cy="100.2" r="5" fill="url(#bO)" />
+<circle cx="338.5" cy="103.6" r="6.5" fill="url(#bO)" />
+<circle cx="289.8" cy="76.5" r="5.5" fill="url(#bO)" />
+<circle cx="404.8" cy="112.8" r="5" fill="url(#bO)" />
+<circle cx="373.3" cy="57.7" r="7" fill="url(#bO)" />
+<circle cx="275.0" cy="139.6" r="5.5" fill="url(#bO)" />
+<circle cx="321.6" cy="139.6" r="6" fill="url(#bO)" />
+<circle cx="394.1" cy="107.5" r="5" fill="url(#bO)" />
+<circle cx="361.5" cy="73.6" r="5.5" fill="url(#bO)" />
+<circle cx="278.0" cy="80.3" r="7.5" fill="url(#bO)" />
+<circle cx="363.3" cy="40.9" r="6.5" fill="url(#bO)" />
+<circle cx="266.0" cy="62.2" r="5" fill="url(#bO)" />
+<circle cx="259.9" cy="139.6" r="5.5" fill="url(#bO)" />
+<circle cx="362.5" cy="85.7" r="6.5" fill="url(#bO)" />
+<circle cx="354.0" cy="140.2" r="5.5" fill="url(#bO)" />
+<circle cx="344.8" cy="131.7" r="5" fill="url(#bO)" />
+<circle cx="337.2" cy="82.7" r="7" fill="url(#bO)" />
+<circle cx="242.8" cy="68.3" r="5.5" fill="url(#bO)" />
+<circle cx="399.9" cy="90.8" r="5.5" fill="url(#bO)" />
+<circle cx="357.5" cy="130.0" r="5" fill="url(#bO)" />
+<circle cx="266.5" cy="73.0" r="5" fill="url(#bO)" />
+<circle cx="385.7" cy="53.6" r="5.5" fill="url(#bO)" />
+<circle cx="303.6" cy="80.2" r="5.5" fill="url(#bO)" />
+<circle cx="306.5" cy="57.7" r="5.5" fill="url(#bO)" />
+<circle cx="276.9" cy="68.2" r="5" fill="url(#bO)" />
+<circle cx="375.5" cy="134.0" r="5" fill="url(#bO)" />
+<circle cx="320.9" cy="127.9" r="5" fill="url(#bO)" />
+<circle cx="279.9" cy="94.4" r="6" fill="url(#bO)" />
+<circle cx="383.5" cy="113.8" r="6.5" fill="url(#bO)" />
+<circle cx="256.1" cy="50.4" r="5" fill="url(#bO)" />
+<circle cx="268.0" cy="101.9" r="5" fill="url(#bO)" />
+<circle cx="287.6" cy="62.4" r="7.5" fill="url(#bO)" />
+<circle cx="239.2" cy="51.2" r="7" fill="url(#bO)" />
+<circle cx="293.1" cy="48.5" r="8" fill="url(#bO)" />
+<circle cx="310.8" cy="137.3" r="5.5" fill="url(#bO)" />
+<circle cx="383.8" cy="128.1" r="5" fill="url(#bO)" />
+<circle cx="381.2" cy="67.5" r="5.5" fill="url(#bO)" />
+<circle cx="393.1" cy="120.2" r="5" fill="url(#bO)" />
+<circle cx="297.5" cy="133.7" r="5" fill="url(#bO)" />
+<circle cx="385.3" cy="101.6" r="5.5" fill="url(#bO)" />
+<circle cx="403.3" cy="77.9" r="6" fill="url(#bO)" />
+<circle cx="227.0" cy="80.2" r="5" fill="url(#bO)" />
+<circle cx="334.2" cy="139.4" r="5.5" fill="url(#bO)" />
+<circle cx="374.1" cy="78.8" r="7.5" fill="url(#bO)" />
+<circle cx="280.1" cy="44.2" r="5" fill="url(#bO)" />
+<circle cx="250.3" cy="39.7" r="5.5" fill="url(#bO)" />
+<circle cx="356.0" cy="114.7" r="5" fill="url(#bO)" />
+<circle cx="320.3" cy="68.2" r="6.5" fill="url(#bO)" />
+<circle cx="371.4" cy="102.5" r="7" fill="url(#bO)" />
+<circle cx="312.0" cy="86.7" r="5.5" fill="url(#bO)" />
+<circle cx="249.6" cy="134.7" r="5.5" fill="url(#bO)" />
+<circle cx="313.2" cy="40.5" r="5.5" fill="url(#bO)" />
+<circle cx="282.0" cy="113.9" r="7" fill="url(#bO)" />
+<circle cx="327.5" cy="43.9" r="6.5" fill="url(#bO)" />
+<circle cx="234.2" cy="97.2" r="7.5" fill="url(#bO)" />
+<circle cx="365.0" cy="136.1" r="5" fill="url(#bO)" />
+<circle cx="396.5" cy="59.3" r="6.5" fill="url(#bO)" />
+<circle cx="371.0" cy="121.5" r="7.5" fill="url(#bO)" />
+<circle cx="235.1" cy="139.8" r="6" fill="url(#bO)" />
+<circle cx="333.4" cy="94.0" r="5" fill="url(#bO)" />
+<circle cx="343.9" cy="117.7" r="8" fill="url(#bO)" />
+<circle cx="346.7" cy="47.5" r="8" fill="url(#bG)" />
+<circle cx="294.8" cy="118.7" r="7" fill="url(#bG)" />
+<circle cx="340.2" cy="59.0" r="5" fill="url(#bG)" />
+<circle cx="231.1" cy="111.7" r="7.5" fill="url(#bG)" />
+<circle cx="328.0" cy="113.3" r="6" fill="url(#bG)" />
+<circle cx="294.8" cy="87.3" r="5" fill="url(#bG)" />
+<circle cx="249.9" cy="123.5" r="5.5" fill="url(#bG)" />
+<circle cx="393.7" cy="70.4" r="5.5" fill="url(#bG)" />
+<circle cx="302.2" cy="68.7" r="6.5" fill="url(#bG)" />
+<circle cx="256.8" cy="75.3" r="5.5" fill="url(#bG)" />
+<circle cx="235.9" cy="39.3" r="5" fill="url(#bG)" />
+<circle cx="264.3" cy="40.3" r="5.5" fill="url(#bG)" />
+<circle cx="227.7" cy="46.5" r="5.5" fill="url(#bG)" />
+<circle cx="345.7" cy="69.0" r="5.5" fill="url(#bG)" />
+<circle cx="326.4" cy="102.0" r="5.5" fill="url(#bG)" />
+<circle cx="318.3" cy="96.1" r="5" fill="url(#bG)" />
+<circle cx="350.8" cy="97.0" r="6.5" fill="url(#bG)" />
+<circle cx="304.9" cy="106.9" r="7.5" fill="url(#bG)" />
+<circle cx="233.9" cy="126.6" r="7" fill="url(#bG)" />
+<circle cx="332.0" cy="128.5" r="6" fill="url(#bG)" />
+<circle cx="256.7" cy="93.3" r="7" fill="url(#bG)" />
+<circle cx="317.2" cy="110.3" r="5" fill="url(#bG)" />
+<circle cx="263.2" cy="125.1" r="8" fill="url(#bG)" />
+<circle cx="379.4" cy="45.4" r="5" fill="url(#bG)" />
+<circle cx="285.7" cy="137.0" r="5.5" fill="url(#bG)" />
+<circle cx="231.5" cy="64.6" r="6.5" fill="url(#bW)" />
+<circle cx="351.6" cy="80.4" r="6" fill="url(#bW)" />
+<circle cx="258.9" cy="108.6" r="5" fill="url(#bW)" />
+<circle cx="247.9" cy="108.0" r="6" fill="url(#bW)" />
+<circle cx="327.5" cy="55.4" r="5" fill="url(#bW)" />
+<circle cx="356.6" cy="59.4" r="8" fill="url(#bW)" />
+<circle cx="269.2" cy="50.2" r="6" fill="url(#bW)" />
+<circle cx="242.9" cy="89.0" r="5" fill="url(#bW)" />
+<circle cx="409.9" cy="99.8" r="5" fill="url(#bW)" />
+<circle cx="310.0" cy="122.1" r="8" fill="url(#bW)" />
+<circle cx="268.9" cy="114.1" r="5" fill="url(#bW)" />
+<circle cx="268.0" cy="87.0" r="5" fill="url(#bW)" />
+<circle cx="382.5" cy="91.4" r="5.5" fill="url(#bW)" />
+<circle cx="334.3" cy="68.2" r="5.5" fill="url(#bW)" />
+<circle cx="323.7" cy="81.9" r="6.5" fill="url(#bW)" />
+<circle cx="238.0" cy="78.9" r="6.5" fill="url(#bW)" />
+                <rect x="210" y="26" width="220" height="130" fill="url(#glassShade)" />
+              </g>
+              <path d="M214 30 H360 A60 60 0 0 1 360 150 H214 Z" fill="url(#glassG)" stroke="rgba(255,255,255,.55)" stroke-width="1.4" />
+              <path d="M236 44 H356 A44 14 0 0 1 356 56 H236 A6 6 0 0 1 236 44 Z" fill="#fff" opacity=".55" filter="url(#soft)" />
+              <ellipse cx="392" cy="70" rx="6" ry="11" fill="#fff" opacity=".6" filter="url(#softer)" transform="rotate(30 392 70)" />
+              <path d="M240 140 H350" stroke="#fff" stroke-opacity=".28" stroke-width="2" stroke-linecap="round" filter="url(#softer)" />
+              <!-- orange cap -->
+              <path d="M226 25 H84 A65 65 0 0 0 84 155 H226 Z" fill="url(#capG)" />
+              <path d="M226 25 H84 A65 65 0 0 0 84 155 H226 Z" fill="url(#capEdge)" />
+              <path d="M226 25 V155" stroke="#5a2a00" stroke-opacity=".55" stroke-width="2.5" />
+              <path d="M222.5 27 V153" stroke="#ffd9a0" stroke-opacity=".45" stroke-width="1" />
+              <g transform="rotate(14 132 92)" font-family="Inter, system-ui, sans-serif" font-weight="800" font-size="70" text-anchor="middle">
+                <text x="132" y="117" fill="#ffe1ad" fill-opacity=".45">₿</text>
+                <text x="132" y="115" fill="#8a4100" fill-opacity=".5">₿</text>
+              </g>
+              <path d="M60 40 H212 A0 0 0 0 1 212 52 H70 A9 6 0 0 1 60 40 Z" fill="#fff" opacity=".6" filter="url(#soft)" />
+              <path d="M40 120 Q60 148 100 150 H210" fill="none" stroke="#ffcf87" stroke-opacity=".35" stroke-width="2" filter="url(#softer)" />
+            </svg>
+          </div></div>
+          <div class="pill-shadow"></div>
+        </div>
+      </div>
+      <div class="scroll-hint" aria-hidden="true"><span>Scrollen, wischen oder ↓ drücken</span><i></i></div>
+    </section>
+
+    <!-- ============================== CHAPTER I ============================== -->
+    <section class="slide chapter" id="ch1" data-mood="cold" data-chapter="I · Das große Leck" data-toc="Das große Leck">
+      <div class="wrap">
+        <div class="numeral r wipe" translate="no">I</div>
+        <p class="kicker r" style="--d:1">Kapitel eins</p>
+        <h2 class="display r" style="--d:2">Das große Leck</h2>
+        <p class="lead r" style="--d:3">Etwas ist kaputt. Und es liegt nicht an dir.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="cold">
+      <div class="wrap">
+        <p class="kicker r">Kommt dir das bekannt vor?</p>
+        <h2 class="display r" style="--d:1">Du arbeitest härter als je zuvor.<br><em>Warum kannst du dir weniger leisten?</em></h2>
+        <div class="grid g4 mt">
+          <div class="card r" style="--d:2"><span class="card-n">01</span><p>Du verdienst mehr als deine Eltern in deinem Alter, kannst dir aber weniger von dem leisten, was sie hatten.</p></div>
+          <div class="card r" style="--d:3"><span class="card-n">02</span><p>Ein Eigenheim kostete früher etwa <strong>3,5 Jahre</strong> Einkommen eines typischen Haushalts. Heute sind es <strong>über 5 Jahre</strong>.</p></div>
+          <div class="card r" style="--d:4"><span class="card-n">03</span><p>Sparen auf der Bank fühlt sich sinnlos an. Investieren fühlt sich an wie Glücksspiel. Du machst es trotzdem.</p></div>
+          <div class="card r" style="--d:5"><span class="card-n">04</span><p>Derselbe Wocheneinkauf kostet jedes Jahr mehr, und niemand hat je dafür gestimmt.</p></div>
+        </div>
+        <p class="punch r" style="--d:6">Es liegt nicht an dir. <span class="accent">Es liegt am Geld.</span></p>
+        <p class="src r" style="--d:6">US-Medianpreis für Neubauten ÷ Median-Haushaltseinkommen, 1984 vs 2024 (US Census Bureau)</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="cold" id="icecube">
+      <div class="wrap split">
+        <div>
+          <p class="kicker r">Die beste Analogie für Inflation</p>
+          <h2 class="display r" style="--d:1">Deine Ersparnisse sind ein <em>Eiswürfel</em> in der Sonne.</h2>
+          <p class="lead r" style="--d:2">Du siehst ihn nicht von Tag zu Tag schmelzen, aber er schmilzt. Inflation nimmt dir dein Geld nicht weg. Sie sorgt dafür, dass jede Einheit weniger kauft, leise, jedes Jahr.</p>
+          <div class="calc r" style="--d:3">
+            <label class="field">
+              <span>Ersparnisse heute</span>
+              <span class="money-input"><i>$</i><input id="calc-amount" type="number" inputmode="numeric" min="100" step="100" value="10000"></span>
+            </label>
+            <label class="field">
+              <span>Jahre: <strong id="calc-years-out">20</strong></span>
+              <input id="calc-years" type="range" min="1" max="50" value="20">
+            </label>
+            <div class="field">
+              <span>Jährlicher Kaufkraftverlust</span>
+              <div class="seg" role="radiogroup" aria-label="Inflationsrate">
+                <button role="radio" aria-checked="false" data-rate="0.02">2 %<small>offizielles Ziel</small></button>
+                <button role="radio" aria-checked="true" data-rate="0.031">3,1 %<small>US-Schnitt seit 1913</small></button>
+                <button role="radio" aria-checked="false" data-rate="0.07">7 %<small>Geldmengenwachstum</small></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ice r zoom" style="--d:2">
+          <svg viewBox="0 0 320 300" class="ice-svg" aria-hidden="true">
+            <defs>
+              <lineargradient id="iceTop" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8f6ff" /><stop offset="1" stop-color="#b9def5" /></lineargradient>
+              <lineargradient id="iceL" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a6d3ef" /><stop offset="1" stop-color="#6fa9cf" /></lineargradient>
+              <lineargradient id="iceR" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cbe8fa" /><stop offset="1" stop-color="#8cc0e2" /></lineargradient>
+              <radialgradient id="puddle"><stop offset="0" stop-color="#8cc0e2" stop-opacity=".55" /><stop offset="1" stop-color="#8cc0e2" stop-opacity="0" /></radialgradient>
+            </defs>
+            <ellipse id="ice-puddle" cx="160" cy="250" rx="60" ry="14" fill="url(#puddle)" />
+            <g id="ice-cube" style="transform-origin:160px 250px">
+              <path d="M160 110 L240 150 L160 190 L80 150 Z" fill="url(#iceTop)" />
+              <path d="M80 150 L160 190 L160 250 L80 210 Z" fill="url(#iceL)" />
+              <path d="M240 150 L160 190 L160 250 L240 210 Z" fill="url(#iceR)" />
+              <path d="M104 152 L150 129" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".7" />
+              <path d="M96 170 L96 196" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".45" />
+            </g>
+          </svg>
+          <div class="ice-out">
+            <p class="ice-label">In <strong id="calc-years-out2">20</strong> Jahren kaufen deine <strong id="calc-amount-out">$10,000</strong> nur noch so viel wie</p>
+            <p class="ice-value" id="calc-real">$5,428</p>
+            <p class="ice-label">heute. Still und leise verloren: <strong class="neg" id="calc-lost">46%</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="cold" id="purchasing">
+      <div class="wrap">
+        <p class="kicker r">Kaufkraft eines US-Dollars</p>
+        <h2 class="display r" style="--d:1">Ein Dollar von 1913 ist heute <em>3 Cent</em> wert.</h2>
+        <div class="chart-box r" style="--d:2">
+          <div class="chart" id="chart-pp" role="img" aria-label="Liniendiagramm: Die Kaufkraft eines Dollars von 1913 fiel von 1,00 $ im Jahr 1913 auf etwa 0,03 $ im Jahr 2024."></div>
+        </div>
+        <div class="row-note r" style="--d:3">
+          <p>Die Federal Reserve wurde 1913 gegründet, im selben Jahr, in dem dieses Diagramm beginnt. Seitdem hat der Dollar <strong>~97 %</strong> seiner Kaufkraft verloren.</p>
+          <p class="src">Quelle: US Bureau of Labor Statistics, CPI-U-Jahresdurchschnitte</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="cold" id="m2">
+      <div class="wrap split wide-right">
+        <div>
+          <p class="kicker r">Woher kommt Inflation?</p>
+          <h2 class="display r" style="--d:1">Sie haben nicht mehr Wert geschaffen. <em>Sie haben mehr Dollar geschaffen.</em></h2>
+          <div class="stats-col">
+            <div class="stat r" style="--d:2"><span class="num">72×</span><span class="lbl">mehr Dollar im Umlauf als 1960<br><small>(Geldmenge M2, von 0,3 auf ~21,5 Billionen $)</small></span></div>
+            <div class="stat r" style="--d:3"><span class="num">+40%</span><span class="lbl">Anstieg von M2 in nur zwei Jahren<br><small>(Februar 2020 bis Dezember 2021)</small></span></div>
+          </div>
+          <p class="lead small r" style="--d:4">Die reale Wirtschaft wuchs um etwa 3 % pro Jahr. Die Geldmenge um etwa 7 % pro Jahr. In den Preisen zeigt sich diese Lücke.</p>
+        </div>
+        <div class="chart-box r" style="--d:2">
+          <div class="chart" id="chart-m2" role="img" aria-label="Balkendiagramm: Die US-Geldmenge M2 wuchs von etwa 0,3 Billionen $ im Jahr 1960 auf etwa 21,5 Billionen $ im Jahr 2025."></div>
+          <p class="src">US-Geldmenge M2 in Billionen Dollar, jeweils Januar (ca.). Quelle: Federal Reserve, FRED M2SL</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="cold">
+      <div class="wrap narrow center">
+        <p class="kicker r center-k">Ein Gedankenexperiment</p>
+        <h2 class="display r" style="--d:1">Stell dir eine Runde <em>Monopoly</em> vor…</h2>
+        <div class="monopoly">
+          <p class="big-line r" style="--d:2">…in der ein Spieler zugleich die Bank ist</p>
+          <p class="big-line r" style="--d:3">und neues Geld drucken darf, wann immer er will.</p>
+          <p class="lead r" style="--d:4">Er nimmt dir nie einen einzigen Schein weg. Er legt einfach immer mehr auf seinen eigenen Stapel, und jeder Schein, den du hast, kauft etwas weniger Grundstück als zuvor.</p>
+          <p class="punch r" style="--d:5">Wer gewinnt dieses Spiel? <span class="accent">Genau dieses Spiel spielen wir alle.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="cold" id="cantillon">
+      <div class="wrap">
+        <p class="kicker r">Der Cantillon-Effekt</p>
+        <h2 class="display r" style="--d:1">Neues Geld wird nicht gleich verteilt. <em>Es fließt bergab.</em></h2>
+        <div class="flow r" style="--d:2">
+          <div class="flow-node"><span class="flow-i">⎙</span><b>Gelddruckmaschine</b><small>Zentralbank</small><em class="tag t0">neues Geld</em></div>
+          <div class="flow-arrow"><i></i></div>
+          <div class="flow-node"><span class="flow-i">🏛</span><b>Banken und Staat</b><small>Geben es zuerst aus</small><em class="tag t1">alte Preise</em></div>
+          <div class="flow-arrow"><i></i></div>
+          <div class="flow-node"><span class="flow-i">◈</span><b>Vermögensbesitzer</b><small>Aktien, Immobilien</small><em class="tag t2">Preise steigen</em></div>
+          <div class="flow-arrow"><i></i></div>
+          <div class="flow-node"><span class="flow-i">⚙</span><b>Unternehmen</b><small>Erhöhen Preise</small><em class="tag t3">Preise gestiegen</em></div>
+          <div class="flow-arrow"><i></i></div>
+          <div class="flow-node you"><span class="flow-i">☺</span><b>Du</b><small>Löhne ziehen zuletzt nach</small><em class="tag t4">neue Preise</em></div>
+        </div>
+        <div class="grid g2 mt">
+          <p class="lead r" style="--d:3">Wer der Druckerpresse am nächsten ist, gibt das neue Geld aus, solange die Preise noch niedrig sind. Bis es bei Arbeitnehmern und Sparern ankommt, sind die Preise längst gestiegen.</p>
+          <p class="lead r" style="--d:4">Der Ökonom Richard Cantillon beschrieb das in den 1730er-Jahren. Das Ergebnis ist eine versteckte Umverteilung: <strong>von Sparern zu Schuldnern, von Lohnempfängern zu Vermögensbesitzern, von Arm zu Reich.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="cold">
+      <div class="wrap">
+        <p class="kicker r">15. August 1971</p>
+        <h2 class="display r" style="--d:1">Der Tag, an dem das Geld seinen <em>Anker</em> verlor.</h2>
+        <p class="lead r" style="--d:2">Präsident Nixon setzte die Umtauschbarkeit des Dollars in Gold „vorübergehend“ aus. Diese vorübergehende Maßnahme gilt bis heute. Seitdem ist Geld durch nichts als Versprechen gedeckt, und die Zahlen begannen auseinanderzudriften.</p>
+        <div class="grid g3 mt">
+          <div class="stat card r" style="--d:3"><span class="num">61.8% <small>vs</small> 17.5%</span><span class="lbl">Wachstum der US-Produktivität vs. Lohn eines typischen Arbeitnehmers, 1979–2020</span><span class="src">Economic Policy Institute</span></div>
+          <div class="stat card r" style="--d:4"><span class="num">3.5 → 5.2</span><span class="lbl">Jahre an Median-Haushaltseinkommen für einen Median-Neubau, 1984 vs 2024</span><span class="src">US Census Bureau</span></div>
+          <div class="stat card r" style="--d:5"><span class="num">$0.4T → $37T+</span><span class="lbl">US-Staatsschulden, 1971 vs 2025. Schulden sind leicht, wenn man drucken kann, was man schuldet.</span><span class="src">US-Finanzministerium</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="cold">
+      <div class="wrap split">
+        <div>
+          <p class="kicker r">Das Laufband</p>
+          <h2 class="display r" style="--d:1">Als Sparen nicht mehr funktionierte, <em>wurden alle zum Spekulieren gezwungen.</em></h2>
+        </div>
+        <div class="stack">
+          <p class="lead r" style="--d:2">Deine Großeltern konnten Geld zur Bank bringen und erwarten, dass es seinen Wert behält. Du musst zum Teilzeit-Fondsmanager werden, nur um nicht zurückzufallen: wie auf einem Laufband, das jedes Jahr schneller wird.</p>
+          <div class="card r" style="--d:3"><h3>Häuser wurden zu Sparkonten</h3><p>Menschen kaufen Immobilien, um Vermögen zu schützen, nicht nur zum Wohnen. Diese zusätzliche Nachfrage drängt junge Familien aus genau dem heraus, was sie am dringendsten brauchen.</p></div>
+          <div class="card r" style="--d:4"><h3>Aktien wurden zu Inflationsschutzräumen</h3><p>Ein Teil des „Wachstums“ der Aktienkurse ist einfach der schrumpfende Maßstab. Ökonomen nennen diesen Aufschlag die <em>monetäre Prämie</em>.</p></div>
+          <div class="card r" style="--d:5"><h3>Wer kein Vermögen hat, fällt zurück</h3><p>Wenn du zur Miete wohnst und in bar sparst, arbeitet das System gegen dich. Wenn du schon Vermögen hast, arbeitet es für dich. Die Lücke wächst jedes Jahr.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="cold">
+      <div class="wrap">
+        <p class="kicker r">Die Bank</p>
+        <h2 class="display r" style="--d:1">Dein Geld ist nicht <em>in</em> der Bank.</h2>
+        <p class="lead r" style="--d:2">Wenn du 1.000 $ einzahlst, verleiht die Bank den Großteil davon. Was du hast, ist ein Schuldschein: das Versprechen, dass das Geld da ist, solange nicht zu viele Leute gleichzeitig danach fragen.</p>
+        <div class="grid g4 mt">
+          <div class="stat card r" style="--d:3"><span class="num">0%</span><span class="lbl">Mindestreservepflicht für US-Banken seit März 2020</span></div>
+          <div class="stat card r" style="--d:4"><span class="num">42 Mrd. $</span><span class="lbl">an einem einzigen Tag von der Silicon Valley Bank abgezogen (9. März 2023). Am nächsten Morgen war sie pleite.</span></div>
+          <div class="stat card r" style="--d:5"><span class="num">47.5%</span><span class="lbl">der großen Einlagen bei der Bank of Cyprus wurden beim „Bail-in“ 2013 in Bankaktien umgewandelt</span></div>
+          <div class="stat card r" style="--d:6"><span class="num">2022</span><span class="lbl">Kanada fror Bankkonten von Demonstranten ohne richterlichen Beschluss ein. Ein Bundesgericht erklärte die Maßnahme später für unangemessen.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="cold">
+      <div class="wrap">
+        <p class="kicker r">Das globale Bild</p>
+        <h2 class="display r" style="--d:1">Und das ist die <em>gute</em> Version.</h2>
+        <p class="lead r" style="--d:2">Wenn du in den USA oder Europa lebst, hast du einige der besten Fiat-Währungen der Welt. Der größte Teil der Menschheit nicht.</p>
+        <div class="grid g3 mt countries">
+          <div class="card r" style="--d:3"><span class="flag">Venezuela</span><span class="num">130,000%</span><p>Inflation im Jahr 2018. Familien sahen die Ersparnisse eines ganzen Lebens innerhalb von Monaten verschwinden.</p></div>
+          <div class="card r" style="--d:4"><span class="flag">Simbabwe</span><span class="num">100 Billionen $</span><p>auf einem Geldschein aus dem Jahr 2009. Er reichte nicht für ein Busticket.</p></div>
+          <div class="card r" style="--d:5"><span class="flag">Libanon</span><span class="num">−98%</span><p>Wertverlust des Pfunds seit 2019. Banken sperrten die Menschen von ihren eigenen Einlagen aus.</p></div>
+          <div class="card r" style="--d:6"><span class="flag">Argentinien</span><span class="num">211%</span><p>Inflation im Jahr 2023, nach Jahrzehnten wiederholter Währungskrisen.</p></div>
+          <div class="card r" style="--d:7"><span class="flag">Türkei</span><span class="num">−90%+</span><p>Wertverlust der Lira gegenüber dem Dollar in nur einem Jahrzehnt.</p></div>
+          <div class="card r" style="--d:8"><span class="flag">Weltweit</span><span class="num">1,4 Milliarden</span><p>Erwachsene haben überhaupt kein Bankkonto (Weltbank). Mehr als die Hälfte der Welt lebt unter autoritären Regimen (Human Rights Foundation).</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CHAPTER II ============================== -->
+    <section class="slide chapter" id="ch2" data-mood="gold" data-chapter="II · Was Geld wirklich ist" data-toc="Was Geld wirklich ist">
+      <div class="wrap">
+        <div class="numeral r wipe" translate="no">II</div>
+        <p class="kicker r" style="--d:1">Kapitel zwei</p>
+        <h2 class="display r" style="--d:2">Was Geld wirklich ist</h2>
+        <p class="lead r" style="--d:3">Bevor wir das Geld reparieren können, müssen wir verstehen, wofür es da ist.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="gold">
+      <div class="wrap split">
+        <div>
+          <p class="kicker r">Geld = gespeicherte Zeit</p>
+          <h2 class="display r" style="--d:1">Geld ist eine <em>Batterie</em> für deine Lebensenergie.</h2>
+          <p class="lead r" style="--d:2">Du tauschst Stunden deines Lebens gegen Geld. Geld speichert diese Stunden, damit du sie später nutzen kannst: nächste Woche oder in dreißig Jahren, wenn du in Rente gehst.</p>
+          <p class="lead r" style="--d:3">Gutes Geld ist eine Batterie, die ihre Ladung hält. <strong>Heutiges Geld ist eine Batterie, die ausläuft, und zwar absichtlich.</strong> Jedes verlorene Prozent ist ein Stück deines Lebens, das du nie zurückbekommst.</p>
+        </div>
+        <div class="battery-wrap r zoom" style="--d:2" aria-hidden="true">
+          <div class="battery"><div class="battery-level"></div><div class="battery-cap"></div></div>
+          <p class="battery-cap-label"><span>40 Stunden deines Lebens</span><span class="neg">…die langsam auslaufen</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="gold">
+      <div class="wrap narrow center">
+        <p class="kicker r center-k">Der offizielle Plan</p>
+        <h2 class="display r" style="--d:1">Zentralbanken <em>zielen</em> auf 2 % Inflation.</h2>
+        <p class="mega r" style="--d:2"><span class="accent">−50%</span></p>
+        <p class="lead r center-p" style="--d:3">Klingt wenig. Aber bei 2 % pro Jahr verliert Geld <strong>in etwa 35 Jahren die Hälfte seines Werts</strong>, ungefähr ein Arbeitsleben. Das ist kein Fehler. Es ist das erklärte Ziel.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="gold">
+      <div class="wrap">
+        <p class="kicker r">Was macht gutes Geld aus?</p>
+        <h2 class="display r" style="--d:1">Geld ist ein Werkzeug. <em>Manche Werkzeuge sind einfach besser.</em></h2>
+        <div class="grid g4 props mt">
+          <div class="card prop r" style="--d:2"><i data-icon="scarce"></i><h3>Knapp</h3><p>Schwer zu vermehren. Sonst tut es jemand und verwässert deinen Anteil.</p></div>
+          <div class="card prop r" style="--d:3"><i data-icon="durable"></i><h3>Haltbar</h3><p>Verrottet, rostet und zerbricht nicht mit der Zeit.</p></div>
+          <div class="card prop r" style="--d:4"><i data-icon="portable"></i><h3>Transportabel</h3><p>Leicht zu tragen und zu senden, über die Straße oder über den Ozean.</p></div>
+          <div class="card prop r" style="--d:5"><i data-icon="divisible"></i><h3>Teilbar</h3><p>Lässt sich in kleine Einheiten für Zahlungen jeder Größe aufteilen.</p></div>
+          <div class="card prop r" style="--d:6"><i data-icon="verify"></i><h3>Überprüfbar</h3><p>Leicht auf Echtheit zu prüfen, ohne jemandem vertrauen zu müssen.</p></div>
+          <div class="card prop r" style="--d:7"><i data-icon="fungible"></i><h3>Austauschbar</h3><p>Jede Einheit ist gegen jede andere austauschbar.</p></div>
+          <div class="card prop r" style="--d:8"><i data-icon="free"></i><h3>Zensurresistent</h3><p>Niemand kann dich daran hindern, es zu sparen oder auszugeben. Im digitalen Zeitalter zählt diese Eigenschaft mehr denn je.</p></div>
+          <div class="card prop r note" style="--d:9"><p>Die wichtigste Eigenschaft ist <strong>Knappheit</strong>, denn Geld, das leicht zu erschaffen ist, wird auch erschaffen, und die Menschen, die es halten, zahlen den Preis.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="gold">
+      <div class="wrap split">
+        <div>
+          <p class="kicker r">Eine Warnung aus der Geschichte</p>
+          <h2 class="display r" style="--d:1">Die Tragödie der <em>Glasperlen</em>.</h2>
+          <p class="lead r" style="--d:2">Jahrhundertelang dienten Glasperlen in Teilen Westafrikas als Geld. Sie waren vor Ort schwer herzustellen, also behielten sie ihren Wert.</p>
+          <p class="lead r" style="--d:3">Dann kamen europäische Händler mit Schiffen voller Perlen, die in Glashütten billig hergestellt wurden. Damit kauften sie Gold, Elfenbein, Land und schließlich Menschen, und bezahlten mit Geld, dessen Herstellung sie fast nichts kostete.</p>
+          <p class="punch r" style="--d:4">Wer dein Geld billig herstellen kann, <span class="accent">kann deine Lebensarbeit für nichts kaufen.</span></p>
+          <p class="lead small r" style="--d:5">Heute werden die Glasperlen von Zentralbanken gedruckt.</p>
+        </div>
+        <div class="beads r zoom" style="--d:2" aria-hidden="true">
+          <div class="bead-strand"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="gold">
+      <div class="wrap">
+        <p class="kicker r">Warum Gold gewann, und dann verlor</p>
+        <h2 class="display r" style="--d:1">Gold war <em>5.000 Jahre</em> lang das härteste Geld.</h2>
+        <div class="grid g2 mt">
+          <div class="stack">
+            <p class="lead r" style="--d:2">Alles jemals geförderte Gold, etwa <strong>216.000 Tonnen</strong>, entspricht rund 60 Jahren heutiger Förderung. Selbst wenn der Goldpreis explodiert, können Minen nur etwa <strong>1,5–2 % pro Jahr</strong> hinzufügen. Schwer herzustellen, deshalb behält es seinen Wert.</p>
+            <p class="lead r" style="--d:3">Doch Gold hat Schwächen: Es ist schwer, teuer zu lagern und schwer zu prüfen. Also gaben die Menschen es den Banken gegen Papierquittungen, und das Papier ersetzte nach und nach das Gold.</p>
+          </div>
+          <ol class="timeline r" style="--d:3">
+            <li><b>1933</b><span>Die US-Verfügung 6102 verbietet Bürgern den Besitz von Gold. Sie müssen es dem Staat für 20,67 $ pro Unze verkaufen. Monate später setzt der Staat den Goldpreis auf 35 $ fest: eine Abwertung des Dollars um 41 %.</span></li>
+            <li><b>1944</b><span>Bretton Woods: Die Währungen der Welt werden an den Dollar gebunden, der Dollar an Gold.</span></li>
+            <li><b>1971</b><span>Die letzte Verbindung zwischen Geld und Gold wird gekappt. Seitdem ist jede Währung der Erde allein durch Versprechen gedeckt.</span></li>
+            <li class="hl"><b>2009</b><span>Etwas Neues erscheint.</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CHAPTER III ============================== -->
+    <section class="slide chapter" id="ch3" data-mood="orange" data-chapter="III · Bitcoin betritt die Bühne" data-toc="Bitcoin betritt die Bühne">
+      <div class="wrap">
+        <div class="numeral r wipe" translate="no">III</div>
+        <p class="kicker r" style="--d:1">Kapitel drei</p>
+        <h2 class="display r" style="--d:2">Bitcoin betritt die Bühne</h2>
+        <p class="lead r" style="--d:3">Geld mit Regeln, die niemand ändern kann.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap split">
+        <div>
+          <p class="kicker r">3. Januar 2009</p>
+          <h2 class="display r" style="--d:1">Eine Botschaft, versteckt im <em>allerersten Block</em>.</h2>
+          <p class="lead r" style="--d:2">Mitten in der Finanzkrise startete ein anonymer Schöpfer namens <strong>Satoshi Nakamoto</strong> Bitcoin. In seinem ersten Block steckte eine Zeitungsschlagzeile über Bankenrettungen: ein Zeitstempel und eine Absichtserklärung.</p>
+          <p class="lead r" style="--d:3">Satoshi zog sich 2011 zurück und kehrte nie zurück. Kein CEO. Kein Unternehmen. Kein Hauptsitz. <strong>Niemand, den man verhaften, bestechen oder unter Druck setzen könnte.</strong></p>
+        </div>
+        <div class="block-card r zoom" style="--d:2">
+          <div class="block-head"><span>BLOCK</span><b>#0</b><span class="pulse"></span></div>
+          <dl>
+            <div><dt>Gemint</dt><dd>2009-01-03 18:15:05 UTC</dd></div>
+            <div><dt>Belohnung</dt><dd>50 BTC</dd></div>
+            <div><dt>Vorheriger Block</dt><dd>0000000000000000…0000</dd></div>
+            <div><dt>Hash</dt><dd>000000000019d6689c085ae1…8ce26f</dd></div>
+          </dl>
+          <div class="block-msg">
+            <span>Eingebetteter Text</span>
+            <p translate="no">The Times 03/Jan/2009 Chancellor on brink of second bailout for banks</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange" id="supply">
+      <div class="wrap">
+        <div class="supply-top">
+          <div>
+            <p class="kicker r">Die wichtigste Zahl</p>
+            <p class="mega r" style="--d:1">21,000,000</p>
+            <p class="lead r" style="--d:2">So viele Bitcoin wird es jemals geben. Keine Abstimmung, kein Komitee und kein Notfall kann das ändern. Etwa alle vier Jahre halbiert sich die Ausgabe neuer Bitcoin (das <em>Halving</em>). Der letzte Bruchteil wird um das Jahr 2140 gemint.</p>
+          </div>
+          <div class="live r" style="--d:3">
+            <span class="live-dot"></span>
+            <p class="live-k">Bisher gemint (Live-Schätzung)</p>
+            <p class="live-v" id="live-supply">20,000,000</p>
+            <p class="live-s"><span id="live-pct">95.2%</span> aller Bitcoin, die es je geben wird · Block ≈ <span id="live-height">900,000</span></p>
+          </div>
+        </div>
+        <div class="chart-box r" style="--d:3">
+          <div class="chart" id="chart-supply" role="img" aria-label="Liniendiagramm: Das Bitcoin-Angebot steigt ab 2009 schnell, flacht mit jedem Halving ab und nähert sich um 2140 den 21 Millionen."></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap">
+        <p class="kicker r">Der Durchbruch, den die meisten übersehen</p>
+        <h2 class="display r" style="--d:1">Das erste Geld, bei dem <em>Nachfrage kein zusätzliches Angebot schaffen kann</em>.</h2>
+        <div class="grid g4 mt supply-cards">
+          <div class="card r" style="--d:2"><h3>Gold</h3><p class="chain"><span>Preis ↑</span><span>Mehr Förderung</span><span class="neg">Angebot ↑</span></p></div>
+          <div class="card r" style="--d:3"><h3>Immobilien</h3><p class="chain"><span>Preis ↑</span><span>Mehr Neubau</span><span class="neg">Angebot ↑</span></p></div>
+          <div class="card r" style="--d:4"><h3>Dollar</h3><p class="chain"><span>Krise</span><span>Mehr Drucken</span><span class="neg">Angebot ↑</span></p></div>
+          <div class="card hl r" style="--d:5"><h3>Bitcoin</h3><p class="chain"><span>Preis ↑</span><span>Mehr Miner steigen ein</span><span>Das Rätsel wird schwerer</span><span class="pos">Angebot unverändert</span></p></div>
+        </div>
+        <p class="lead r mt" style="--d:6">Alle 2.016 Blöcke (etwa zwei Wochen) passt Bitcoin die Mining-Schwierigkeit automatisch so an, dass ungefähr alle 10 Minuten ein neuer Block entsteht, egal wie viele Maschinen dazukommen. Zum ersten Mal in der Geschichte <strong>ist das Geldangebot völlig immun gegen Nachfrage.</strong></p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap">
+        <p class="kicker r">Wie es funktioniert, ohne Fachchinesisch</p>
+        <h2 class="display r" style="--d:1">Stell dir ein öffentliches Notizbuch vor, das <em>niemandem gehört</em>.</h2>
+        <div class="grid g3 mt steps3">
+          <div class="card r" style="--d:2"><span class="step-n">1</span><h3>Ein gemeinsames Notizbuch</h3><p>Jede Bitcoin-Transaktion, die es je gab, steht in einem einzigen Kassenbuch. Zehntausende Computer („Nodes“) weltweit halten identische Kopien. Jeder kann eine Kopie führen.</p></div>
+          <div class="card r" style="--d:3"><span class="step-n">2</span><h3>Eine Lotterie um die nächste Seite</h3><p>Etwa alle 10 Minuten wetteifern „Miner“ darum, die nächste Seite (einen <em>Block</em>) hinzuzufügen, indem sie ein Rätsel lösen, das sehr schwer zu lösen, aber sofort zu prüfen ist. Der Gewinner erhält neue Bitcoin plus Gebühren.</p></div>
+          <div class="card r" style="--d:4"><span class="step-n">3</span><h3>Regeln, die alle prüfen</h3><p>Jede Node prüft jede Seite unabhängig anhand der Regeln. Versuch, Coins doppelt auszugeben oder aus dem Nichts zu erschaffen, und das Netzwerk ignoriert dich einfach. Ohne Erlaubnis, ohne Ausnahmen.</p></div>
+        </div>
+        <p class="lead r mt" style="--d:5">Mining verwandelt reale Energie in Sicherheit, ähnlich wie das Graben nach Gold. Die Kosten lassen sich nicht fälschen, also lässt sich das Kassenbuch nicht billig umschreiben.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange" id="mining">
+      <div class="wrap split">
+        <div>
+          <p class="kicker r">Probier es selbst</p>
+          <h2 class="display r" style="--d:1">Sei für <em>zehn Sekunden</em> Miner.</h2>
+          <p class="lead r" style="--d:2">Miner verwirbeln die Blockdaten immer wieder mit einer „Nonce“ (einer Zahl, die sie ständig ändern), bis der entstehende Fingerabdruck (ein SHA-256-Hash) mit genügend Nullen beginnt. Es gibt keine Abkürzung: nur Raten, millionenfach.</p>
+          <p class="lead r" style="--d:3"><strong>Schwer zu finden, sofort zu prüfen.</strong> Ändere einen einzigen Buchstaben, und der Fingerabdruck ändert sich komplett. Deshalb lässt sich die Geschichte nicht heimlich bearbeiten.</p>
+        </div>
+        <div class="miner card r zoom" style="--d:2">
+          <label class="field"><span>Blockdaten</span><input id="mine-data" type="text" value="Alice pays Bob 0.01 BTC" maxlength="80" spellcheck="false"></label>
+          <div class="field">
+            <span>Schwierigkeit (führende Nullen)</span>
+            <div class="seg small" role="radiogroup" aria-label="Schwierigkeit">
+              <button role="radio" aria-checked="false" data-diff="3">3</button>
+              <button role="radio" aria-checked="true" data-diff="4">4</button>
+              <button role="radio" aria-checked="false" data-diff="5">5</button>
+            </div>
+          </div>
+          <div class="mine-out">
+            <div><span>Nonce</span><b id="mine-nonce">0</b></div>
+            <div><span>Hash</span><code id="mine-hash">–</code></div>
+          </div>
+          <div class="mine-actions">
+            <button class="btn primary" id="mine-btn">Mining starten</button>
+            <button class="btn ghost" id="verify-btn" disabled>✓ Prüfen</button>
+          </div>
+          <p class="mine-status" id="mine-status" aria-live="polite">Drück auf Start. Dein Browser rät, bis er einen gültigen Hash findet.</p>
+          <p class="src">Vereinfacht: Das echte Bitcoin hasht einen 80-Byte-Blockheader doppelt, und das Netzwerk als Ganzes rät etwa eine Trilliarde Mal pro Sekunde.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap split">
+        <div>
+          <p class="kicker r">Digitale Knappheit</p>
+          <h2 class="display r" style="--d:1">Das erste digitale Ding, das sich <em>nicht kopieren lässt</em>.</h2>
+          <p class="lead r" style="--d:2">Fotos, Songs, Dateien: Alles Digitale lässt sich kostenlos und endlos kopieren. Deshalb brauchte digitales Geld immer eine Bank in der Mitte, die verhindert, dass du denselben Dollar zweimal ausgibst.</p>
+          <p class="lead r" style="--d:3">Bitcoin hat dieses „Double-Spending-Problem“ ohne jeden Mittelsmann gelöst. Das ist die Erfindung. <strong>Was die E-Mail für Briefe getan hat, tut Bitcoin für Werte</strong>: Sie bewegen sich in Minuten über den Planeten, zu jeder Stunde, ohne irgendjemandes Zustimmung.</p>
+        </div>
+        <div class="stack">
+          <div class="card big-card r" style="--d:2">
+            <p class="kicker">Du brauchst keinen ganzen</p>
+            <p class="sats"><span>1 BTC</span> = <span class="accent">100.000.000</span> Sats</p>
+            <p>Bitcoin ist in „Satoshis“ teilbar, wie ein Euro in Cent, nur mit viel mehr Spielraum. Du kannst mit ein paar Euro anfangen.</p>
+          </div>
+          <div class="card r" style="--d:3">
+            <p class="kicker">Bitcoin Pizza Day · 22. Mai 2010</p>
+            <p>Laszlo Hanyecz zahlte <strong>10.000 BTC für zwei Pizzen</strong>, der erste bekannte reale Kauf mit Bitcoin. Jede neue Form von Geld sieht anfangs wertlos aus.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CHAPTER IV ============================== -->
+    <section class="slide chapter" id="ch4" data-mood="orange" data-chapter="IV · Echtes Eigentum" data-toc="Echtes Eigentum">
+      <div class="wrap">
+        <div class="numeral r wipe" translate="no">IV</div>
+        <p class="kicker r" style="--d:1">Kapitel vier</p>
+        <h2 class="display r" style="--d:2">Echtes Eigentum</h2>
+        <p class="lead r" style="--d:3">Sicherheit, Selbstverwahrung und Geld, das sich nicht stoppen lässt.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange" id="seed">
+      <div class="wrap split">
+        <div>
+          <p class="kicker r">Selbstverwahrung</p>
+          <h2 class="display r" style="--d:1">Deine ganze Bank, in <em>12 Wörtern</em>.</h2>
+          <p class="lead r" style="--d:2">Eine Bitcoin-Wallet wird durch eine <strong>Seed-Phrase</strong> kontrolliert: 12 oder 24 gewöhnliche Wörter. Wer die Wörter kennt, kontrolliert die Bitcoin. Sonst niemand, niemals.</p>
+          <p class="lead r" style="--d:3">Schreib sie auf Papier, stanz sie in Stahl oder lerne sie auswendig, und du kannst deine Lebensersparnisse im Kopf über jede Grenze tragen. <strong>Kein Vermögenswert in der Geschichte war je so transportabel.</strong></p>
+        </div>
+        <div class="seed card r zoom" style="--d:2">
+          <div class="seed-head"><span>Beispiel einer Seed-Phrase</span><button class="btn ghost tiny" id="seed-btn">↻ Mischen</button></div>
+          <ol class="seed-grid" id="seed-grid" translate="no"></ol>
+          <p class="seed-warn">⚠ Nur zur Veranschaulichung. Verwende nie eine Phrase, die auf einer Website angezeigt wird, und tippe deine echte niemals auf einer Website ein.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap">
+        <p class="kicker r">Die goldene Regel</p>
+        <h2 class="display r" style="--d:1">Nicht deine Schlüssel, <em>nicht deine Coins</em>.</h2>
+        <p class="lead r" style="--d:2">Lässt du Bitcoin auf einer Börse liegen, besitzt du keine Bitcoin. Du besitzt einen Schuldschein, genau wie bei einer Bankeinlage, mit denselben Risiken.</p>
+        <div class="grid g3 mt">
+          <div class="stat card r" style="--d:3"><span class="kicker">2014 · Mt. Gox</span><span class="num">~850,000 BTC</span><span class="lbl">verloren, als die größte Börse ihrer Zeit zusammenbrach.</span></div>
+          <div class="stat card r" style="--d:4"><span class="kicker">2022 · FTX</span><span class="num">~8 Mrd. $</span><span class="lbl">an Kundengeldern fehlten. Der Gründer wurde später wegen Betrugs verurteilt.</span></div>
+          <div class="stat card r" style="--d:5"><span class="kicker">2022 · Celsius</span><span class="num">1,7 Millionen</span><span class="lbl">Nutzer ausgesperrt, als Auszahlungen eingefroren wurden.</span></div>
+        </div>
+        <p class="punch r mt" style="--d:6">Bitcoin selbst hat nie versagt. <span class="accent">Die Mittelsmänner schon, wieder einmal.</span></p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap">
+        <p class="kicker r">Sicherheit</p>
+        <h2 class="display r" style="--d:1">Das leistungsstärkste Computernetzwerk, <em>das je gebaut wurde</em>.</h2>
+        <div class="grid g4 mt">
+          <div class="stat card r" style="--d:2"><span class="num">10<sup>21</sup>+</span><span class="lbl">Versuche pro Sekunde sichern das Netzwerk (über 1 Zettahash/s, 2025)</span></div>
+          <div class="stat card r" style="--d:3"><span class="num">99.98%</span><span class="lbl">Verfügbarkeit seit Januar 2009. Geöffnet 24/7/365, ohne Feiertage.</span></div>
+          <div class="stat card r" style="--d:4"><span class="num">0</span><span class="lbl">Mal wurde das Bitcoin-Kassenbuch selbst gehackt oder gefälscht</span></div>
+          <div class="stat card r" style="--d:5"><span class="num">~144</span><span class="lbl">neue Blöcke pro Tag, jeder begräbt die Vergangenheit tiefer</span></div>
+        </div>
+        <p class="lead r mt" style="--d:6">Um die Geschichte von Bitcoin umzuschreiben, müsstest du die gesamte Mining-Industrie des Planeten an Rechenleistung übertreffen, Milliarden für Hardware und Energie ausgeben und dabei von allen beobachtet werden. Es ist, als wolltest du heimlich ein Buch umschreiben, von dem Zehntausende Fremde identische Kopien besitzen, während es alle zehn Minuten eine neue Seite bekommt.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap">
+        <p class="kicker r">Nicht vertrauen. Überprüfen.</p>
+        <h2 class="display r" style="--d:1">Trennung von <em>Geld und Staat</em>.</h2>
+        <div class="versus mt">
+          <div class="card vs-a r" style="--d:2">
+            <h3>Heute: Vertrau mir</h3>
+            <ul>
+              <li>Vertrau der Zentralbank, dass sie nicht zu viel druckt</li>
+              <li>Vertrau deiner Bank, dass sie nicht zu viel verleiht</li>
+              <li>Vertrau den Prüfern, den Aufsichtsbehörden, den Politikern</li>
+              <li>Vertrau darauf, dass sich die Regeln morgen nicht ändern</li>
+            </ul>
+          </div>
+          <div class="vs-mid r" style="--d:3">vs</div>
+          <div class="card vs-b r" style="--d:4">
+            <h3>Bitcoin: Überprüf es</h3>
+            <ul>
+              <li>Jeder kann eine Node auf einem billigen Computer betreiben</li>
+              <li>Prüf selbst jeden je erzeugten Coin und jede Regel</li>
+              <li>Die Regeln setzen die Nutzer durch, nicht die Herrschenden</li>
+              <li>Sie zu ändern erfordert nahezu einstimmige Einigkeit</li>
+            </ul>
+          </div>
+        </div>
+        <p class="lead r mt" style="--d:5">Wir haben Kirche und Staat getrennt, damit keine Regierung vorschreiben kann, was du glaubst. Bitcoin trennt Geld und Staat, damit keine Regierung still und leise entwerten kann, was du verdient hast.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap">
+        <p class="kicker r">Geld der Freiheit</p>
+        <h2 class="display r" style="--d:1">Geld, das sich <em>nicht stoppen lässt</em>.</h2>
+        <p class="lead r" style="--d:2">Bitcoin ist egal, wer du bist, wo du geboren wurdest oder wen du gewählt hast. Für Milliarden Menschen ist das keine Philosophie. Es ist Überleben.</p>
+        <div class="grid g4 mt stories">
+          <div class="card r" style="--d:3"><span class="kicker">Afghanistan</span><p>Die Unternehmerin Roya Mahboob bezahlte Frauen und Mädchen in Bitcoin, als sie kein eigenes Bankkonto führen durften, und das Geld gehörte wirklich ihnen.</p></div>
+          <div class="card r" style="--d:4"><span class="kicker">Nigeria · 2020</span><p>Als Banken die Konten einer Koalition einfroren, die die #EndSARS-Proteste gegen Polizeigewalt unterstützte, stieg sie auf Bitcoin-Spenden um und machte weiter.</p></div>
+          <div class="card r" style="--d:5"><span class="kicker">Ukraine · 2022</span><p>In den ersten Wochen der Invasion kamen über 100 Millionen $ an Krypto-Spenden aus aller Welt an, innerhalb von Stunden statt Wochen.</p></div>
+          <div class="card r" style="--d:6"><span class="kicker">Venezuela</span><p>Familien schützten ihre Ersparnisse vor der Hyperinflation, und Geflüchtete flohen mit ihrem Vermögen, auswendig gelernt als zwölf Wörter.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CHAPTER V ============================== -->
+    <section class="slide chapter" id="ch5" data-mood="orange" data-chapter="V · Der Vergleich" data-toc="Der Vergleich">
+      <div class="wrap">
+        <div class="numeral r wipe" translate="no">V</div>
+        <p class="kicker r" style="--d:1">Kapitel fünf</p>
+        <h2 class="display r" style="--d:2">Bargeld, Gold, Häuser, Aktien und Bitcoin</h2>
+        <p class="lead r" style="--d:3">Ein ehrlicher Vergleich, wo Menschen ihre Lebensarbeit aufbewahren.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange" id="compare">
+      <div class="wrap">
+        <p class="kicker r">Die Bewertung</p>
+        <h2 class="display compact r" style="--d:1">Wo solltest du <em>deine Zeit</em> aufbewahren?</h2>
+        <div class="matrix-wrap r" style="--d:2">
+          <table class="matrix" id="matrix"></table>
+        </div>
+        <div class="verdict r" style="--d:3" id="verdict" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange" id="hardness">
+      <div class="wrap split">
+        <div>
+          <p class="kicker r">Härter als Gold</p>
+          <h2 class="display r" style="--d:1">Schon jetzt <em>knapper als Gold</em>, und es wird immer knapper.</h2>
+          <p class="lead r" style="--d:2">Seit dem Halving 2024 wächst das Bitcoin-Angebot langsamer als das von Gold. 2028 halbiert es sich erneut, und wieder, bis das neue Angebot null erreicht.</p>
+          <p class="lead r" style="--d:3">Gold: Knappheit, der du vertrauen musst. Bitcoin: Knappheit, die <strong>jeder überprüfen kann</strong>, mit der Geschwindigkeit des Internets.</p>
+        </div>
+        <div class="chart-box r" style="--d:2">
+          <div class="chart" id="chart-hard" role="img" aria-label="Balkendiagramm des jährlichen Neuangebots: US-Dollar etwa 7 %, Gold etwa 1,7 %, Bitcoin heute etwa 0,8 %, nach 2028 0,4 % und nach 2140 0 %."></div>
+          <p class="src">Neues Angebot pro Jahr. USD: durchschnittliches M2-Wachstum seit 1960. Gold: Schätzungen des World Gold Council. Bitcoin: Protokollplan.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CHAPTER VI ============================== -->
+    <section class="slide chapter" id="ch6" data-mood="orange" data-chapter="VI · Die souveräne Denkweise" data-toc="Die souveräne Denkweise">
+      <div class="wrap">
+        <div class="numeral r wipe" translate="no">VI</div>
+        <p class="kicker r" style="--d:1">Kapitel sechs</p>
+        <h2 class="display r" style="--d:2">Die souveräne Denkweise</h2>
+        <p class="lead r" style="--d:3">Repariere das Geld, repariere die Welt.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap">
+        <p class="kicker r">Zeitpräferenz</p>
+        <h2 class="display r" style="--d:1">Wenn Geld seinen Wert behält, <em>kannst du in Jahrzehnten denken</em>.</h2>
+        <div class="versus mt">
+          <div class="card vs-a r" style="--d:2">
+            <h3>Schmelzendes Geld lehrt</h3>
+            <ul>
+              <li>Gib es jetzt aus, morgen ist es weniger wert</li>
+              <li>Mach Schulden, die Inflation frisst sie auf</li>
+              <li>Jag Renditen nach, nur um nicht zurückzufallen</li>
+              <li>Kurzfristiges Denken, überall</li>
+            </ul>
+          </div>
+          <div class="vs-mid r" style="--d:3">→</div>
+          <div class="card vs-b r" style="--d:4">
+            <h3>Solides Geld lehrt</h3>
+            <ul>
+              <li>Sparen wird belohnt, nicht bestraft</li>
+              <li>Kauf weniger, aber bessere Dinge, die halten</li>
+              <li>Investiere nur in das, was es wirklich wert ist</li>
+              <li>Plane für die Kinder deiner Kinder</li>
+            </ul>
+          </div>
+        </div>
+        <p class="lead r mt" style="--d:5">Ökonomen nennen das <strong>Zeitpräferenz</strong>: wie sehr du die Zukunft im Vergleich zur Gegenwart schätzt. Menschen mit niedriger Zeitpräferenz pflanzten Obstgärten und bauten Kathedralen, deren Vollendung sie nie erleben würden. Gutes Geld macht Geduld wieder vernünftig.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap split">
+        <div>
+          <p class="kicker r">Der Deflationsmythos</p>
+          <h2 class="display r" style="--d:1">Preise <em>sollten</em> eigentlich fallen.</h2>
+          <p class="lead r" style="--d:2">Technologie macht fast alles billiger in der Herstellung: Rechenleistung, Fernseher, Solarmodule, Kommunikation. In einer Welt mit ehrlichem Geld erreichen dich diese Fortschritte als niedrigere Preise.</p>
+          <p class="lead r" style="--d:3">In unserer werden sie durch neues Geld weginflationiert, bevor du sie je siehst. Fallende Preise durch Fortschritt sind keine Krise. <strong>Sie sind die Produktivität der Menschheit, endlich mit allen geteilt.</strong></p>
+        </div>
+        <div class="stack">
+          <div class="card r" style="--d:3"><h3>„Aber dann gibt ja niemand mehr Geld aus!“</h3><p>Fernseher und Handys werden jedes Jahr billiger und besser, und die Leute kaufen sie trotzdem. Du kaufst, was du brauchst, wenn du es brauchst. Du kaufst nur keinen Ramsch mehr, den du nicht brauchst.</p></div>
+          <div class="card r" style="--d:4"><h3>Zum Weiterlesen</h3><p>Jeff Booths <em>The Price of Tomorrow</em> erklärt, warum Technologie deflationär ist und warum unser Geldsystem dagegen ankämpft.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap">
+        <p class="kicker r">Vom Kunden zum Eigentümer</p>
+        <h2 class="display r" style="--d:1">Der Wandel passiert zuerst <em>in deinem Kopf</em>.</h2>
+        <ul class="shift mt">
+          <li class="r" style="--d:2"><span>Um Erlaubnis bitten</span><i>→</i><b>Ohne Erlaubnis</b></li>
+          <li class="r" style="--d:3"><span>Institutionen vertrauen</span><i>→</i><b>Selbst überprüfen</b></li>
+          <li class="r" style="--d:4"><span>Dein Vermögen von einer Bank mieten</span><i>→</i><b>Deine eigenen Schlüssel halten</b></li>
+          <li class="r" style="--d:5"><span>Regeln, die sich per Dekret ändern</span><i>→</i><b>Regeln in offenem Code</b></li>
+          <li class="r" style="--d:6"><span>Heute ausgeben, morgen sorgen</span><i>→</i><b>Sparen, aufbauen und für Generationen planen</b></li>
+          <li class="r" style="--d:7"><span>Abhängig</span><i>→</i><b>Souverän</b></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================== CHAPTER VII ============================== -->
+    <section class="slide chapter" id="ch7" data-mood="orange" data-chapter="VII · Ehrliche Fragen" data-toc="Ehrliche Fragen">
+      <div class="wrap">
+        <div class="numeral r wipe" translate="no">VII</div>
+        <p class="kicker r" style="--d:1">Kapitel sieben</p>
+        <h2 class="display r" style="--d:2">Ehrliche Fragen</h2>
+        <p class="lead r" style="--d:3">Skepsis ist gesund. Hier sind klare Antworten.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange" id="faq">
+      <div class="wrap">
+        <p class="kicker r">Die häufigsten Einwände</p>
+        <h2 class="display r" style="--d:1">„Ja, aber…“</h2>
+        <div class="faq mt">
+          <details class="r" style="--d:2"><summary>Ist es nicht viel zu volatil?</summary><p>Ja, heute schon. Ein neuer monetärer Vermögenswert wächst von null auf globale Größe, und der Preis schwankt auf dem Weg. Volatilität ist der Preis dafür, früh dabei zu sein, und sie nimmt tendenziell ab, je weiter die Verbreitung wächst. Stand 2025 endete jeder Vierjahreszeitraum in der Geschichte von Bitcoin höher, als er begann, aber vergangene Wertentwicklung garantiert nichts. Halte nur einen Betrag, den du vier Jahre oder länger unberührt lassen könntest.</p></details>
+          <details class="r" style="--d:2"><summary>Nutzen das nicht vor allem Kriminelle?</summary><p>Größtenteils nicht. Chainalysis schätzt illegale Aktivitäten auf unter 1 % des Krypto-Transaktionsvolumens, während die UN schätzt, dass jedes Jahr 2–5 % des weltweiten BIP gewaschen werden, überwiegend in Dollar und Euro. Und ein öffentliches Kassenbuch, das jede Transaktion für immer festhält, ist ein schrecklicher Ort, um Verbrechen zu verstecken.</p></details>
+          <details class="r" style="--d:3"><summary>Verschwendet es nicht Energie?</summary><p>Energie ist das, was das Kassenbuch unfälschbar macht. Ob das „Verschwendung“ ist, hängt davon ab, ob du ehrliches Geld für schützenswert hältst. Über die Hälfte des Minings läuft bereits mit nachhaltigen Quellen (Cambridge, 2025). Miner können sich überall ansiedeln, also kaufen sie gestrandete und überschüssige Energie, die sonst verloren ginge, helfen neue Wind- und Solarprojekte zu finanzieren (Cornell, 2023) und Stromnetze zu stabilisieren.</p></details>
+          <details class="r" style="--d:3"><summary>Können Regierungen es nicht einfach verbieten?</summary><p>China verbot das Mining 2021, und die Rechenleistung des Netzwerks erreichte innerhalb von etwa einem Jahr neue Rekorde. Bitcoin ist nur Information: Mathematik kann man nicht verbieten. Inzwischen haben die USA 2024 Spot-Bitcoin-ETFs genehmigt und 2025 eine strategische Bitcoin-Reserve geschaffen.</p></details>
+          <details class="r" style="--d:4"><summary>Kann nicht jemand ein besseres bauen?</summary><p>Du kannst den Code kopieren, nicht das Netzwerk. Tausende haben es versucht. Fast alle haben einen Gründer, eine Firma, Insider, die zuerst Coins bekamen, oder ein Team, das die Regeln ändern kann. Bitcoins fairer Start, sein verschwundener Schöpfer, 17 Jahre Erfolgsbilanz und unerreichte Sicherheit lassen sich nicht kopieren, so wie dir das Kopieren des Wikipedia-Codes keine Wikipedia geben würde.</p></details>
+          <details class="r" style="--d:4"><summary>Habe ich es nicht schon verpasst?</summary><p>Das sagten die Leute bei 1 $, 100 $, 1.000 $ und 10.000 $. Bitcoin wurde über 400 Mal für „tot“ erklärt. Sein Gesamtwert ist immer noch ein Bruchteil dessen von Gold, und nur ein kleiner Teil der Menschheit hält es in Selbstverwahrung. Das heute zu fragen ist, als hätte man 1999 gefragt, ob man das Internet verpasst hat.</p></details>
+          <details class="r" style="--d:5"><summary>Ist das nicht ein Schneeballsystem?</summary><p>Ein Schneeballsystem braucht einen Initiator, der Renditen verspricht und frühere Anleger mit dem Geld neuer Anleger bezahlt. Bitcoin hat keinen Initiator, keinen Emittenten, keine versprochene Rendite, und niemand bezahlt irgendwen. Es ist Open-Source-Software, und jeder Coin ist für jeden überprüfbar.</p></details>
+          <details class="r" style="--d:5"><summary>Was, wenn ich meine Schlüssel verliere?</summary><p>Dann kann sie niemand für dich wiederherstellen. Das ist der Preis echten Eigentums. Fang klein an, übe die Wiederherstellung einer Wallet aus ihrer Seed-Phrase, bewahre Backups an getrennten sicheren Orten auf und plane, wie deine Familie erben würde. Multisignatur-Setups beseitigen jeden einzelnen Schwachpunkt.</p></details>
+          <details class="r" style="--d:6"><summary>Knacken Quantencomputer es nicht?</summary><p>Heutige Quantencomputer sind weit davon entfernt, eine Bedrohung zu sein. Wenn sie es werden, stehen Banken, Regierungen und das gesamte Internet vor derselben Herausforderung. Auch Bitcoin kann sich weiterentwickeln: Vorschläge für quantenresistente Signaturen werden bereits offen entwickelt.</p></details>
+          <details class="r" style="--d:6"><summary>Ist das nicht zu kompliziert für mich?</summary><p>Du musst nicht verstehen, wie Mailserver funktionieren, um eine E-Mail zu schicken. Moderne Wallets sind so einfach wie eine Banking-App. Fang mit ein paar Euro an, übe Senden und Empfangen und lerne die tieferen Teile mit der Zeit. Das Schwierigste ist nicht die Technik. Es ist, das zu verlernen, was man uns über Geld beigebracht hat.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CHAPTER VIII ============================== -->
+    <section class="slide chapter" id="ch8" data-mood="orange" data-chapter="VIII · Deine ersten Schritte" data-toc="Deine ersten Schritte">
+      <div class="wrap">
+        <div class="numeral r wipe" translate="no">VIII</div>
+        <p class="kicker r" style="--d:1">Kapitel acht</p>
+        <h2 class="display r" style="--d:2">Deine ersten Schritte</h2>
+        <p class="lead r" style="--d:3">Erst Neugier. Dann Sats. Immer Schlüssel.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange">
+      <div class="wrap">
+        <p class="kicker r">Ein einfacher Weg</p>
+        <h2 class="display r" style="--d:1">Lernen, klein anfangen, <em>eigene Schlüssel halten</em>.</h2>
+        <div class="grid g3 mt path">
+          <div class="card r" style="--d:2"><span class="step-n">1</span><h3>Erst lernen</h3><p>Nimm dir Stunden, nicht Minuten. Lies, hör zu, stell Fragen. Verständnis ist das, was dich durch die Volatilität trägt.</p></div>
+          <div class="card r" style="--d:3"><span class="step-n">2</span><h3>Klein anfangen</h3><p>Kauf für ein paar Euro Sats bei einem seriösen, regulierten Anbieter. Viele kaufen regelmäßig einen kleinen festen Betrag, statt den richtigen Moment erraten zu wollen.</p></div>
+          <div class="card r" style="--d:4"><span class="step-n">3</span><h3>Selbst verwahren</h3><p>Zieh sie auf eine Wallet ab, die du kontrollierst. Für größere Beträge nutze eine Hardware-Wallet, die deine Schlüssel offline hält.</p></div>
+          <div class="card r" style="--d:5"><span class="step-n">4</span><h3>Den Seed schützen</h3><p>Schreib ihn auf Papier oder Stahl. Fotografiere ihn nie, speichere ihn nie in der Cloud, tippe ihn nie auf einer Website ein. Niemand Seriöses wird je danach fragen.</p></div>
+          <div class="card r" style="--d:6"><span class="step-n">5</span><h3>Überprüfen</h3><p>Wenn du so weit bist, betreibe deine eigene Node. Dann musst du niemandem mehr etwas glauben.</p></div>
+          <div class="card r" style="--d:7"><span class="step-n">6</span><h3>Weitergeben</h3><p>Erklär es jemandem, der dir wichtig ist. So hat sich jede orange Pille verbreitet.</p></div>
+        </div>
+        <p class="src r mt" style="--d:8">Diese Präsentation dient der Bildung und ist keine Finanzberatung. Recherchiere selbst und investiere nie mehr, als du dir leisten kannst zu verlieren.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange" id="library">
+      <div class="wrap">
+        <p class="kicker r">Tiefer eintauchen · Lesen</p>
+        <h2 class="display r" style="--d:1">Die <em>Bibliothek</em> des Kaninchenbaus.</h2>
+        <div class="grid g4 mt books">
+          <a class="card book r" style="--d:2" href="https://bitcoin.org/bitcoin.pdf" target="_blank" rel="noopener"><span class="kicker">Satoshi Nakamoto · 2008</span><h3>Das Bitcoin-Whitepaper</h3><p>Neun Seiten, mit denen alles begann. Überraschend gut lesbar.</p></a>
+          <div class="card book r" style="--d:3"><span class="kicker">Saifedean Ammous</span><h3>The Bitcoin Standard</h3><p>Die Geschichte des Geldes, von Muscheln über Gold bis Bitcoin.</p></div>
+          <div class="card book r" style="--d:4"><span class="kicker">Lyn Alden</span><h3>Broken Money</h3><p>Wie unser Finanzsystem wirklich funktioniert und warum es normale Menschen im Stich lässt.</p></div>
+          <div class="card book r" style="--d:5"><span class="kicker">Jeff Booth</span><h3>The Price of Tomorrow</h3><p>Warum Technologie deflationär ist und warum das eine gute Nachricht ist.</p></div>
+          <div class="card book r" style="--d:6"><span class="kicker">Alex Gladstein</span><h3>Check Your Financial Privilege</h3><p>Bitcoin aus der Sicht von Menschen, die unter autoritären Regimen leben.</p></div>
+          <a class="card book r" style="--d:7" href="https://mempool.space" target="_blank" rel="noopener"><span class="kicker">Werkzeug · mempool.space</span><h3>Das Netzwerk live ansehen</h3><p>Sieh zu, wie Blöcke gemint und Transaktionen in Echtzeit bestätigt werden.</p></a>
+          <a class="card book energy r" style="--d:8" href="https://news.cornell.edu/stories/2023/11/bitcoin-could-support-renewable-energy-development" target="_blank" rel="noopener"><span class="kicker">Energie · Cornell · 2023</span><h3>From Mining to Mitigation</h3><p>Begutachtete Studie: Mining kann helfen, neue Wind- und Solarparks zu finanzieren, indem es ihren Strom abnimmt, bevor sie ans Netz gehen.</p></a>
+          <a class="card book energy r" style="--d:9" href="https://www.jbs.cam.ac.uk/2025/cambridge-study-sustainable-energy-rising-in-bitcoin-mining/" target="_blank" rel="noopener"><span class="kicker">Energie · Cambridge · 2025</span><h3>Digital Mining Industry Report</h3><p>52,4 % des Minings laufen bereits mit nachhaltiger Energie, gegenüber 37,6 % im Jahr 2022. Kohle fiel von 36,6 % auf 8,9 %.</p></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-mood="orange" id="watch">
+      <div class="wrap">
+        <p class="kicker r">Tiefer eintauchen · Sehen und hören</p>
+        <h2 class="display r" style="--d:1">Filme zum Teilen, <em>Stimmen zum Folgen</em>.</h2>
+        <div class="media mt">
+          <div class="films">
+            <h3 class="col-h r" style="--d:2">Filme · kostenlos auf YouTube (auf Englisch)</h3>
+            <a class="film card r" style="--d:2" href="https://www.youtube.com/watch?v=YtFOxNbmD38" target="_blank" rel="noopener">
+              <span class="thumb"><img src="https://i.ytimg.com/vi/YtFOxNbmD38/hqdefault.jpg" alt="" loading="lazy"><i aria-hidden="true"></i></span>
+              <span class="film-t"><span class="kicker">Joe Bryan · Hier anfangen</span><b>What's the Problem?</b><small>Ohne Fachchinesisch: warum so vieles im modernen Leben kaputt wirkt, zurückgeführt auf das Geld. Das beste erste Video zum Teilen.</small></span>
+            </a>
+            <a class="film card r" style="--d:3" href="https://www.youtube.com/watch?v=ZKwqNgG-Sv4" target="_blank" rel="noopener">
+              <span class="thumb"><img src="https://i.ytimg.com/vi/ZKwqNgG-Sv4/hqdefault.jpg" alt="" loading="lazy"><i aria-hidden="true"></i></span>
+              <span class="film-t"><span class="kicker">Art of the Problem</span><b>Bitcoin: The Trust Machine</b><small>Eine wunderschön animierte Erklärung, wie Bitcoin wirklich funktioniert, von den Grundprinzipien an.</small></span>
+            </a>
+            <a class="film card r" style="--d:4" href="https://www.youtube.com/watch?v=oksraL7wN6Q" target="_blank" rel="noopener">
+              <span class="thumb"><img src="https://i.ytimg.com/vi/oksraL7wN6Q/hqdefault.jpg" alt="" loading="lazy"><i aria-hidden="true"></i></span>
+              <span class="film-t"><span class="kicker">Dokumentarfilm · 2024</span><b>God Bless Bitcoin</b><small>Geld, Moral und Freiheit: wie kaputtes Geld die Gesellschaft prägt und warum Bitcoin Hoffnung gibt.</small></span>
+            </a>
+          </div>
+          <div class="pods">
+            <h3 class="col-h r" style="--d:2">Podcasts, die deine Zeit wert sind</h3>
+            <ul class="pod-list">
+              <li class="r" style="--d:3"><a href="https://podcasts.apple.com/us/podcast/coin-stories/id1569130932" target="_blank" rel="noopener"><b>Coin Stories</b><span>Natalie Brunell</span><small>Einsteigerfreundliche Gespräche über Geld, Inflation und Freiheit.</small></a></li>
+              <li class="r" style="--d:4"><a href="https://www.bitcoinaudible.com" target="_blank" rel="noopener"><b>Bitcoin Audible</b><span>Guy Swann</span><small>Die besten Bitcoin-Essays, vorgelesen und diskutiert.</small></a></li>
+              <li class="r" style="--d:5"><a href="https://www.theinvestorspodcast.com/bitcoin-fundamentals/" target="_blank" rel="noopener"><b>Bitcoin Fundamentals</b><span>Preston Pysh</span><small>Bitcoin aus der Perspektive von Investment und Makroökonomie.</small></a></li>
+              <li class="r" style="--d:6"><a href="https://www.whatbitcoindid.com" target="_blank" rel="noopener"><b>What Bitcoin Did</b><span>Ausführliche Interviews</span><small>Die Menschen, die Politik und die Ideen, die Bitcoin prägen.</small></a></li>
+              <li class="r" style="--d:7"><a href="https://saifedean.com/podcast" target="_blank" rel="noopener"><b>The Bitcoin Standard Podcast</b><span>Saifedean Ammous</span><small>Ökonomie, solides Geld und die Geschichte des Geldes.</small></a></li>
+              <li class="r" style="--d:8"><a href="https://www.stephanlivera.com" target="_blank" rel="noopener"><b>Stephan Livera Podcast</b><span>Stephan Livera</span><small>Tiefe Einblicke in Selbstverwahrung, Lightning und die Technik.</small></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide finale" data-mood="orange" data-chapter="Epilog" data-toc="Epilog">
+      <div class="wrap narrow center">
+        <div class="mini-pill r zoom" aria-hidden="true"><span></span><span></span></div>
+        <h2 class="display huge r" style="--d:1">Bei der orangen Pille geht es nicht darum, reich zu werden.<br><em>Es geht darum, frei zu werden.</em></h2>
+        <blockquote class="r" style="--d:2">
+          <p>„Das Grundproblem herkömmlicher Währungen ist all das Vertrauen, das nötig ist, damit sie funktionieren.“</p>
+          <cite>Satoshi Nakamoto, 2009</cite>
+        </blockquote>
+        <div class="cta center r" style="--d:3">
+          <button class="btn primary" id="share-btn">Teile es mit jemandem, der dir wichtig ist</button>
+          <button class="btn ghost" data-go="first">↺ Von vorn beginnen</button>
+        </div>
+        <div class="share-row r" style="--d:4" aria-label="Teilen">
+          <a class="share-chip" data-share="x" target="_blank" rel="noopener">Auf X teilen</a>
+          <a class="share-chip" data-share="telegram" target="_blank" rel="noopener">Telegram</a>
+          <a class="share-chip" data-share="whatsapp" target="_blank" rel="noopener">WhatsApp</a>
+          <button class="share-chip" data-share="copy" type="button">Link kopieren</button>
+        </div>
+        <p class="signoff r" style="--d:5">Bleib bescheiden. Stapel Sats. Halte deine Schlüssel.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script>window.I18N_JS = {"Slide {n}: {title}":"Folie {n}: {title}","The Orange Pill":"Die Orange Pille","1933 · gold confiscated":"1933 · Gold beschlagnahmt","1971 · gold link cut":"1971 · Goldbindung gekappt","{year} · value of a 1913 dollar":"{year} · Wert eines Dollars von 1913","{amount} trillion":"{amount} Billionen","M2 · January {year}":"M2 · Januar {year}","{year} · {pct}% mined":"{year} · {pct} % gemint","Hard cap · 21,000,000":"Obergrenze · 21.000.000","Today · {pct}% mined":"Heute · {pct} % gemint","○ halvings: 2012 · 2016 · 2020 · 2024 …":"○ Halvings: 2012 · 2016 · 2020 · 2024 …","US dollar":"US-Dollar","M2, avg since 1960":"M2, Ø seit 1960","Gold":"Gold","new mine supply":"neue Minenförderung","after ~2140":"nach ~2140","Start mining":"Mining starten","Press start. Your browser will guess until it finds a valid hash.":"Drück auf Start. Dein Browser rät, bis er einen gültigen Hash findet.","Mine again":"Erneut minen","\u003cspan class=\"pos\">Block found!\u003c/span> It took \u003cstrong>{n}\u003c/strong> guesses in {s}s. Now verify it, or edit the data and see what breaks.":"\u003cspan class=\"pos\">Block gefunden!\u003c/span> Es brauchte \u003cstrong>{n}\u003c/strong> Versuche in {s} s. Prüf ihn jetzt, oder ändere die Daten und sieh, was kaputtgeht.","Guessing… {n} hashes per second":"Rate… {n} Hashes pro Sekunde","Resume mining":"Mining fortsetzen","Paused.":"Pausiert.","Stop":"Stopp","\u003cspan class=\"pos\">✓ Valid.\u003c/span> Checked with \u003cstrong>one\u003c/strong> hash in {time}. Finding it took {n}. That asymmetry is the whole trick.":"\u003cspan class=\"pos\">✓ Gültig.\u003c/span> Geprüft mit \u003cstrong>einem einzigen\u003c/strong> Hash in {time}. Das Finden brauchte {n}. Diese Asymmetrie ist der ganze Trick.","a fraction of a millisecond":"einem Bruchteil einer Millisekunde","\u003cspan class=\"neg\">✗ Invalid.\u003c/span> The data changed, so the old proof no longer fits. Every node would reject this block.":"\u003cspan class=\"neg\">✗ Ungültig.\u003c/span> Die Daten haben sich geändert, also passt der alte Beweis nicht mehr. Jede Node würde diesen Block ablehnen.","Re-mine":"Neu minen","\u003cspan class=\"pos\">Still valid.\u003c/span>":"\u003cspan class=\"pos\">Immer noch gültig.\u003c/span>","\u003cspan class=\"neg\">Tampered!\u003c/span> Same nonce, one edit, completely different hash. Re-mining is the only way to fix it, and on the real network that means outrunning everyone.":"\u003cspan class=\"neg\">Manipuliert!\u003c/span> Gleiche Nonce, eine Änderung, ein völlig anderer Hash. Neu minen ist der einzige Weg, das zu reparieren, und im echten Netzwerk heißt das: alle anderen überholen.","Cash":"Bargeld","Fiat money":"Fiatgeld","Physical":"Physisch","Real estate":"Immobilien","Land, buildings":"Grund, Gebäude","Stocks":"Aktien","Equities":"Beteiligungen","Digital, sound":"Digital, solide","Scarcity":"Knappheit","Unlimited printing":"Unbegrenztes Drucken","~1.7% new per year":"~1,7 % neu pro Jahr","More can be built":"Es kann mehr gebaut werden","Dilution, new issues":"Verwässerung, Neuemissionen","Fixed at 21M":"Fix bei 21 Mio.","Portability":"Transportierbarkeit","Needs permission":"Braucht Erlaubnis","Heavy, guarded":"Schwer, bewacht","Immovable":"Unbeweglich","Through brokers":"Über Broker","12 words, global":"12 Wörter, global","Divisibility":"Teilbarkeit","Down to cents":"Bis auf den Cent","Hard to split":"Schwer teilbar","Can't sell a room":"Man kann kein Zimmer verkaufen","Fractional shares":"Bruchstücke von Aktien","100M sats each":"100 Mio. Sats je BTC","Verifiability":"Überprüfbarkeit","Counterfeits exist":"Fälschungen existieren","Fake bars exist":"Falsche Barren existieren","Lawyers, registries":"Notare, Grundbuch","Trust the auditors":"Den Prüfern vertrauen","Anyone, in seconds":"Jeder, in Sekunden","Seizure resistance":"Schutz vor Beschlagnahme","Freezes, bail-ins":"Einfrieren, Bail-ins","Confiscated in 1933":"1933 beschlagnahmt","Taxed, expropriated":"Besteuert, enteignet","Held by custodians":"Bei Verwahrern","Self-custody":"Selbstverwahrung","No middleman needed":"Kein Mittelsmann nötig","Bank, central bank":"Bank, Zentralbank","If you hold it":"Wenn du es selbst hältst","Title, state, tax":"Grundbuch, Staat, Steuer","Managers, brokers":"Manager, Broker","In self-custody":"In Selbstverwahrung","Cost to hold":"Haltekosten","Inflation tax":"Inflationssteuer","Vaults, insurance":"Tresore, Versicherung","Taxes, upkeep":"Steuern, Instandhaltung","Fees, dilution":"Gebühren, Verwässerung","Near zero":"Nahezu null","Open 24/7, global":"Rund um die Uhr, global","Bank hours":"Banköffnungszeiten","Slow, physical":"Langsam, physisch","Months to sell":"Monate zum Verkaufen","Market hours":"Börsenzeiten","Price stability today":"Preisstabilität heute","Short-term":"Kurzfristig","Mature market":"Reifer Markt","Mostly":"Meistens","Cyclical":"Zyklisch","Volatile (young)":"Volatil (jung)","Track record":"Bewährung","Decades":"Jahrzehnte","5,000 years":"5.000 Jahre","Centuries":"Jahrhunderte","Since 2009":"Seit 2009","A melting ice cube. Great for spending, terrible for saving. It is designed to lose purchasing power every year.":"Ein schmelzender Eiswürfel. Großartig zum Ausgeben, furchtbar zum Sparen. Es ist darauf ausgelegt, jedes Jahr Kaufkraft zu verlieren.","The hardest money for 5,000 years. But you can't email it, it's hard to verify, and governments have confiscated it before.":"Das härteste Geld seit 5.000 Jahren. Aber man kann es nicht per E-Mail schicken, es ist schwer zu prüfen, und Regierungen haben es schon einmal beschlagnahmt.","Shelter turned into a savings account. Illiquid, taxed and immovable, and you can't sell a bedroom to buy groceries.":"Ein Dach über dem Kopf, das zum Sparkonto wurde. Illiquide, besteuert und unbeweglich, und man kann kein Schlafzimmer verkaufen, um Lebensmittel zu kaufen.","A claim on businesses that others run. Valuable, but diluted and custodied, and part of the \"growth\" is just money losing value.":"Ein Anspruch auf Unternehmen, die andere führen. Wertvoll, aber verwässert und fremdverwahrt, und ein Teil des „Wachstums“ ist nur Geld, das an Wert verliert.","Scarcer than gold, more portable than cash, divisible like stocks, and the only one you can truly own without anyone's permission. The trade-offs: volatility while it grows up, and the responsibility of holding your own keys.":"Knapper als Gold, transportabler als Bargeld, teilbar wie Aktien, und das Einzige, das du wirklich ohne irgendjemandes Erlaubnis besitzen kannst. Die Kehrseiten: Volatilität, solange es erwachsen wird, und die Verantwortung, deine eigenen Schlüssel zu halten.","weak":"schwach","fair":"mittel","strong":"stark","Comparison of cash, gold, real estate, stocks and bitcoin":"Vergleich von Bargeld, Gold, Immobilien, Aktien und Bitcoin","Property":"Eigenschaft","Music on":"Musik an","Music off":"Musik aus","Music playing · tap to mute":"Musik läuft · tippen zum Stummschalten","Turn on the music":"Musik einschalten","You're not bad with money. Your money is bad. 🟠 A free 20-minute interactive presentation on inflation, money and bitcoin:":"Du kannst sehr wohl mit Geld umgehen. Dein Geld ist das Problem. 🟠 Eine kostenlose, interaktive 20-Minuten-Präsentation über Inflation, Geld und Bitcoin:","Link copied. Pass it on 🧡":"Link kopiert. Gib es weiter 🧡"};</script><script src="../js/main.js" defer></script>
+</body>
+</html>
