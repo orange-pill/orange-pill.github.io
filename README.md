@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://orange-pill.github.io/"><strong>▶ Open the presentation</strong></a>
+  <a href="https://orange-pill.github.io/"><strong>▶ Open the presentation</strong></a> &nbsp;·&nbsp; <a href="https://orange-pill.github.io/video/">🎬 Watch the 33-second promo</a>
 </p>
 
 ---
@@ -102,7 +102,8 @@ i18n/             translations: en.json (extracted) + one <lang>.json per langua
 tools/i18n.mjs    builds the language pages from index.html + i18n/*.json
 css/style.css     design, transitions, layout
 js/main.js        navigation, charts, calculator, mining demo, live supply, background
-assets/           icons and social preview image
+assets/           icons, social preview image and music
+video/            the promo video page and its MP4s
 ```
 
 ## Contributing
@@ -127,9 +128,15 @@ Missing translations fall back to English, so nothing breaks while a language ca
 
 Each slide is a `<section class="slide">` in `index.html`. Chart data sits at the top of each chart function in `js/main.js`.
 
+## Credits
+
+- Music: [“Algorithm Runner”](https://pixabay.com/music/pulses-algorithm-runner-dark-cyberpunk-cinematic-music-loopable-185038/) by [JoelFazhari](https://pixabay.com/users/joelfazhari-16466931/), used under the [Pixabay Content License](https://pixabay.com/service/license-summary/). It plays only if you switch the music on, and it loops seamlessly through the Web Audio API.
+- Fonts: Fraunces, Inter and JetBrains Mono, via Google Fonts.
+- Live block height: [mempool.space](https://mempool.space).
+
 ## License
 
-[MIT](LICENSE). Use it, translate it, present it at your meetup, or fork it into your own version. Books, films, podcasts and quotes referenced in the presentation belong to their respective authors.
+[MIT](LICENSE) for the code and text. The music keeps its own license, listed above. Use it, translate it, present it at your meetup, or fork it into your own version. Books, films, podcasts and quotes referenced in the presentation belong to their respective authors.
 
 ---
 

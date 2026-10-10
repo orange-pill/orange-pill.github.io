@@ -34,6 +34,9 @@ export const LANGS = {
   hi: { name: 'हिन्दी', fonts: 'family=Noto+Serif+Devanagari:wght@300..700&family=Noto+Sans+Devanagari:wght@400..700', serif: "'Fraunces', 'Noto Serif Devanagari', serif", sans: "'Inter', 'Noto Sans Devanagari', sans-serif", cjk: true },
 };
 
+// standalone pages that are listed in the sitemap but not translated
+const EXTRA = ['video/'];
+
 const SKIP = new Set(['SCRIPT', 'STYLE', 'SVG', 'NOSCRIPT', 'TEMPLATE', 'AUDIO', 'CANVAS']);
 const ATTRS = ['aria-label', 'alt', 'title', 'placeholder', 'data-toc', 'data-chapter'];
 const META = ['description', 'og:title', 'og:description', 'og:image:alt', 'twitter:title', 'twitter:description'];
@@ -185,6 +188,7 @@ function build() {
   fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${urls.map(u => `  <url>\n    <loc>${u}</loc>\n${links}\n  </url>`).join('\n')}
+${EXTRA.map(p => `  <url>\n    <loc>${url}${p}</loc>\n  </url>`).join('\n')}
 </urlset>
 `);
   fs.writeFileSync(path.join(ROOT, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${url}sitemap.xml\n`);

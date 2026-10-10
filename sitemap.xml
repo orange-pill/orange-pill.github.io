@@ -154,4 +154,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://orange-pill.github.io/ja/"/>
     <xhtml:link rel="alternate" hreflang="hi" href="https://orange-pill.github.io/hi/"/>
   </url>
+  <url>
+    <loc>https://orange-pill.github.io/video/</loc>
+  </url>
 </urlset>

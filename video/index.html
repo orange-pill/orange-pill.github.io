@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>The Orange Pill · Promo video</title>
+  <meta name="description" content="A 33-second promo for The Orange Pill, a free interactive presentation on inflation, money and bitcoin. Watch, download and share it.">
+  <link rel="canonical" href="https://orange-pill.github.io/video/">
+  <meta name="theme-color" content="#09090a">
+  <meta property="og:type" content="video.other">
+  <meta property="og:site_name" content="The Orange Pill">
+  <meta property="og:title" content="The Orange Pill · Promo video">
+  <meta property="og:description" content="Why does everything cost more? 33 seconds on money, inflation and bitcoin. Free to share.">
+  <meta property="og:url" content="https://orange-pill.github.io/video/">
+  <meta property="og:image" content="https://orange-pill.github.io/assets/og-image.png">
+  <meta property="og:video" content="https://orange-pill.github.io/video/orange-pill-promo-1x1.mp4">
+  <meta property="og:video:type" content="video/mp4">
+  <meta property="og:video:width" content="1080">
+  <meta property="og:video:height" content="1080">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Orange Pill · Promo video">
+  <meta name="twitter:description" content="Why does everything cost more? 33 seconds on money, inflation and bitcoin.">
+  <meta name="twitter:image" content="https://orange-pill.github.io/assets/og-image.png">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #09090a; --ink: #f3eee6; --ink-2: #c8c2b7; --muted: #8d877d; --line: rgba(255,255,255,.09); --line-2: rgba(255,255,255,.16);
+      --panel: rgba(255,255,255,.035); --orange: #f7931a; --orange-hi: #ffb24a;
+      --serif: 'Fraunces', Georgia, serif; --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; --mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+      --ease: cubic-bezier(.16, 1, .3, 1);
+      color-scheme: dark;
+    }
+    * { box-sizing: border-box; }
+    html { background: var(--bg); }
+    body {
+      margin: 0; min-height: 100vh; color: var(--ink); font: 400 16px/1.6 var(--sans); -webkit-font-smoothing: antialiased;
+      background:
+        radial-gradient(60% 45% at 75% 10%, rgba(247,147,26,.12), transparent 70%),
+        radial-gradient(50% 40% at 10% 90%, rgba(247,147,26,.07), transparent 70%),
+        var(--bg);
+    }
+    a { color: inherit; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+    @media (min-width: 720px) { .wrap { padding: 0 32px; } }
+
+    header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 20px 0; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; text-decoration: none; font-size: .95rem; }
+    .brand i { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--orange); color: #1b1004; font-style: normal; font-size: .9rem; transform: rotate(14deg); box-shadow: 0 0 18px rgba(247,147,26,.45); }
+    .back { font: 500 .78rem var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); text-decoration: none; border: 1px solid var(--line-2); padding: 8px 14px; border-radius: 999px; white-space: nowrap; }
+    @media (max-width: 420px) { .back .wide { display: none; } }
+    .brand span { white-space: nowrap; }
+    .back:hover { color: var(--orange); border-color: rgba(247,147,26,.5); }
+
+    .intro { padding: 28px 0 8px; }
+    .kicker { font: 500 .74rem var(--mono); letter-spacing: .18em; text-transform: uppercase; color: var(--orange); margin: 0; }
+    h1 { font: 330 clamp(2.2rem, 6vw, 3.6rem)/1.02 var(--serif); font-variation-settings: 'opsz' 144; letter-spacing: -.03em; margin: 14px 0 12px; }
+    h1 em { color: var(--orange); font-style: italic; font-weight: 400; }
+    .lede { color: var(--ink-2); max-width: 46ch; margin: 0; }
+
+    .stage { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; padding: 28px 0 40px; align-items: start; }
+    @media (min-width: 900px) { .stage { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 44px; } }
+
+    .seg { display: inline-flex; padding: 4px; gap: 4px; border: 1px solid var(--line-2); border-radius: 999px; margin-bottom: 14px; }
+    .seg button { appearance: none; border: 0; background: transparent; color: var(--ink-2); font: 600 .82rem var(--sans); padding: 8px 16px; border-radius: 999px; cursor: pointer; }
+    .seg button[aria-pressed="true"] { background: var(--orange); color: #1b1004; }
+    .seg button:focus-visible, .btn:focus-visible, .back:focus-visible { outline: 2px solid var(--orange-hi); outline-offset: 2px; }
+
+    .player { position: relative; border-radius: 18px; overflow: hidden; border: 1px solid var(--line-2); background: #000; box-shadow: 0 30px 80px rgba(0,0,0,.55), 0 0 60px rgba(247,147,26,.08); margin: 0 auto; }
+    .player video { display: block; width: 100%; height: auto; background: #000; }
+    .player[data-format="1x1"] { aspect-ratio: 1 / 1; max-width: 640px; }
+    .player[data-format="9x16"] { aspect-ratio: 9 / 16; max-width: min(100%, calc(78vh * 9 / 16)); }
+
+    .side h2 { font: 400 1.5rem/1.2 var(--serif); letter-spacing: -.02em; margin: 0 0 10px; }
+    .side p { color: var(--ink-2); margin: 0 0 18px; }
+    .btns { display: grid; gap: 10px; margin: 0 0 26px; }
+    .btn { display: flex; align-items: center; justify-content: space-between; gap: 12px; text-decoration: none; padding: 14px 18px; border-radius: 14px; border: 1px solid var(--line-2); background: var(--panel); font-weight: 600; transition: border-color .2s, background .2s; }
+    .btn small { font: 500 .72rem var(--mono); letter-spacing: .06em; color: var(--muted); white-space: nowrap; }
+    .btn:hover { border-color: rgba(247,147,26,.55); background: rgba(247,147,26,.07); }
+    .btn.primary { background: var(--orange); color: #1b1004; border-color: var(--orange); }
+    .btn.primary small { color: rgba(27,16,4,.7); }
+    .btn.primary:hover { background: var(--orange-hi); }
+    .share { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 26px; }
+    .chip { appearance: none; cursor: pointer; font: 500 .8rem var(--sans); color: var(--ink-2); border: 1px solid var(--line-2); background: transparent; border-radius: 999px; padding: 8px 14px; text-decoration: none; }
+    .chip:hover { color: var(--orange); border-color: rgba(247,147,26,.5); }
+    .label { font: 500 .7rem var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+
+    footer { border-top: 1px solid var(--line); padding: 22px 0 40px; font: 400 .78rem/1.7 var(--mono); color: var(--muted); }
+    footer a { text-decoration: underline; text-decoration-color: rgba(255,255,255,.25); text-underline-offset: 3px; }
+    footer a:hover { color: var(--orange); }
+    footer p { margin: 0 0 6px; }
+    .toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: #1a1a1d; border: 1px solid var(--line-2); color: var(--ink); padding: 10px 16px; border-radius: 999px; font-size: .85rem; opacity: 0; transition: opacity .25s; pointer-events: none; }
+    .toast.show { opacity: 1; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="../"><i>₿</i><span>The Orange Pill</span></a>
+      <a class="back" href="../"><span class="wide">Open the </span>presentation →</a>
+    </header>
+
+    <section class="intro">
+      <p class="kicker">Promo video · 33 seconds</p>
+      <h1>Why does everything <em>cost more?</em></h1>
+      <p class="lede">A short promo for The Orange Pill. Watch it, download it, and post it anywhere. It's free to share.</p>
+    </section>
+
+    <section class="stage">
+      <div>
+        <div class="seg" role="group" aria-label="Video format">
+          <button type="button" data-format="1x1" aria-pressed="true">Square</button>
+          <button type="button" data-format="9x16" aria-pressed="false">Vertical</button>
+        </div>
+        <div class="player" id="player" data-format="1x1">
+          <video id="video" controls playsinline preload="metadata" poster="poster-1x1.jpg">
+            <source src="orange-pill-promo-1x1.mp4" type="video/mp4">
+            Your browser can't play this video. <a href="orange-pill-promo-1x1.mp4">Download it instead.</a>
+          </video>
+        </div>
+      </div>
+
+      <aside class="side">
+        <h2>Share the orange pill</h2>
+        <p>Square fits X and Instagram feeds. Vertical fits Reels, Shorts and TikTok. Both end on the link to the presentation.</p>
+        <div class="btns">
+          <a class="btn primary" href="orange-pill-promo-1x1.mp4" download>Download square <small>1080×1080 · MP4</small></a>
+          <a class="btn" href="orange-pill-promo-9x16.mp4" download>Download vertical <small>1080×1920 · MP4</small></a>
+        </div>
+        <p class="label">Share this page</p>
+        <div class="share">
+          <a class="chip" id="share-x" target="_blank" rel="noopener">Post on X</a>
+          <a class="chip" id="share-tg" target="_blank" rel="noopener">Telegram</a>
+          <a class="chip" id="share-wa" target="_blank" rel="noopener">WhatsApp</a>
+          <button class="chip" id="share-copy" type="button">Copy link</button>
+        </div>
+        <a class="btn" href="../">Watch the full presentation <small>8 chapters · ~20 min</small></a>
+      </aside>
+    </section>
+
+    <footer>
+      <p>Music: <a href="https://pixabay.com/music/pulses-algorithm-runner-dark-cyberpunk-cinematic-music-loopable-185038/" target="_blank" rel="noopener">“Algorithm Runner”</a> by <a href="https://pixabay.com/users/joelfazhari-16466931/" target="_blank" rel="noopener">JoelFazhari</a>, used under the Pixabay Content License.</p>
+      <p>Education, not financial advice. Stay humble · Stack sats · Hold your keys.</p>
+    </footer>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    (() => {
+      const video = document.getElementById('video'), player = document.getElementById('player');
+      const buttons = document.querySelectorAll('.seg button');
+      function setFormat(f) {
+        if (player.dataset.format === f) return;
+        const playing = !video.paused;
+        player.dataset.format = f;
+        buttons.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.format === f)));
+        video.poster = `poster-${f}.jpg`;
+        video.querySelector('source').src = `orange-pill-promo-${f}.mp4`;
+        video.load();
+        if (playing) video.play().catch(() => {});
+      }
+      buttons.forEach(b => b.addEventListener('click', () => setFormat(b.dataset.format)));
+      if (matchMedia('(max-width: 600px) and (orientation: portrait)').matches) setFormat('9x16');
+
+      const url = 'https://orange-pill.github.io/video/';
+      const text = 'Why does everything cost more? 33 seconds on money, inflation and bitcoin 🟠';
+      document.getElementById('share-x').href = 'https://x.com/intent/post?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url);
+      document.getElementById('share-tg').href = 'https://t.me/share/url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(text);
+      document.getElementById('share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(text + ' ' + url);
+      const toast = document.getElementById('toast');
+      document.getElementById('share-copy').addEventListener('click', () => {
+        const done = () => { toast.textContent = 'Link copied'; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 1800); };
+        if (navigator.clipboard) navigator.clipboard.writeText(url).then(done, done); else done();
+      });
+    })();
+  </script>
+</body>
+</html>
