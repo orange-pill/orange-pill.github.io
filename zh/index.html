@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-LRwZpv3VYXVYhZf9bz2balaebZJ4ZLOP40AAmtPgALY='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://mempool.space; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="no-referrer">
   <title>橙色药丸</title>
   <meta name="description" content="为什么通货膨胀在悄悄掏空普通人，金钱到底是什么，以及为什么比特币是人类自由的工具。一个免费的八章互动演示。">
   <link rel="canonical" href="https://orange-pill.github.io/zh/">
@@ -59,12 +61,9 @@
   <meta name="theme-color" content="#09090a">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/fonts.css">
   <link rel="stylesheet" href="../css/style.css">
-  <style>:root { --serif: 'Fraunces', 'Noto Serif SC', serif; --sans: 'Inter', 'Noto Sans SC', sans-serif; } em, .o, .accent, .display em, .hero-sub em, blockquote p { font-style: normal; } h1, .display, .mega, .punch, .big-line, .hero-sub, .numeral { letter-spacing: 0; } h1 { line-height: 1.08; } .display, .chapter .display { line-height: 1.22; } .hero-sub, .punch, .big-line { line-height: 1.35; } .kicker, .mono, .src { letter-spacing: .06em; }</style>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300..700&family=Noto+Sans+SC:wght@400..700&display=swap" rel="stylesheet">
+  <style>:root { --serif: 'Fraunces', 'Songti SC', 'STSong', 'Noto Serif CJK SC', 'Source Han Serif SC', 'SimSun', serif; --sans: 'Inter', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', 'Source Han Sans SC', sans-serif; } em, .o, .accent, .display em, .hero-sub em, blockquote p { font-style: normal; } h1, .display, .mega, .punch, .big-line, .hero-sub, .numeral { letter-spacing: 0; } h1 { line-height: 1.08; } .display, .chapter .display { line-height: 1.22; } .hero-sub, .punch, .big-line { line-height: 1.35; } .kicker, .mono, .src { letter-spacing: .06em; }</style>
 </head>
 <body>
   <canvas id="rain" aria-hidden="true"></canvas>
@@ -994,15 +993,15 @@
           <div class="films">
             <h3 class="col-h r" style="--d:2">影片 · YouTube 免费观看（英文）</h3>
             <a class="film card r" style="--d:2" href="https://www.youtube.com/watch?v=YtFOxNbmD38" target="_blank" rel="noopener">
-              <span class="thumb"><img src="https://i.ytimg.com/vi/YtFOxNbmD38/hqdefault.jpg" alt="" loading="lazy"><i aria-hidden="true"></i></span>
+              <span class="thumb"><img src="../assets/img/film-YtFOxNbmD38.jpg" alt="" loading="lazy"><i aria-hidden="true"></i></span>
               <span class="film-t"><span class="kicker">Joe Bryan · 从这里开始</span><b>What's the Problem?</b><small>没有术语：为什么现代生活中这么多事情感觉都坏掉了，一路追溯到金钱。最适合第一个分享的视频。</small></span>
             </a>
             <a class="film card r" style="--d:3" href="https://www.youtube.com/watch?v=ZKwqNgG-Sv4" target="_blank" rel="noopener">
-              <span class="thumb"><img src="https://i.ytimg.com/vi/ZKwqNgG-Sv4/hqdefault.jpg" alt="" loading="lazy"><i aria-hidden="true"></i></span>
+              <span class="thumb"><img src="../assets/img/film-ZKwqNgG-Sv4.jpg" alt="" loading="lazy"><i aria-hidden="true"></i></span>
               <span class="film-t"><span class="kicker">Art of the Problem</span><b>Bitcoin: The Trust Machine</b><small>一部精美的动画，从基本原理讲清比特币到底如何运作。</small></span>
             </a>
             <a class="film card r" style="--d:4" href="https://www.youtube.com/watch?v=oksraL7wN6Q" target="_blank" rel="noopener">
-              <span class="thumb"><img src="https://i.ytimg.com/vi/oksraL7wN6Q/hqdefault.jpg" alt="" loading="lazy"><i aria-hidden="true"></i></span>
+              <span class="thumb"><img src="../assets/img/film-oksraL7wN6Q.jpg" alt="" loading="lazy"><i aria-hidden="true"></i></span>
               <span class="film-t"><span class="kicker">纪录片 · 2024</span><b>God Bless Bitcoin</b><small>金钱、道德与自由：坏掉的货币如何塑造社会，以及比特币为何带来希望。</small></span>
             </a>
           </div>

@@ -27,11 +27,12 @@ export const LANGS = {
   fr: { name: 'Français' },
   de: { name: 'Deutsch' },
   pl: { name: 'Polski' },
-  ru: { name: 'Русский', fonts: 'family=Playfair+Display:ital,wght@0,400..800;1,400..800', serif: "'Playfair Display', 'Fraunces', Georgia, serif" },
+  ru: { name: 'Русский', css: 'fonts-ru.css', serif: "'Playfair Display', 'Fraunces', Georgia, serif" },
   tr: { name: 'Türkçe' },
-  zh: { name: '中文', fonts: 'family=Noto+Serif+SC:wght@300..700&family=Noto+Sans+SC:wght@400..700', serif: "'Fraunces', 'Noto Serif SC', serif", sans: "'Inter', 'Noto Sans SC', sans-serif", cjk: true },
-  ja: { name: '日本語', fonts: 'family=Noto+Serif+JP:wght@300..700&family=Noto+Sans+JP:wght@400..700', serif: "'Fraunces', 'Noto Serif JP', serif", sans: "'Inter', 'Noto Sans JP', sans-serif", cjk: true },
-  hi: { name: 'हिन्दी', fonts: 'family=Noto+Serif+Devanagari:wght@300..700&family=Noto+Sans+Devanagari:wght@400..700', serif: "'Fraunces', 'Noto Serif Devanagari', serif", sans: "'Inter', 'Noto Sans Devanagari', sans-serif", cjk: true },
+  // Chinese and Japanese use the visitor's built-in system fonts (CJK web fonts are several MB)
+  zh: { name: '中文', serif: "'Fraunces', 'Songti SC', 'STSong', 'Noto Serif CJK SC', 'Source Han Serif SC', 'SimSun', serif", sans: "'Inter', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', 'Source Han Sans SC', sans-serif", cjk: true },
+  ja: { name: '日本語', serif: "'Fraunces', 'Hiragino Mincho ProN', 'Yu Mincho', 'YuMincho', 'Noto Serif CJK JP', 'Source Han Serif JP', serif", sans: "'Inter', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'YuGothic', 'Meiryo', 'Noto Sans CJK JP', sans-serif", cjk: true },
+  hi: { name: 'हिन्दी', css: 'fonts-hi.css', serif: "'Fraunces', 'Noto Serif Devanagari', serif", sans: "'Inter', 'Noto Sans Devanagari', sans-serif", cjk: true },
 };
 
 // standalone pages that are listed in the sitemap but not translated
@@ -160,7 +161,7 @@ function build() {
     const head = document.querySelector('head');
     const css = document.querySelector('link[rel="stylesheet"][href$="style.css"]');
     let extra = '';
-    if (cfg.fonts) extra += `<link href="https://fonts.googleapis.com/css2?${cfg.fonts}&display=swap" rel="stylesheet">\n  `;
+    if (cfg.css) extra += `<link rel="stylesheet" href="../css/${cfg.css}">\n  `;   // this language's own fonts, loaded only on its page
     const vars = [cfg.serif && `--serif: ${cfg.serif};`, cfg.sans && `--sans: ${cfg.sans};`].filter(Boolean).join(' ');
     let style = vars ? `:root { ${vars} }` : '';
     if (cfg.cjk) style += ' em, .o, .accent, .display em, .hero-sub em, blockquote p { font-style: normal; } h1, .display, .mega, .punch, .big-line, .hero-sub, .numeral { letter-spacing: 0; } h1 { line-height: 1.08; } .display, .chapter .display { line-height: 1.22; } .hero-sub, .punch, .big-line { line-height: 1.35; } .kicker, .mono, .src { letter-spacing: .06em; }';
@@ -176,6 +177,9 @@ function build() {
     const main = document.querySelector('script[src$="js/main.js"]');
     const inject = parseHTML(`<html><body><script>window.I18N_JS = ${JSON.stringify(map).replace(/</g, '\\u003c')};</script></body></html>`).document.querySelector('script');
     main.parentNode.insertBefore(inject, main);
+    const hash = crypto.createHash('sha256').update(inject.textContent).digest('base64');
+    const csp = document.querySelector('meta[http-equiv="Content-Security-Policy"]');
+    if (csp) csp.setAttribute('content', csp.getAttribute('content').replace("script-src 'self'", `script-src 'self' 'sha256-${hash}'`));
 
     fs.mkdirSync(path.join(ROOT, lang), { recursive: true });
     fs.writeFileSync(path.join(ROOT, lang, 'index.html'), document.toString());

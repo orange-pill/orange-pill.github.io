@@ -93,7 +93,7 @@ cd orange-pill.github.io
 python3 -m http.server 4173
 ```
 
-Then open http://localhost:4173. Fonts load from Google Fonts, and the live block height comes from mempool.space. Everything else is in this repo.
+Then open http://localhost:4173. Everything it needs is in this repo, except the live block height, which comes from mempool.space.
 
 ```
 index.html        English source: all slide content
@@ -128,10 +128,14 @@ Missing translations fall back to English, so nothing breaks while a language ca
 
 Each slide is a `<section class="slide">` in `index.html`. Chart data sits at the top of each chart function in `js/main.js`.
 
+## Privacy
+
+No analytics, cookies, trackers, ads or third-party scripts. Fonts and images are served from this site, and every page sets a strict Content Security Policy and `no-referrer`. The only outside request is to [mempool.space](https://mempool.space) for the current block height; if it doesn't answer, the page estimates the height from the clock. The only thing stored in your browser is your language choice.
+
 ## Credits
 
 - Music: [“Algorithm Runner”](https://pixabay.com/music/pulses-algorithm-runner-dark-cyberpunk-cinematic-music-loopable-185038/) by [JoelFazhari](https://pixabay.com/users/joelfazhari-16466931/), used under the [Pixabay Content License](https://pixabay.com/service/license-summary/). It plays only if you switch the music on, and it loops seamlessly through the Web Audio API.
-- Fonts: Fraunces, Inter and JetBrains Mono, via Google Fonts.
+- Fonts: Fraunces, Inter and JetBrains Mono (plus Playfair Display for Russian and Noto Devanagari for Hindi), self-hosted under the [SIL Open Font License](assets/fonts/OFL.txt). Chinese and Japanese use the visitor's built-in fonts.
 - Live block height: [mempool.space](https://mempool.space).
 
 ## License

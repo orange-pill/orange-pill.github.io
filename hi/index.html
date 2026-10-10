@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-FLEJBbs53XvFKaEbeEKj5GccQ2Tt7P895o/Olbbg/GA='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://mempool.space; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="no-referrer">
   <title>ऑरेंज पिल</title>
   <meta name="description" content="महँगाई चुपचाप आम लोगों को क्यों खोखला करती है, पैसा असल में क्या है, और बिटकॉइन मानव स्वतंत्रता का औज़ार क्यों है। आठ अध्यायों की एक मुफ़्त, इंटरैक्टिव प्रस्तुति।">
   <link rel="canonical" href="https://orange-pill.github.io/hi/">
@@ -59,12 +61,10 @@
   <meta name="theme-color" content="#09090a">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/fonts.css">
   <link rel="stylesheet" href="../css/style.css">
   <style>:root { --serif: 'Fraunces', 'Noto Serif Devanagari', serif; --sans: 'Inter', 'Noto Sans Devanagari', sans-serif; } em, .o, .accent, .display em, .hero-sub em, blockquote p { font-style: normal; } h1, .display, .mega, .punch, .big-line, .hero-sub, .numeral { letter-spacing: 0; } h1 { line-height: 1.08; } .display, .chapter .display { line-height: 1.22; } .hero-sub, .punch, .big-line { line-height: 1.35; } .kicker, .mono, .src { letter-spacing: .06em; }</style>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@300..700&family=Noto+Sans+Devanagari:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/fonts-hi.css">
 </head>
 <body>
   <canvas id="rain" aria-hidden="true"></canvas>
@@ -994,15 +994,15 @@
           <div class="films">
             <h3 class="col-h r" style="--d:2">फ़िल्में · YouTube पर मुफ़्त (अंग्रेज़ी में)</h3>
             <a class="film card r" style="--d:2" href="https://www.youtube.com/watch?v=YtFOxNbmD38" target="_blank" rel="noopener">
-              <span class="thumb"><img src="https://i.ytimg.com/vi/YtFOxNbmD38/hqdefault.jpg" alt="" loading="lazy"><i aria-hidden="true"></i></span>
+              <span class="thumb"><img src="../assets/img/film-YtFOxNbmD38.jpg" alt="" loading="lazy"><i aria-hidden="true"></i></span>
               <span class="film-t"><span class="kicker">Joe Bryan · यहाँ से शुरू करें</span><b>What's the Problem?</b><small>बिना भारी शब्दों के: आधुनिक जीवन में इतना कुछ टूटा हुआ क्यों लगता है, और इसकी जड़ पैसे तक कैसे जाती है। साझा करने के लिए सबसे अच्छा पहला वीडियो।</small></span>
             </a>
             <a class="film card r" style="--d:3" href="https://www.youtube.com/watch?v=ZKwqNgG-Sv4" target="_blank" rel="noopener">
-              <span class="thumb"><img src="https://i.ytimg.com/vi/ZKwqNgG-Sv4/hqdefault.jpg" alt="" loading="lazy"><i aria-hidden="true"></i></span>
+              <span class="thumb"><img src="../assets/img/film-ZKwqNgG-Sv4.jpg" alt="" loading="lazy"><i aria-hidden="true"></i></span>
               <span class="film-t"><span class="kicker">Art of the Problem</span><b>Bitcoin: The Trust Machine</b><small>बिटकॉइन असल में कैसे काम करता है, बुनियादी सिद्धांतों से, ख़ूबसूरत एनिमेशन में।</small></span>
             </a>
             <a class="film card r" style="--d:4" href="https://www.youtube.com/watch?v=oksraL7wN6Q" target="_blank" rel="noopener">
-              <span class="thumb"><img src="https://i.ytimg.com/vi/oksraL7wN6Q/hqdefault.jpg" alt="" loading="lazy"><i aria-hidden="true"></i></span>
+              <span class="thumb"><img src="../assets/img/film-oksraL7wN6Q.jpg" alt="" loading="lazy"><i aria-hidden="true"></i></span>
               <span class="film-t"><span class="kicker">फ़ीचर डॉक्यूमेंट्री · 2024</span><b>God Bless Bitcoin</b><small>पैसा, नैतिकता और आज़ादी: टूटा हुआ पैसा समाज को कैसे गढ़ता है, और बिटकॉइन उम्मीद क्यों देता है।</small></span>
             </a>
           </div>

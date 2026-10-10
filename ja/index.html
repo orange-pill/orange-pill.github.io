@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-rcEfFl0EkNHkGEcOfDguLvxPQQ2/oZlLLz+ST8O3MPc='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://mempool.space; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="no-referrer">
   <title>オレンジピル</title>
   <meta name="description" content="インフレはなぜ静かにふつうの人々を貧しくするのか。お金とは本当は何なのか。そしてビットコインはなぜ人間の自由のための道具なのか。全8章の無料インタラクティブ・プレゼンテーション。">
   <link rel="canonical" href="https://orange-pill.github.io/ja/">
@@ -59,12 +61,9 @@
   <meta name="theme-color" content="#09090a">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/fonts.css">
   <link rel="stylesheet" href="../css/style.css">
-  <style>:root { --serif: 'Fraunces', 'Noto Serif JP', serif; --sans: 'Inter', 'Noto Sans JP', sans-serif; } em, .o, .accent, .display em, .hero-sub em, blockquote p { font-style: normal; } h1, .display, .mega, .punch, .big-line, .hero-sub, .numeral { letter-spacing: 0; } h1 { line-height: 1.08; } .display, .chapter .display { line-height: 1.22; } .hero-sub, .punch, .big-line { line-height: 1.35; } .kicker, .mono, .src { letter-spacing: .06em; }</style>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300..700&family=Noto+Sans+JP:wght@400..700&display=swap" rel="stylesheet">
+  <style>:root { --serif: 'Fraunces', 'Hiragino Mincho ProN', 'Yu Mincho', 'YuMincho', 'Noto Serif CJK JP', 'Source Han Serif JP', serif; --sans: 'Inter', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'YuGothic', 'Meiryo', 'Noto Sans CJK JP', sans-serif; } em, .o, .accent, .display em, .hero-sub em, blockquote p { font-style: normal; } h1, .display, .mega, .punch, .big-line, .hero-sub, .numeral { letter-spacing: 0; } h1 { line-height: 1.08; } .display, .chapter .display { line-height: 1.22; } .hero-sub, .punch, .big-line { line-height: 1.35; } .kicker, .mono, .src { letter-spacing: .06em; }</style>
 </head>
 <body>
   <canvas id="rain" aria-hidden="true"></canvas>
@@ -994,15 +993,15 @@
           <div class="films">
             <h3 class="col-h r" style="--d:2">映像 · YouTube で無料（英語）</h3>
             <a class="film card r" style="--d:2" href="https://www.youtube.com/watch?v=YtFOxNbmD38" target="_blank" rel="noopener">
-              <span class="thumb"><img src="https://i.ytimg.com/vi/YtFOxNbmD38/hqdefault.jpg" alt="" loading="lazy"><i aria-hidden="true"></i></span>
+              <span class="thumb"><img src="../assets/img/film-YtFOxNbmD38.jpg" alt="" loading="lazy"><i aria-hidden="true"></i></span>
               <span class="film-t"><span class="kicker">Joe Bryan · まずはここから</span><b>What's the Problem?</b><small>専門用語なし：現代の暮らしの多くがなぜ壊れていると感じるのか、その原因をお金までたどる。最初にシェアするのに最適な動画。</small></span>
             </a>
             <a class="film card r" style="--d:3" href="https://www.youtube.com/watch?v=ZKwqNgG-Sv4" target="_blank" rel="noopener">
-              <span class="thumb"><img src="https://i.ytimg.com/vi/ZKwqNgG-Sv4/hqdefault.jpg" alt="" loading="lazy"><i aria-hidden="true"></i></span>
+              <span class="thumb"><img src="../assets/img/film-ZKwqNgG-Sv4.jpg" alt="" loading="lazy"><i aria-hidden="true"></i></span>
               <span class="film-t"><span class="kicker">Art of the Problem</span><b>Bitcoin: The Trust Machine</b><small>ビットコインが実際にどう動くのかを、基本原理から美しいアニメーションで説明。</small></span>
             </a>
             <a class="film card r" style="--d:4" href="https://www.youtube.com/watch?v=oksraL7wN6Q" target="_blank" rel="noopener">
-              <span class="thumb"><img src="https://i.ytimg.com/vi/oksraL7wN6Q/hqdefault.jpg" alt="" loading="lazy"><i aria-hidden="true"></i></span>
+              <span class="thumb"><img src="../assets/img/film-oksraL7wN6Q.jpg" alt="" loading="lazy"><i aria-hidden="true"></i></span>
               <span class="film-t"><span class="kicker">長編ドキュメンタリー · 2024</span><b>God Bless Bitcoin</b><small>お金、道徳、自由：壊れたお金が社会をどう形づくるのか、そしてなぜビットコインが希望をもたらすのか。</small></span>
             </a>
           </div>
