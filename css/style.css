@@ -686,6 +686,7 @@ input[type=range]::-moz-range-thumb { width: 14px; height: 14px; border-radius: 
 .book { text-decoration: none; display: flex; flex-direction: column; gap: 4px; }
 .book h3 { font-family: var(--serif); font-weight: 400; font-size: 1.35rem; }
 a.book::after { content: '↗'; position: absolute; top: 18px; right: 20px; color: var(--muted); transition: color .3s, transform .3s var(--ease); }
+@media (min-width: 1021px) { .books .book.energy { grid-column: span 2; } }
 a.book:hover::after { color: var(--orange); transform: translate(2px, -2px); }
 .book:hover { transform: translateY(-3px); }
 
